@@ -1,0 +1,8 @@
+Microsoft.NETCore.App
+
+Microsoft.Extensions.Logging
+xunit
+dotnet-xunit
+xunit.runner.visualstudio
+xunit.categories
+Polly

@@ -1,0 +1,16 @@
+Microsoft.EntityFrameworkCore.SqlServer
+Microsoft.EntityFrameworkCore.Design
+
+Microsoft.Extensions.DependencyInjection
+
+Microsoft.AspNetCore.Http.Abstractions
+
+SqlStreamStore.MsSql
+
+Autofac.Extensions.DependencyInjection
+
+Polly
+
+Be.Vlaanderen.Basisregisters.EventHandling.Autofac
+Be.Vlaanderen.Basisregisters.AggregateSource.SqlStreamStore.Autofac
+Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql

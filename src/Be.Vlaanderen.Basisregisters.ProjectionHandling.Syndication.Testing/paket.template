@@ -1,0 +1,25 @@
+type file
+version 1.0.0
+
+id Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication.Testing
+title Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication.Testing
+
+authors Basisregisters Vlaanderen
+owners agentschap Informatie Vlaanderen <https://vlaanderen.be/informatie-vlaanderen>
+copyright Copyright (c) agentschap Informatie Vlaanderen
+requireLicenseAcceptance false
+projectUrl https://github.com/Informatievlaanderen/projection-handling
+iconUrl https://raw.githubusercontent.com/Informatievlaanderen/build-pipeline/master/logo.png
+licenseUrl https://opensource.org/licenses/MIT
+
+description Lightweight projection handling infrastructure.
+
+dependencies
+  framework: netstandard20
+      Microsoft.SyndicationFeed.ReaderWriter >= LOCKEDVERSION
+      Microsoft.EntityFrameworkCore >= LOCKEDVERSION
+      FluentAssertions >= LOCKEDVERSION
+
+files
+  bin\Release\netstandard2.0\Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication.Testing.dll => lib\netstandard2.0
+  bin\Release\netstandard2.0\Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication.Testing.pdb => lib\netstandard2.0

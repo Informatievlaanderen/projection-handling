@@ -1,0 +1,6 @@
+Microsoft.EntityFrameworkCore
+Microsoft.Extensions.Logging
+xunit
+
+SourceLink.Embed.AllSourceFiles
+SourceLink.Copy.PdbFiles

@@ -1,0 +1,9 @@
+Microsoft.EntityFrameworkCore.SqlServer
+Microsoft.EntityFrameworkCore.InMemory
+SqlStreamStore
+Autofac.Extensions.DependencyInjection
+
+Be.Vlaanderen.Basisregisters.EntityFrameworkCore.EntityTypeConfiguration
+
+SourceLink.Embed.AllSourceFiles
+SourceLink.Copy.PdbFiles

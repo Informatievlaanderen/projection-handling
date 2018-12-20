@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\packages\Be.Vlaanderen.Basisregisters.Build.Pipeline\Content\Be.Vlaanderen.Basisregisters.Build.Pipeline.Settings.Library.props" />
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;DEBUG;XUNIT;NETCOREAPP2_0</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>TRACE;RELEASE;XUNIT;NETCOREAPP2_0</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Be.Vlaanderen.Basisregisters.ProjectionHandling.Testing.NUnit\ExtensionsForConnectedProjectionTestSpecification.cs" Link="ExtensionsForConnectedProjectionTestSpecification.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector.Testing\Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector.Testing.csproj" />
+    <ProjectReference Include="..\Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore\Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore.csproj" />
+  </ItemGroup>
+
+  <Import Project="..\..\.paket\Paket.Restore.targets" />
+</Project>
