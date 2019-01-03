@@ -3,12 +3,13 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
     using System;
     using System.Collections.Generic;
     using System.Net.Http;
+    using System.Net.Http.Headers;
+    using System.Text;
     using System.Threading.Tasks;
     using System.Xml;
     using Microsoft.Extensions.Logging;
     using Microsoft.SyndicationFeed;
     using Microsoft.SyndicationFeed.Atom;
-    using System.Web;
 
     public interface IRegistryAtomFeedReader
     {
@@ -16,7 +17,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
         /// Reads the entries of an Atom feed at the provided feedUrl.
         /// </summary>
         /// <returns>A list of <see cref="IAtomEntry "/>.</returns>
-        Task<IEnumerable<IAtomEntry>> ReadEntriesAsync(Uri feedUrl, long? from);
+        Task<IEnumerable<IAtomEntry>> ReadEntriesAsync(Uri feedUrl, long? from, string feedUserName = "", string feedPassword = "");
     }
 
     public class RegistryAtomFeedReader : IRegistryAtomFeedReader
@@ -32,12 +33,22 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
             _httpClient = httpClientFactory.CreateClient(HttpClientName);
         }
 
-        public async Task<IEnumerable<IAtomEntry>> ReadEntriesAsync(Uri feedUrl, long? from)
+        public async Task<IEnumerable<IAtomEntry>> ReadEntriesAsync(
+            Uri feedUrl,
+            long? from,
+            string feedUserName = "",
+            string feedPassword = "")
         {
             var entries = new List<IAtomEntry>();
 
             if (from.HasValue)
-                feedUrl = AddQueryParameter(feedUrl, "from", from.Value.ToString());
+            {
+                _httpClient.DefaultRequestHeaders.Remove("X-Filtering");
+                _httpClient.DefaultRequestHeaders.Add("X-Filtering", $"{{ position: {@from} }}");
+            }
+
+            if (!string.IsNullOrEmpty(feedUserName) && !string.IsNullOrEmpty(feedPassword))
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(Encoding.UTF8.GetBytes($"{feedUserName}:{feedPassword}")));
 
             try
             {
@@ -61,18 +72,6 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
             }
 
             return entries;
-        }
-
-        private static Uri AddQueryParameter(Uri uri, string key, string value)
-        {
-            var uriBuilder = new UriBuilder(uri);
-            var query = HttpUtility.ParseQueryString(uriBuilder.Query);
-
-            query[key] = value;
-
-            uriBuilder.Query = query.ToString();
-
-            return uriBuilder.Uri;
         }
     }
 }

@@ -12,14 +12,16 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
             if (handlers == null)
                 throw new ArgumentNullException(nameof(handlers));
 
-            var cache = handlers.ToDictionary(key => key.Message);
+            var cache = handlers
+                .GroupBy(key => key.Message)
+                .ToDictionary(key => key.Key, x => x.ToList());
 
             return entry =>
             {
                 var title = entry.FeedEntry.Title.Split('-')[0];
 
-                return Enum.TryParse<TMessage>(title, out var @event) && cache.TryGetValue(@event, out var handler)
-                    ? handler
+                return Enum.TryParse<TMessage>(title, out var @event) && cache.TryGetValue(@event, out var resolvedHandlers)
+                    ? resolvedHandlers
                     : throw new InvalidOperationException($"Could not resolve a handler for {title}.");
             };
         }

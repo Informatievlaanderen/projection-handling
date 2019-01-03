@@ -14,11 +14,11 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
     using Microsoft.SyndicationFeed;
     using Runner;
 
-    //todo: move to generic libray
     public class FeedProjectionRunner<TMessage, TContent, TContext>
         where TMessage : struct
         where TContext : RunnerDbContext<TContext>
     {
+        private readonly int _pollingInMilliseconds;
         private readonly ILogger _logger;
         private readonly IRegistryAtomFeedReader _atomFeedReader;
         private readonly DataContractSerializer _dataContractSerializer;
@@ -27,17 +27,25 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
         // ReSharper disable StaticMemberInGenericType
         public static string RunnerName { get; private set; }
         public static Uri FeedUri { get; private set; }
+        public string FeedUserName { get; }
+        public string FeedPassword { get; }
 
         public FeedProjectionRunner(
             string runnerName,
             Uri feedUri,
+            string feedUserName,
+            string feedPassword,
+            int pollingInMilliseconds,
             ILogger logger,
             IRegistryAtomFeedReader atomFeedReader,
             params AtomEntryProjectionHandlerModule<TMessage, TContent, TContext>[] projectionHandlerModules)
         {
             RunnerName = runnerName;
             FeedUri = feedUri;
+            FeedUserName = feedUserName;
+            FeedPassword = feedPassword;
 
+            _pollingInMilliseconds = pollingInMilliseconds;
             _logger = logger;
             _atomFeedReader = atomFeedReader;
             _dataContractSerializer = new DataContractSerializer(typeof(TContent));
@@ -56,27 +64,32 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
                     .ProjectionStates
                     .SingleOrDefaultAsync(p => p.Name == RunnerName, cancellationToken);
 
-                position = dbPosition != null ? (long?)dbPosition.Position++ : null;
+                position = dbPosition?.Position + 1;
             }
 
-            // Read new events
-            var entries = (await _atomFeedReader.ReadEntriesAsync(FeedUri, position)).ToList();
-
-            while (entries.Any())
+            while (true)
             {
-                if (!long.TryParse(entries.Last().Id, out var lastEntryId))
-                    break;
+                // Read new events
+                var entries = (await _atomFeedReader.ReadEntriesAsync(FeedUri, position, FeedUserName, FeedPassword)).ToList();
 
-                using (var context = contextFactory().Value)
+                while (entries.Any())
                 {
-                    await ProjectAtomEntriesAsync(entries, context, cancellationToken);
+                    if (!long.TryParse(entries.Last().Id, out var lastEntryId))
+                        break;
 
-                    await context.UpdateProjectionState(RunnerName, lastEntryId, cancellationToken);
-                    await context.SaveChangesAsync(cancellationToken);
+                    using (var context = contextFactory().Value)
+                    {
+                        await ProjectAtomEntriesAsync(entries, context, cancellationToken);
+
+                        await context.UpdateProjectionState(RunnerName, lastEntryId, cancellationToken);
+                        await context.SaveChangesAsync(cancellationToken);
+                    }
+
+                    position = lastEntryId + 1;
+                    entries = (await _atomFeedReader.ReadEntriesAsync(FeedUri, position, FeedUserName, FeedPassword)).ToList();
                 }
 
-                position = lastEntryId + 1;
-                entries = (await _atomFeedReader.ReadEntriesAsync(FeedUri, position)).ToList();
+                Thread.Sleep(_pollingInMilliseconds);
             }
         }
 
@@ -95,9 +108,12 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
                     {
                         var atomEntry = new AtomEntry(entry, _dataContractSerializer.ReadObject(contentXmlReader));
 
-                        await _atomEntryProjectionHandlerResolver(atomEntry)
-                            .Handler
-                            .Invoke(atomEntry, context, cancellationToken);
+                        foreach (var resolvedProjectionHandler in _atomEntryProjectionHandlerResolver(atomEntry))
+                        {
+                            await resolvedProjectionHandler
+                                .Handler
+                                .Invoke(atomEntry, context, cancellationToken);
+                        }
                     }
                 }
                 catch (Exception e) when (e is InvalidOperationException || e is ApplicationException)
