@@ -57,7 +57,10 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication.Testing
                 {
                     try
                     {
-                        await _resolver(entry).Handler.Invoke(entry, context, CancellationToken.None);
+                        foreach (var projectionHandler in _resolver(entry))
+                        {
+                            await projectionHandler.Handler.Invoke(entry, context, CancellationToken.None);
+                        }
                     }
                     catch (InvalidOperationException)
                     { }

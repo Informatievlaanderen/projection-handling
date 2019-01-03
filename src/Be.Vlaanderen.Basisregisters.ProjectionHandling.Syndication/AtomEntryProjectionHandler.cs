@@ -1,10 +1,11 @@
 namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
 {
     using System;
+    using System.Collections.Generic;
     using System.Threading;
     using System.Threading.Tasks;
 
-    public delegate AtomEntryProjectionHandler<TMessage, TConnection> AtomEntryProjectionHandlerResolver<TMessage, TConnection>(AtomEntry entry)
+    public delegate List<AtomEntryProjectionHandler<TMessage, TConnection>> AtomEntryProjectionHandlerResolver<TMessage, TConnection>(AtomEntry entry)
         where TMessage : struct;
 
     public class AtomEntryProjectionHandler<TMessage, TConnection> where TMessage : struct
