@@ -15,6 +15,30 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList
 
         protected LastChangedListConnectedProjection(AcceptType[] supportedAcceptTypes) => _supportedAcceptTypes = supportedAcceptTypes;
 
+        protected async Task<IEnumerable<LastChangedRecord>> GetLastChangedRecords(
+            string identifier,
+            LastChangedListContext context,
+            CancellationToken cancellationToken)
+        {
+            var attachedRecords = new List<LastChangedRecord>();
+
+            // Create a record for every type that our API accepts.
+            foreach (var acceptType in _supportedAcceptTypes)
+            {
+                var shortenedApplicationType = acceptType.ToString().ToLowerInvariant();
+                var id = $"{identifier}.{shortenedApplicationType}";
+
+                var record = await context
+                    .LastChangedList
+                    .FindAsync(id, cancellationToken: cancellationToken);
+
+                if (record != null)
+                    attachedRecords.Add(record);
+            }
+
+            return attachedRecords;
+        }
+
         protected async Task<IEnumerable<LastChangedRecord>> GetLastChangedRecordsAndUpdatePosition(
             string identifier,
             long position,
