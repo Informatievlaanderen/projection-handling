@@ -2,6 +2,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Testing
 {
     using System;
     using System.Collections.Concurrent;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Threading;
     using Connector;
@@ -30,8 +31,16 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Testing
 
                 logger.LogTrace($"Given: {Environment.NewLine}{specification.Messages.ToLogStringLimited(max: int.MaxValue)}");
 
-                foreach (var message in specification.Messages.Select(e =>
-                    new Envelope(e, new ConcurrentDictionary<string, object>()).ToGenericEnvelope()))
+                var position = 0L;
+
+                foreach (var message in specification.Messages.Select(e => new Envelope(
+                    e,
+                    new ConcurrentDictionary<string, object>(
+                        new List<KeyValuePair<string,object>>
+                        {
+                            new KeyValuePair<string, object>(Envelope.PositionMetadataKey, position++)
+                        })
+                    ).ToGenericEnvelope()))
                 {
                     await projector.ProjectAsync(ctx, message);
 
