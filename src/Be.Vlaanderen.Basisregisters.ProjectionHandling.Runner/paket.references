@@ -7,3 +7,5 @@ Be.Vlaanderen.Basisregisters.EntityFrameworkCore.EntityTypeConfiguration
 
 SourceLink.Embed.AllSourceFiles
 SourceLink.Copy.PdbFiles
+
+Polly
