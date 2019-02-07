@@ -16,7 +16,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
         Task RunMigrationsAsync(CancellationToken cancellationToken);
     }
 
-    public abstract class RunnerDbContextMigrationHelper<TContext>: IRunnerDbContextMigrationHelper
+    public abstract class RunnerDbContextMigrationHelper<TContext> : IRunnerDbContextMigrationHelper
         where TContext : RunnerDbContext<TContext>
     {
         private const int RetryCount = 5;
@@ -73,8 +73,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
                         sqlServerOptions
                             .MigrationsHistoryTable(
                                 _historyConfiguration.Table,
-                                _historyConfiguration.Schema
-                            );
+                                _historyConfiguration.Schema);
                     }
                 )
                 .UseLoggerFactory(_loggerFactory)
