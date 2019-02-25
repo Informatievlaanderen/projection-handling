@@ -22,7 +22,7 @@ dependencies
     Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore.Autofac CURRENTVERSION
 
     Be.Vlaanderen.Basisregisters.EventHandling.Autofac ~> 1.0
-    Be.Vlaanderen.Basisregisters.AggregateSource.SqlStreamStore.Autofac ~> 1.0
+    Be.Vlaanderen.Basisregisters.AggregateSource.SqlStreamStore.Autofac ~> 2.0
     Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql ~> 1.0
 
     Microsoft.EntityFrameworkCore.SqlServer >= LOCKEDVERSION
