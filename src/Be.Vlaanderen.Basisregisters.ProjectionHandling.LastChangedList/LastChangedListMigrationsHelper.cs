@@ -14,12 +14,9 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList
                     Schema = LastChangedListContext.Schema,
                     Table = LastChangedListContext.MigrationsHistoryTable
                 },
-                loggerFactory)
-        { }
+                loggerFactory) { }
 
         protected override LastChangedListContext CreateContext(DbContextOptions<LastChangedListContext> migrationContextOptions)
-        {
-            return new LastChangedListContext(migrationContextOptions);
-        }
+            => new LastChangedListContext(migrationContextOptions);
     }
 }
