@@ -1,3 +1,16 @@
+# [2.0.0](https://github.com/informatievlaanderen/projection-handling/compare/v1.3.0...v2.0.0) (2019-02-25)
+
+
+### Features
+
+* use RunnerDBMigration helper instead of static helper ([0072d0d](https://github.com/informatievlaanderen/projection-handling/commit/0072d0d))
+
+
+### BREAKING CHANGES
+
+* removed the static MigrationHelper
+Use instance method RunMigrationAsync instead of the static StartAsync
+
 # [1.3.0](https://github.com/informatievlaanderen/projection-handling/compare/v1.2.1...v1.3.0) (2019-02-01)
 
 
