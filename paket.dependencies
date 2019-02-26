@@ -32,16 +32,16 @@ nuget Microsoft.SyndicationFeed.ReaderWriter 1.0.2
 nuget SqlStreamStore 1.1.3
 nuget SqlStreamStore.MsSql 1.1.3
 
-nuget Autofac.Extensions.DependencyInjection 4.3.1
+nuget Autofac.Extensions.DependencyInjection 4.4.0
 
 nuget Polly 7.0.3
 nuget CompareNETObjects 4.57.0
 nuget Newtonsoft.Json 12.0.1
 
 // VBR STUFF
-nuget Be.Vlaanderen.Basisregisters.Build.Pipeline ~> 1.1
+nuget Be.Vlaanderen.Basisregisters.Build.Pipeline ~> 1.5
 
-nuget Be.Vlaanderen.Basisregisters.AggregateSource.SqlStreamStore.Autofac ~> 2.0
+nuget Be.Vlaanderen.Basisregisters.AggregateSource.SqlStreamStore.Autofac ~> 3.0
 
 nuget Be.Vlaanderen.Basisregisters.EventHandling ~> 1.0
 nuget Be.Vlaanderen.Basisregisters.EventHandling.Autofac ~> 1.0
