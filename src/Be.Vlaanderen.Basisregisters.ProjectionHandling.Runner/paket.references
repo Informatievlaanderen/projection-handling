@@ -1,7 +1,14 @@
 Microsoft.EntityFrameworkCore.SqlServer
 Microsoft.EntityFrameworkCore.InMemory
 SqlStreamStore
+
 Autofac.Extensions.DependencyInjection
+
+Microsoft.Extensions.Configuration
+Microsoft.Extensions.Configuration.CommandLine
+Microsoft.Extensions.Configuration.FileExtensions
+Microsoft.Extensions.Configuration.EnvironmentVariables
+Microsoft.Extensions.Configuration.Json
 
 Be.Vlaanderen.Basisregisters.EntityFrameworkCore.EntityTypeConfiguration
 

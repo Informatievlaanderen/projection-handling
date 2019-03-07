@@ -27,6 +27,12 @@ nuget Microsoft.Extensions.Logging 2.2.0
 nuget Microsoft.Extensions.DependencyInjection 2.2.0
 nuget Microsoft.Extensions.Http 2.2.0
 
+nuget Microsoft.Extensions.Configuration 2.2.0
+nuget Microsoft.Extensions.Configuration.CommandLine 2.2.0
+nuget Microsoft.Extensions.Configuration.FileExtensions 2.2.0
+nuget Microsoft.Extensions.Configuration.EnvironmentVariables 2.2.0
+nuget Microsoft.Extensions.Configuration.Json 2.2.0
+
 nuget Microsoft.SyndicationFeed.ReaderWriter 1.0.2
 
 nuget SqlStreamStore 1.1.3

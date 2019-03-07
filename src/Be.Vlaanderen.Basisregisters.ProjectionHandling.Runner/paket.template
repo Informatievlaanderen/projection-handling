@@ -25,6 +25,11 @@ dependencies
     Microsoft.EntityFrameworkCore.InMemory >= LOCKEDVERSION
     SqlStreamStore >= LOCKEDVERSION
     Autofac.Extensions.DependencyInjection >= LOCKEDVERSION
+    Microsoft.Extensions.Configuration >= LOCKEDVERSION
+    Microsoft.Extensions.Configuration.CommandLine >= LOCKEDVERSION
+    Microsoft.Extensions.Configuration.FileExtensions >= LOCKEDVERSION
+    Microsoft.Extensions.Configuration.EnvironmentVariables >= LOCKEDVERSION
+    Microsoft.Extensions.Configuration.Json >= LOCKEDVERSION
 
 files
   bin\Release\netstandard2.0\Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.dll => lib\netstandard2.0
