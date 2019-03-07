@@ -7,7 +7,12 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Logging;
 
-    public abstract class RunnerDbContextMigrationFactory<TContext> : IDesignTimeDbContextFactory<TContext>
+    public interface IRunnerDbContextMigratorFactory
+    {
+        IRunnerDbContextMigrator CreateMigrator(IConfiguration configuration, ILoggerFactory loggerFactory);
+    }
+
+    public abstract class RunnerDbContextMigrationFactory<TContext> : IDesignTimeDbContextFactory<TContext>, IRunnerDbContextMigratorFactory
         where TContext : RunnerDbContext<TContext>
     {
         protected RunnerDbContextMigrationFactory(
