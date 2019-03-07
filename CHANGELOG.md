@@ -1,3 +1,18 @@
+# [3.0.0](https://github.com/informatievlaanderen/projection-handling/compare/v2.0.1...v3.0.0) (2019-03-07)
+
+
+### Features
+
+* create RunnerDbContext migration infrastucture ([2df9fdd](https://github.com/informatievlaanderen/projection-handling/commit/2df9fdd))
+
+
+### BREAKING CHANGES
+
+* RunnerDbContextMigratioHelper is replaced by RunnedDbContextMigrationFactory
+Factory creates:
+- RunnerDbContext for generating migrations
+- IRunnerDbContextMigrator for applying the migrations.
+
 ## [2.0.1](https://github.com/informatievlaanderen/projection-handling/compare/v2.0.0...v2.0.1) (2019-02-26)
 
 # [2.0.0](https://github.com/informatievlaanderen/projection-handling/compare/v1.3.0...v2.0.0) (2019-02-25)
