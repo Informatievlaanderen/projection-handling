@@ -44,14 +44,14 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
             return CreateContext(contextOptions);
         }
 
-        public IRunnerDbContextMigrator CreateMigrator(IConfigurationRoot configuration, ILoggerFactory loggerFactory)
+        public IRunnerDbContextMigrator CreateMigrator(IConfiguration configuration, ILoggerFactory loggerFactory)
         {
             var contextOptions = CreateOptionsBuilder(configuration, loggerFactory).Options;
 
             return new RunnerDbContextMigrator<TContext>(() => CreateContext(contextOptions), loggerFactory);
         }
 
-        private DbContextOptionsBuilder<TContext> CreateOptionsBuilder(IConfigurationRoot configuration)
+        private DbContextOptionsBuilder<TContext> CreateOptionsBuilder(IConfiguration configuration)
         {
             var connectionString = configuration?.GetConnectionString(_connectionStringName);
             if (string.IsNullOrWhiteSpace(connectionString))
@@ -70,7 +70,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
                 );
         }
 
-        private DbContextOptionsBuilder<TContext> CreateOptionsBuilder(IConfigurationRoot configuration, ILoggerFactory loggerFactory)
+        private DbContextOptionsBuilder<TContext> CreateOptionsBuilder(IConfiguration configuration, ILoggerFactory loggerFactory)
         {
             if (null == loggerFactory)
                 throw new ArgumentNullException(nameof(loggerFactory));
