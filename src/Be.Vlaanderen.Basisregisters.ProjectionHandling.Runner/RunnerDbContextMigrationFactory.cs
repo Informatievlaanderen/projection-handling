@@ -19,8 +19,9 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
             string connectionStringName,
             MigrationHistoryConfiguration migrationHistoryConfiguration)
         {
-            if(string.IsNullOrWhiteSpace(connectionStringName))
+            if (string.IsNullOrWhiteSpace(connectionStringName))
                 throw new ArgumentNullException(nameof(connectionStringName));
+
             _connectionStringName = connectionStringName;
 
             _migrationHistoryConfiguration = migrationHistoryConfiguration ?? throw new ArgumentNullException(nameof(migrationHistoryConfiguration));
@@ -72,7 +73,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
 
         private DbContextOptionsBuilder<TContext> CreateOptionsBuilder(IConfiguration configuration, ILoggerFactory loggerFactory)
         {
-            if (null == loggerFactory)
+            if (loggerFactory == null)
                 throw new ArgumentNullException(nameof(loggerFactory));
 
             return CreateOptionsBuilder(configuration)
