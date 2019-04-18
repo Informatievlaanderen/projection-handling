@@ -23,7 +23,7 @@ dependencies
 
     Be.Vlaanderen.Basisregisters.EventHandling.Autofac ~> 1.0
     Be.Vlaanderen.Basisregisters.AggregateSource.SqlStreamStore.Autofac ~> 3.0
-    Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql ~> 1.0
+    Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql ~> 3.2
 
     Microsoft.EntityFrameworkCore.SqlServer >= LOCKEDVERSION
     Microsoft.Extensions.DependencyInjection >= LOCKEDVERSION
