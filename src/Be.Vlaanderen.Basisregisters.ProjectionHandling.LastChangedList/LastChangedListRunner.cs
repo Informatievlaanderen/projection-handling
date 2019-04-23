@@ -16,5 +16,16 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList
                 envelopeFactory,
                 logger,
                 projections.Handlers) { }
+
+        public LastChangedListRunner(
+            string name,
+            EnvelopeFactory envelopeFactory,
+            ILogger logger,
+            params ConnectedProjection<LastChangedListContext>[] projections)
+            : base(name,
+                envelopeFactory,
+                logger,
+                projections)
+        { }
     }
 }
