@@ -30,7 +30,10 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
 
         private readonly string _connectionStringName;
         private readonly MigrationHistoryConfiguration _migrationHistoryConfiguration;
+        
         protected abstract TContext CreateContext(DbContextOptions<TContext> migrationContextOptions);
+        protected virtual void ConfigureOptionsBuilder(DbContextOptionsBuilder<TContext> optionsBuilder) { }
+        protected virtual void ConfigureSqlServerOptions(SqlServerDbContextOptionsBuilder sqlServerOptions) { }
 
         public TContext CreateDbContext(string[] args)
         {
@@ -77,10 +80,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
             ConfigureOptionsBuilder(optionsBuilder);
 
             return optionsBuilder;
-        }
-
-        protected virtual void ConfigureOptionsBuilder(DbContextOptionsBuilder<TContext> optionsBuilder) { }
-        protected virtual void ConfigureSqlServerOptions(SqlServerDbContextOptionsBuilder sqlServerOptions) { }
+        }        
 
         private DbContextOptionsBuilder<TContext> CreateOptionsBuilder(IConfiguration configuration, ILoggerFactory loggerFactory)
         {
