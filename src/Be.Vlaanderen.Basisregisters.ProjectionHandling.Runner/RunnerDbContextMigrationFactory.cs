@@ -4,6 +4,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
     using System.IO;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Design;
+    using Microsoft.EntityFrameworkCore.Infrastructure;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Logging;
 
@@ -58,18 +59,28 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
             if (string.IsNullOrWhiteSpace(connectionString))
                 throw new InvalidOperationException($"Could not find a connection string with name '{connectionString}'");
             
-            return new DbContextOptionsBuilder<TContext>()
+            var optionsBuilder = new DbContextOptionsBuilder<TContext>()
                 .UseSqlServer(
                     connectionString,
                     sqlServerOptions =>
                     {
                         sqlServerOptions.EnableRetryOnFailure();
+
                         sqlServerOptions.MigrationsHistoryTable(
                             _migrationHistoryConfiguration.Table,
                             _migrationHistoryConfiguration.Schema);
+
+                        ConfigureSqlServerOptions(sqlServerOptions);
                     }
                 );
+
+            ConfigureOptionsBuilder(optionsBuilder);
+
+            return optionsBuilder;
         }
+
+        protected virtual void ConfigureOptionsBuilder(DbContextOptionsBuilder<TContext> optionsBuilder) { }
+        protected virtual void ConfigureSqlServerOptions(SqlServerDbContextOptionsBuilder sqlServerOptions) { }
 
         private DbContextOptionsBuilder<TContext> CreateOptionsBuilder(IConfiguration configuration, ILoggerFactory loggerFactory)
         {
