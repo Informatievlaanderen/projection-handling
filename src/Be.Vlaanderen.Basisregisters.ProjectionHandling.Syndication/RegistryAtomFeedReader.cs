@@ -17,7 +17,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
         /// Reads the entries of an Atom feed at the provided feedUrl.
         /// </summary>
         /// <returns>A list of <see cref="IAtomEntry "/>.</returns>
-        Task<IEnumerable<IAtomEntry>> ReadEntriesAsync(Uri feedUrl, long? from, string feedUserName = "", string feedPassword = "");
+        Task<IEnumerable<IAtomEntry>> ReadEntriesAsync(Uri feedUrl, long? from, string feedUserName = "", string feedPassword = "", bool embedEvent = true, bool embedObject = true);
     }
 
     public class RegistryAtomFeedReader : IRegistryAtomFeedReader
@@ -37,15 +37,29 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
             Uri feedUrl,
             long? from,
             string feedUserName = "",
-            string feedPassword = "")
+            string feedPassword = "",
+            bool embedEvent = true,
+            bool embedObject = true)
         {
             var entries = new List<IAtomEntry>();
 
+            var embedString = string.Empty;
+            if (embedObject && embedEvent)
+                embedString = "embed: event,object";
+            else if (embedObject)
+                embedString = "embed: object";
+            else if (embedEvent)
+                embedString = "embed: event";
+
+            _httpClient.DefaultRequestHeaders.Remove("X-Filtering");
             if (from.HasValue)
             {
-                _httpClient.DefaultRequestHeaders.Remove("X-Filtering");
-                _httpClient.DefaultRequestHeaders.Add("X-Filtering", $"{{ position: {@from} }}");
+                var filter = string.IsNullOrEmpty(embedString) ? $"{{ position: {@from} }}" : $"{{ position: {@from}, {embedString} }}";
+                _httpClient.DefaultRequestHeaders.Add("X-Filtering", filter);
             }
+            else
+                _httpClient.DefaultRequestHeaders.Add("X-Filtering", $"{{ {embedString} }}");
+
 
             if (!string.IsNullOrEmpty(feedUserName) && !string.IsNullOrEmpty(feedPassword))
                 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(Encoding.UTF8.GetBytes($"{feedUserName}:{feedPassword}")));
