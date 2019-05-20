@@ -29,6 +29,8 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
         public static Uri FeedUri { get; private set; }
         public string FeedUserName { get; }
         public string FeedPassword { get; }
+        public bool EmbedEvent { get; }
+        public bool EmbedObject { get; }
 
         public FeedProjectionRunner(
             string runnerName,
@@ -36,6 +38,8 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
             string feedUserName,
             string feedPassword,
             int pollingInMilliseconds,
+            bool embedEvent,
+            bool embedObject,
             ILogger logger,
             IRegistryAtomFeedReader atomFeedReader,
             params AtomEntryProjectionHandlerModule<TMessage, TContent, TContext>[] projectionHandlerModules)
@@ -44,6 +48,8 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
             FeedUri = feedUri;
             FeedUserName = feedUserName;
             FeedPassword = feedPassword;
+            EmbedEvent = embedEvent;
+            EmbedObject = embedObject;
 
             _pollingInMilliseconds = pollingInMilliseconds;
             _logger = logger;
@@ -70,7 +76,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
             while (true)
             {
                 // Read new events
-                var entries = (await _atomFeedReader.ReadEntriesAsync(FeedUri, position, FeedUserName, FeedPassword)).ToList();
+                var entries = (await _atomFeedReader.ReadEntriesAsync(FeedUri, position, FeedUserName, FeedPassword, EmbedEvent, EmbedObject)).ToList();
 
                 while (entries.Any())
                 {
@@ -86,7 +92,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
                     }
 
                     position = lastEntryId + 1;
-                    entries = (await _atomFeedReader.ReadEntriesAsync(FeedUri, position, FeedUserName, FeedPassword)).ToList();
+                    entries = (await _atomFeedReader.ReadEntriesAsync(FeedUri, position, FeedUserName, FeedPassword, EmbedEvent, EmbedObject)).ToList();
                 }
 
                 Thread.Sleep(_pollingInMilliseconds);
