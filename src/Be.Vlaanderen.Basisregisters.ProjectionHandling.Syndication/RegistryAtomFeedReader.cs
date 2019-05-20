@@ -45,11 +45,11 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
 
             var embedString = string.Empty;
             if (embedObject && embedEvent)
-                embedString = "embed: event,object";
+                embedString = "embed: \"event,object\"";
             else if (embedObject)
-                embedString = "embed: object";
+                embedString = "embed: \"object\"";
             else if (embedEvent)
-                embedString = "embed: event";
+                embedString = "embed: \"event\"";
 
             _httpClient.DefaultRequestHeaders.Remove("X-Filtering");
             if (from.HasValue)
