@@ -1,3 +1,10 @@
+## [3.5.2](https://github.com/informatievlaanderen/projection-handling/compare/v3.5.1...v3.5.2) (2019-05-20)
+
+
+### Bug Fixes
+
+* sync filter header is now escaped to string ([da4965a](https://github.com/informatievlaanderen/projection-handling/commit/da4965a))
+
 ## [3.5.1](https://github.com/informatievlaanderen/projection-handling/compare/v3.5.0...v3.5.1) (2019-05-20)
 
 # [3.5.0](https://github.com/informatievlaanderen/projection-handling/compare/v3.4.1...v3.5.0) (2019-05-20)
