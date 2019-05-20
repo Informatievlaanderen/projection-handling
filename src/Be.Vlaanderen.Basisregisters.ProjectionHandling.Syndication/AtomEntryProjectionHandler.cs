@@ -13,7 +13,9 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
         public TMessage Message { get; }
         public Func<AtomEntry, TConnection, CancellationToken, Task> Handler { get; }
 
-        public AtomEntryProjectionHandler(TMessage message, Func<AtomEntry, TConnection, CancellationToken, Task> handler)
+        public AtomEntryProjectionHandler(
+            TMessage message, 
+            Func<AtomEntry, TConnection, CancellationToken, Task> handler)
         {
             Message = message;
             Handler = handler ?? throw new ArgumentNullException(nameof(handler));
