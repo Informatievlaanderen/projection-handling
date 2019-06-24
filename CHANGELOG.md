@@ -1,3 +1,10 @@
+# [3.6.0](https://github.com/informatievlaanderen/projection-handling/compare/v3.5.2...v3.6.0) (2019-06-24)
+
+
+### Features
+
+* add Log JsonSerializer settings ([95e7fbf](https://github.com/informatievlaanderen/projection-handling/commit/95e7fbf))
+
 ## [3.5.2](https://github.com/informatievlaanderen/projection-handling/compare/v3.5.1...v3.5.2) (2019-05-20)
 
 
