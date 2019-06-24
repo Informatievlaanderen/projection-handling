@@ -9,6 +9,8 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector.Testing
 
     public static class LogExtensions
     {
+        public static JsonSerializerSettings LogSerializerSettings = new JsonSerializerSettings();
+
         public static string ToLogStringLimited<T>(
             this IEnumerable<T> objects,
             Formatting formatting = Formatting.Indented,
@@ -16,7 +18,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector.Testing
         {
             var objectsList = objects.ToList();
             return objectsList.Count < max
-                ? JsonConvert.SerializeObject(objectsList.Select(o => o.ToAnonymousWithTypeInfo()), formatting)
+                ? JsonConvert.SerializeObject(objectsList.Select(o => o.ToAnonymousWithTypeInfo()), formatting, LogSerializerSettings)
                 : "...";
         }
 
