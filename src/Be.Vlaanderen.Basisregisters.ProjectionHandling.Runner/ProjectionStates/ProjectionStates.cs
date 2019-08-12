@@ -8,8 +8,8 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.ProjectionState
     {
         public string Name { get; set; }
         public long Position { get; set; }
-        public string UserRequestedState { get; set; }
-        public DateTimeOffset? UserRequestedStateAt { get; set; }
+        public string DesiredState { get; set; }
+        public DateTimeOffset? DesiredStateChangedAt { get; set; }
     }
 
     public class ProjectionStatesConfiguration : IEntityTypeConfiguration<ProjectionStateItem>
@@ -33,8 +33,8 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.ProjectionState
 
             b.Property(p => p.Name);
             b.Property(p => p.Position);
-            b.Property(p => p.UserRequestedState);
-            b.Property(p => p.UserRequestedStateAt);
+            b.Property(p => p.DesiredState);
+            b.Property(p => p.DesiredStateChangedAt);
         }
     }
 }

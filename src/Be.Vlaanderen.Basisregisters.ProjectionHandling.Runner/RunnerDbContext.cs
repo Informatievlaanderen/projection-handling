@@ -50,12 +50,12 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
             projectionStateItem.Position = position;
         }
 
-        public async Task UpdateProjectionsUserRequestedState(string projectionName, string userRequestedState, CancellationToken cancellationToken)
+        public async Task UpdateProjectionDesiredState(string projectionName, string userRequestedState, CancellationToken cancellationToken)
         {
             var projectionStateItem = await ProjectionStates.SingleOrDefaultAsync(item => item.Name == projectionName, cancellationToken);
 
-            projectionStateItem.UserRequestedState = userRequestedState;
-            projectionStateItem.UserRequestedStateAt = DateTimeOffset.UtcNow;
+            projectionStateItem.DesiredState = userRequestedState;
+            projectionStateItem.DesiredStateChangedAt = DateTimeOffset.UtcNow;
         }
     }
 }
