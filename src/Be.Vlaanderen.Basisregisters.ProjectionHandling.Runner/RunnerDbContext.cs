@@ -1,5 +1,6 @@
 namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
 {
+    using System;
     using System.Reflection;
     using System.Threading;
     using System.Threading.Tasks;
@@ -47,6 +48,14 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
             }
 
             projectionStateItem.Position = position;
+        }
+
+        public async Task UpdateProjectionsUserRequestedState(string projectionName, string userRequestedState, CancellationToken cancellationToken)
+        {
+            var projectionStateItem = await ProjectionStates.SingleOrDefaultAsync(item => item.Name == projectionName, cancellationToken);
+
+            projectionStateItem.UserRequestedState = userRequestedState;
+            projectionStateItem.UserRequestedStateAt = DateTimeOffset.UtcNow;
         }
     }
 }
