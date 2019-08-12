@@ -54,6 +54,16 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
         {
             var projectionStateItem = await ProjectionStates.SingleOrDefaultAsync(item => item.Name == projectionName, cancellationToken);
 
+            if (projectionStateItem == null)
+            {
+                projectionStateItem = new ProjectionStateItem
+                {
+                    Name = projectionName,
+                    Position = -1L
+                };
+                await ProjectionStates.AddAsync(projectionStateItem, cancellationToken);
+            }
+
             projectionStateItem.DesiredState = userRequestedState;
             projectionStateItem.DesiredStateChangedAt = DateTimeOffset.UtcNow;
         }
