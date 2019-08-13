@@ -1,3 +1,18 @@
+# [4.0.0](https://github.com/informatievlaanderen/projection-handling/compare/v3.6.0...v4.0.0) (2019-08-13)
+
+
+### Features
+
+* add columns to store user requested state ([b740cf2](https://github.com/informatievlaanderen/projection-handling/commit/b740cf2))
+* add extension method to update user requested state ([237e943](https://github.com/informatievlaanderen/projection-handling/commit/237e943))
+* make sure a projection state exists when updating desired state ([1fc1b38](https://github.com/informatievlaanderen/projection-handling/commit/1fc1b38))
+
+
+### BREAKING CHANGES
+
+* the added columns means package users will have to run
+migrations.
+
 # [3.6.0](https://github.com/informatievlaanderen/projection-handling/compare/v3.5.2...v3.6.0) (2019-06-24)
 
 
