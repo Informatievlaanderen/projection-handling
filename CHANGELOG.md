@@ -1,3 +1,10 @@
+# [4.3.0](https://github.com/informatievlaanderen/projection-handling/compare/v4.2.0...v4.3.0) (2019-08-22)
+
+
+### Features
+
+* bump to .net 2.2.6 ([d8cc684](https://github.com/informatievlaanderen/projection-handling/commit/d8cc684))
+
 # [4.2.0](https://github.com/informatievlaanderen/projection-handling/compare/v4.1.0...v4.2.0) (2019-08-22)
 
 
