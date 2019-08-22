@@ -1,3 +1,10 @@
+# [4.2.0](https://github.com/informatievlaanderen/projection-handling/compare/v4.1.0...v4.2.0) (2019-08-22)
+
+
+### Features
+
+* add migration to save states of projectionstates ([edfce41](https://github.com/informatievlaanderen/projection-handling/commit/edfce41))
+
 # [4.1.0](https://github.com/informatievlaanderen/projection-handling/compare/v4.0.0...v4.1.0) (2019-08-22)
 
 
