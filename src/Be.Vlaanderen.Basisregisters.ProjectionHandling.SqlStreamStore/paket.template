@@ -16,7 +16,7 @@ description Lightweight projection handling infrastructure.
 
 dependencies
   framework: netstandard20
-    Be.Vlaanderen.Basisregisters.EventHandling ~> 1.0
+    Be.Vlaanderen.Basisregisters.EventHandling ~> 1.1
 
     SqlStreamStore >= LOCKEDVERSION
 

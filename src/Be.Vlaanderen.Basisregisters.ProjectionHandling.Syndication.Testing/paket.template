@@ -16,9 +16,11 @@ description Lightweight projection handling infrastructure.
 
 dependencies
   framework: netstandard20
-      Microsoft.SyndicationFeed.ReaderWriter >= LOCKEDVERSION
-      Microsoft.EntityFrameworkCore >= LOCKEDVERSION
-      FluentAssertions >= LOCKEDVERSION
+    Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication CURRENTVERSION
+
+    Microsoft.SyndicationFeed.ReaderWriter >= LOCKEDVERSION
+    Microsoft.EntityFrameworkCore >= LOCKEDVERSION
+    FluentAssertions >= LOCKEDVERSION
 
 files
   bin\Release\netstandard2.0\Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication.Testing.dll => lib\netstandard2.0

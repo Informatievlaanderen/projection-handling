@@ -16,14 +16,11 @@ description Lightweight projection handling infrastructure.
 
 dependencies
   framework: netstandard20
-    Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector CURRENTVERSION
     Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner CURRENTVERSION
-    Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore CURRENTVERSION
     Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore.Autofac CURRENTVERSION
 
-    Be.Vlaanderen.Basisregisters.EventHandling.Autofac ~> 1.0
-    Be.Vlaanderen.Basisregisters.AggregateSource.SqlStreamStore.Autofac ~> 3.0
-    Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql ~> 3.2
+    Be.Vlaanderen.Basisregisters.AggregateSource.SqlStreamStore.Autofac ~> 3.2
+    Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql ~> 3.7
 
     Microsoft.EntityFrameworkCore.SqlServer >= LOCKEDVERSION
     Microsoft.Extensions.DependencyInjection >= LOCKEDVERSION

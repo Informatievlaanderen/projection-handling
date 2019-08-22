@@ -19,7 +19,7 @@ dependencies
     Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector CURRENTVERSION
     Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore CURRENTVERSION
 
-    Be.Vlaanderen.Basisregisters.EntityFrameworkCore.EntityTypeConfiguration ~> 1.0
+    Be.Vlaanderen.Basisregisters.EntityFrameworkCore.EntityTypeConfiguration ~> 1.1
 
     Microsoft.EntityFrameworkCore.SqlServer >= LOCKEDVERSION
     Microsoft.EntityFrameworkCore.InMemory >= LOCKEDVERSION
