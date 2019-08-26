@@ -1,3 +1,10 @@
+## [4.3.1](https://github.com/informatievlaanderen/projection-handling/compare/v4.3.0...v4.3.1) (2019-08-26)
+
+
+### Bug Fixes
+
+* use fixed datadog tracing ([3e5ff0f](https://github.com/informatievlaanderen/projection-handling/commit/3e5ff0f))
+
 # [4.3.0](https://github.com/informatievlaanderen/projection-handling/compare/v4.2.0...v4.3.0) (2019-08-22)
 
 
