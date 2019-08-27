@@ -1,3 +1,10 @@
+## [4.3.2](https://github.com/informatievlaanderen/projection-handling/compare/v4.3.1...v4.3.2) (2019-08-27)
+
+
+### Bug Fixes
+
+* make datadog tracing check more for nulls ([716c182](https://github.com/informatievlaanderen/projection-handling/commit/716c182))
+
 ## [4.3.1](https://github.com/informatievlaanderen/projection-handling/compare/v4.3.0...v4.3.1) (2019-08-26)
 
 
