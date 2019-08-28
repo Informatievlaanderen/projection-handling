@@ -1,3 +1,10 @@
+## [4.4.1](https://github.com/informatievlaanderen/projection-handling/compare/v4.4.0...v4.4.1) (2019-08-28)
+
+
+### Bug Fixes
+
+* use longer timeout for migrations ([ac8cd4f](https://github.com/informatievlaanderen/projection-handling/commit/ac8cd4f))
+
 # [4.4.0](https://github.com/informatievlaanderen/projection-handling/compare/v4.3.2...v4.4.0) (2019-08-28)
 
 
