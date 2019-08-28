@@ -7,6 +7,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
     using Microsoft.EntityFrameworkCore.Infrastructure;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Logging;
+    using MigrationExtensions;
 
     public interface IRunnerDbContextMigratorFactory
     {
@@ -75,7 +76,8 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
 
                         ConfigureSqlServerOptions(sqlServerOptions);
                     }
-                );
+                )
+                .UseExtendedSqlServerMigrations();
 
             ConfigureOptionsBuilder(optionsBuilder);
 

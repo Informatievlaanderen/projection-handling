@@ -1,4 +1,4 @@
-﻿namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.MigrationExtensions
+namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.MigrationExtensions
 {
     using System.Collections.Generic;
     using System.Linq;
