@@ -1,3 +1,10 @@
+# [4.4.0](https://github.com/informatievlaanderen/projection-handling/compare/v4.3.2...v4.4.0) (2019-08-28)
+
+
+### Features
+
+* add UseExtendedSqlServerMigrations() ([e6e7cff](https://github.com/informatievlaanderen/projection-handling/commit/e6e7cff))
+
 ## [4.3.2](https://github.com/informatievlaanderen/projection-handling/compare/v4.3.1...v4.3.2) (2019-08-27)
 
 
