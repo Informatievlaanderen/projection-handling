@@ -25,7 +25,6 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList
             : base(name,
                 envelopeFactory,
                 logger,
-                projections)
-        { }
+                projections) { }
     }
 }

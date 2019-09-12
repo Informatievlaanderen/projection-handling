@@ -32,7 +32,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList
 
             modelBuilder
                 .Entity<LastChangedRecord>()
-                .HasIndex(x => x.HasErrors);
+                .HasIndex(x => x.ErrorCount);
 
             modelBuilder
                 .Entity<LastChangedRecord>()

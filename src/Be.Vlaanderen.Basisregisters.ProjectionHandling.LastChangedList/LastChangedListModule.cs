@@ -42,7 +42,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList
             services
                 .AddScoped(s => new TraceDbConnection(
                     new SqlConnection(backofficeProjectionsConnectionString),
-                        datadogServiceName))
+                    datadogServiceName))
                 .AddDbContext<LastChangedListContext>((provider, options) => options
                     .UseLoggerFactory(loggerFactory)
                     .UseSqlServer(provider.GetRequiredService<TraceDbConnection>(), sqlServerOptions =>
