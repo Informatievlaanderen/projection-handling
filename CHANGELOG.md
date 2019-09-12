@@ -1,3 +1,10 @@
+## [4.5.1](https://github.com/informatievlaanderen/projection-handling/compare/v4.5.0...v4.5.1) (2019-09-12)
+
+
+### Bug Fixes
+
+* forgot to add lasterror field ([69b7f10](https://github.com/informatievlaanderen/projection-handling/commit/69b7f10))
+
 # [4.5.0](https://github.com/informatievlaanderen/projection-handling/compare/v4.4.1...v4.5.0) (2019-09-12)
 
 
