@@ -1,3 +1,10 @@
+# [4.5.0](https://github.com/informatievlaanderen/projection-handling/compare/v4.4.1...v4.5.0) (2019-09-12)
+
+
+### Features
+
+* keep track of how many times lastchanged has errored ([3790176](https://github.com/informatievlaanderen/projection-handling/commit/3790176))
+
 ## [4.4.1](https://github.com/informatievlaanderen/projection-handling/compare/v4.4.0...v4.4.1) (2019-08-28)
 
 
