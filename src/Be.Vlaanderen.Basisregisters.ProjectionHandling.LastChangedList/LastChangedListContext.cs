@@ -36,6 +36,10 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList
 
             modelBuilder
                 .Entity<LastChangedRecord>()
+                .HasIndex(x => x.LastError);
+
+            modelBuilder
+                .Entity<LastChangedRecord>()
                 .HasKey(x => x.Id)
                 .ForSqlServerIsClustered();
 
