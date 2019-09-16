@@ -1,3 +1,10 @@
+## [4.5.2](https://github.com/informatievlaanderen/projection-handling/compare/v4.5.1...v4.5.2) (2019-09-16)
+
+
+### Bug Fixes
+
+* use generic dbtraceconnection ([ead4a90](https://github.com/informatievlaanderen/projection-handling/commit/ead4a90))
+
 ## [4.5.1](https://github.com/informatievlaanderen/projection-handling/compare/v4.5.0...v4.5.1) (2019-09-12)
 
 
