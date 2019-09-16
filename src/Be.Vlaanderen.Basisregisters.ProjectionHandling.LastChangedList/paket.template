@@ -20,7 +20,7 @@ dependencies
     Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore.Autofac CURRENTVERSION
 
     Be.Vlaanderen.Basisregisters.AggregateSource.SqlStreamStore.Autofac ~> 3.2
-    Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql ~> 3.7
+    Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql ~> 3.9
 
     Microsoft.EntityFrameworkCore.SqlServer >= LOCKEDVERSION
     Microsoft.Extensions.DependencyInjection >= LOCKEDVERSION

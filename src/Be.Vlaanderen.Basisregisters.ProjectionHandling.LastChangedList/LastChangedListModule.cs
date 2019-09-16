@@ -7,6 +7,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Logging;
+    using Runner.MigrationExtensions;
 
     public class LastChangedListModule : Module
     {
@@ -40,16 +41,20 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList
             string backofficeProjectionsConnectionString)
         {
             services
-                .AddScoped(s => new TraceDbConnection(
-                    new SqlConnection(backofficeProjectionsConnectionString),
-                    datadogServiceName))
+                .AddScoped(s =>
+                    new TraceDbConnection<LastChangedListContext>(
+                        new SqlConnection(backofficeProjectionsConnectionString),
+                        datadogServiceName))
                 .AddDbContext<LastChangedListContext>((provider, options) => options
                     .UseLoggerFactory(loggerFactory)
-                    .UseSqlServer(provider.GetRequiredService<TraceDbConnection>(), sqlServerOptions =>
-                    {
-                        sqlServerOptions.EnableRetryOnFailure();
-                        sqlServerOptions.MigrationsHistoryTable(LastChangedListContext.MigrationsHistoryTable, LastChangedListContext.Schema);
-                    }));
+                    .UseSqlServer(
+                        provider.GetRequiredService<TraceDbConnection<LastChangedListContext>>(),
+                        sqlServerOptions =>
+                        {
+                            sqlServerOptions.EnableRetryOnFailure();
+                            sqlServerOptions.MigrationsHistoryTable(LastChangedListContext.MigrationsHistoryTable, LastChangedListContext.Schema);
+                        })
+                    .UseExtendedSqlServerMigrations());
         }
 
         private static void RunInMemoryDb(

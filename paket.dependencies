@@ -41,7 +41,7 @@ nuget SqlStreamStore.MsSql 1.1.3
 nuget Autofac.Extensions.DependencyInjection 4.4.0
 
 nuget Polly 7.1.1
-nuget CompareNETObjects 4.62.0
+nuget CompareNETObjects 4.63.0
 nuget Newtonsoft.Json 12.0.2
 
 // VBR STUFF
@@ -54,7 +54,7 @@ nuget Be.Vlaanderen.Basisregisters.EventHandling.Autofac ~> 1.1
 
 nuget Be.Vlaanderen.Basisregisters.EntityFrameworkCore.EntityTypeConfiguration ~> 1.1
 
-nuget Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql ~> 3.7
+nuget Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql ~> 3.9
 
 // TEST STUFF
 nuget Microsoft.NET.Test.Sdk 16.2.0
