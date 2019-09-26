@@ -40,31 +40,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore
 
         public bool TryCreate(StreamMessage message, out object envelope)
         {
-            if (_eventMapping.HasEventType(message.Type))
-            {
-                var @event = Deserialize(message);
-
-                var deserializedMetadata =
-                    (Dictionary<string, object>) _eventDeserializer.DeserializeObject(message.JsonMetadata,
-                        typeof(Dictionary<string, object>));
-                var metadata = deserializedMetadata != null
-                    ? new Dictionary<string, object>(deserializedMetadata, StringComparer.OrdinalIgnoreCase)
-                    : new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase);
-
-                metadata[Envelope.PositionMetadataKey] = message.Position;
-                metadata[Envelope.EventNameMetadataKey] = message.Type;
-                metadata[Envelope.CreatedUtcMetadataKey] = message.CreatedUtc;
-
-                envelope =
-                    new Envelope(
-                            @event,
-                            metadata)
-                        .ToGenericEnvelope();
-            }
-            else
-            {
-                envelope = null;
-            }
+            envelope = _eventMapping.HasEventType(message.Type) ? Create(message) : null;
 
             return envelope != null;
         }
