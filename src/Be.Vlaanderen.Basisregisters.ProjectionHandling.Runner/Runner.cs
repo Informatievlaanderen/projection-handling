@@ -94,13 +94,16 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
                             message.StreamId,
                             message.Type);
 
-                        using (var context = contextFactory().Value)
+                        if (_envelopeFactory.TryCreate(message, out var envelope))
                         {
-                            await context.UpdateProjectionState(RunnerName, message.Position, cancellationToken);
+                            using (var context = contextFactory().Value)
+                            {
+                                await context.UpdateProjectionState(RunnerName, message.Position, cancellationToken);
 
-                            await _projector.ProjectAsync(context, _envelopeFactory.Create(message), cancellationToken);
+                                await _projector.ProjectAsync(context, envelope, cancellationToken);
 
-                            await context.SaveChangesAsync(cancellationToken);
+                                await context.SaveChangesAsync(cancellationToken);
+                            }
                         }
                     },
                     subscriptionDropped: async (subscription, reason, exception) =>
@@ -168,13 +171,25 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
                                 message.StreamId,
                                 message.Type);
 
-                            using (var context = contextFactory().Value)
+                            if (_envelopeFactory.TryCreate(message, out var envelope))
                             {
-                                await context.UpdateProjectionState(RunnerName, message.Position, ct);
+                                using (var context = contextFactory().Value)
+                                {
+                                    await context.UpdateProjectionState(RunnerName, message.Position, cancellationToken);
 
-                                await _projector.ProjectAsync(context, _envelopeFactory.Create(message), ct);
+                                    await _projector.ProjectAsync(context, envelope, cancellationToken);
 
-                                await context.SaveChangesAsync(ct);
+                                    await context.SaveChangesAsync(cancellationToken);
+                                }
+                            }
+                            else
+                            {
+                                _logger.LogDebug(
+                                    "Skipping message {Type} at position {Position} in stream {Stream}@{Version} because it does not appear in the event mapping",
+                                    message.Type,
+                                    message.Position,
+                                    message.StreamId.ToString(),
+                                    message.StreamVersion);
                             }
                         },
                         subscriptionDropped: async (subscription, reason, exception) =>
@@ -222,7 +237,10 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
                             message.StreamId,
                             message.Type);
 
-                        await _projector.ProjectAsync(context, _envelopeFactory.Create(message), cancellationToken);
+                        if (_envelopeFactory.TryCreate(message, out var envelope))
+                        {
+                            await _projector.ProjectAsync(context, envelope, cancellationToken);
+                        }
                     }
 
                     if (positionOfLastMessageOnPage.HasValue)
@@ -252,7 +270,10 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
                                 message.StreamId,
                                 message.Type);
 
-                            await _projector.ProjectAsync(context, _envelopeFactory.Create(message), cancellationToken);
+                            if (_envelopeFactory.TryCreate(message, out var envelope))
+                            {
+                                await _projector.ProjectAsync(context, envelope, cancellationToken);
+                            }
                         }
 
                         if (positionOfLastMessageOnPage.HasValue)
