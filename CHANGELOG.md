@@ -1,3 +1,10 @@
+# [4.6.0](https://github.com/informatievlaanderen/projection-handling/compare/v4.5.2...v4.6.0) (2019-09-26)
+
+
+### Features
+
+* **runner:** runner only projects events that are mapped ([ceb74c4](https://github.com/informatievlaanderen/projection-handling/commit/ceb74c4))
+
 ## [4.5.2](https://github.com/informatievlaanderen/projection-handling/compare/v4.5.1...v4.5.2) (2019-09-16)
 
 
