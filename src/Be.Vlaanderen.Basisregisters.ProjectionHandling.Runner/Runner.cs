@@ -105,6 +105,15 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
                                 await context.SaveChangesAsync(cancellationToken);
                             }
                         }
+                        else
+                        {
+                            _logger.LogDebug(
+                                "Skipping message {Type} at position {Position} in stream {Stream}@{Version} because it does not appear in the event mapping",
+                                message.Type,
+                                message.Position,
+                                message.StreamId,
+                                message.StreamVersion);
+                        }
                     },
                     subscriptionDropped: async (subscription, reason, exception) =>
                     {
@@ -188,7 +197,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
                                     "Skipping message {Type} at position {Position} in stream {Stream}@{Version} because it does not appear in the event mapping",
                                     message.Type,
                                     message.Position,
-                                    message.StreamId.ToString(),
+                                    message.StreamId,
                                     message.StreamVersion);
                             }
                         },
@@ -241,6 +250,15 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
                         {
                             await _projector.ProjectAsync(context, envelope, cancellationToken);
                         }
+                        else
+                        {
+                            _logger.LogDebug(
+                                "Skipping message {Type} at position {Position} in stream {Stream}@{Version} because it does not appear in the event mapping",
+                                message.Type,
+                                message.Position,
+                                message.StreamId,
+                                message.StreamVersion);
+                        }
                     }
 
                     if (positionOfLastMessageOnPage.HasValue)
@@ -273,6 +291,15 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
                             if (_envelopeFactory.TryCreate(message, out var envelope))
                             {
                                 await _projector.ProjectAsync(context, envelope, cancellationToken);
+                            }
+                            else
+                            {
+                                _logger.LogDebug(
+                                    "Skipping message {Type} at position {Position} in stream {Stream}@{Version} because it does not appear in the event mapping",
+                                    message.Type,
+                                    message.Position,
+                                    message.StreamId,
+                                    message.StreamVersion);
                             }
                         }
 
