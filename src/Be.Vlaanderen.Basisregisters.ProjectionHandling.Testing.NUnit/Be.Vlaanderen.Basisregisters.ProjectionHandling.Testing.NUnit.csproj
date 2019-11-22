@@ -2,10 +2,11 @@
   <Import Project="..\..\packages\Be.Vlaanderen.Basisregisters.Build.Pipeline\Content\Be.Vlaanderen.Basisregisters.Build.Pipeline.Settings.Library.props" />
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DefineConstants>TRACE;DEBUG;NUNIT;NETCOREAPP2_0</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;NUNIT;NETCOREAPP;NETCOREAPP3_0</DefineConstants>
   </PropertyGroup>
+
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DefineConstants>TRACE;RELEASE;NUNIT;NETCOREAPP2_0</DefineConstants>
+    <DefineConstants>RELEASE;NUNIT;NETCOREAPP;NETCOREAPP3_0</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>

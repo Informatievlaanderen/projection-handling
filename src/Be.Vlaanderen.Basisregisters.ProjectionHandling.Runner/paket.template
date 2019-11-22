@@ -15,11 +15,11 @@ licenseUrl https://opensource.org/licenses/MIT
 description Lightweight projection handling infrastructure.
 
 dependencies
-  framework: netstandard20
+  framework: netcoreapp30
     Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector CURRENTVERSION
     Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore CURRENTVERSION
 
-    Be.Vlaanderen.Basisregisters.EntityFrameworkCore.EntityTypeConfiguration ~> 1.1
+    Be.Vlaanderen.Basisregisters.EntityFrameworkCore.EntityTypeConfiguration >= LOCKEDVERSION
 
     Microsoft.EntityFrameworkCore.SqlServer >= LOCKEDVERSION
     Microsoft.EntityFrameworkCore.InMemory >= LOCKEDVERSION
@@ -32,5 +32,5 @@ dependencies
     Microsoft.Extensions.Configuration.Json >= LOCKEDVERSION
 
 files
-  bin\Release\netstandard2.0\Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.dll => lib\netstandard2.0
-  bin\Release\netstandard2.0\Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.pdb => lib\netstandard2.0
+  bin\Release\netcoreapp3.0\Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.dll => lib\netcoreapp3.0
+  bin\Release\netcoreapp3.0\Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.pdb => lib\netcoreapp3.0

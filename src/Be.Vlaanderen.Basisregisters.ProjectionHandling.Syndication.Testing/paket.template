@@ -15,7 +15,7 @@ licenseUrl https://opensource.org/licenses/MIT
 description Lightweight projection handling infrastructure.
 
 dependencies
-  framework: netstandard20
+  framework: netcoreapp30
     Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication CURRENTVERSION
 
     Microsoft.SyndicationFeed.ReaderWriter >= LOCKEDVERSION
@@ -23,5 +23,5 @@ dependencies
     FluentAssertions >= LOCKEDVERSION
 
 files
-  bin\Release\netstandard2.0\Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication.Testing.dll => lib\netstandard2.0
-  bin\Release\netstandard2.0\Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication.Testing.pdb => lib\netstandard2.0
+  bin\Release\netcoreapp3.0\Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication.Testing.dll => lib\netcoreapp3.0
+  bin\Release\netcoreapp3.0\Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication.Testing.pdb => lib\netcoreapp3.0

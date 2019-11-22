@@ -3,8 +3,6 @@ Microsoft.EntityFrameworkCore.Design
 
 Microsoft.Extensions.DependencyInjection
 
-Microsoft.AspNetCore.Http.Abstractions
-
 SqlStreamStore.MsSql
 
 Autofac.Extensions.DependencyInjection

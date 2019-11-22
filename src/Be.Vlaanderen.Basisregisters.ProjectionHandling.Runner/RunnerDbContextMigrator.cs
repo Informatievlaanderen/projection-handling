@@ -1,9 +1,9 @@
 namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
 {
     using System;
-    using System.Data.SqlClient;
     using System.Threading;
     using System.Threading.Tasks;
+    using Microsoft.Data.SqlClient;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Logging;
     using Polly;
