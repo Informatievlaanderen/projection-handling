@@ -1,3 +1,15 @@
+# [5.0.0](https://github.com/informatievlaanderen/projection-handling/compare/v4.6.0...v5.0.0) (2019-11-22)
+
+
+### Code Refactoring
+
+* upgrade to netcoreapp30 ([2b89673](https://github.com/informatievlaanderen/projection-handling/commit/2b89673))
+
+
+### BREAKING CHANGES
+
+* Upgrade to .NET Core 3
+
 # [4.6.0](https://github.com/informatievlaanderen/projection-handling/compare/v4.5.2...v4.6.0) (2019-09-26)
 
 
