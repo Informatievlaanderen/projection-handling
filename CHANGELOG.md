@@ -1,3 +1,10 @@
+# [5.1.0](https://github.com/informatievlaanderen/projection-handling/compare/v5.0.0...v5.1.0) (2019-12-15)
+
+
+### Features
+
+* upgrade to netcoreapp31 ([e31f6c7](https://github.com/informatievlaanderen/projection-handling/commit/e31f6c772df8c58a15c7cf839604064e757806b5))
+
 # [5.0.0](https://github.com/informatievlaanderen/projection-handling/compare/v4.6.0...v5.0.0) (2019-11-22)
 
 
