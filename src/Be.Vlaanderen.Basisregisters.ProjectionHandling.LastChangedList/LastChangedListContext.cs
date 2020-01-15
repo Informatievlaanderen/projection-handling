@@ -41,7 +41,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList
             modelBuilder
                 .Entity<LastChangedRecord>()
                 .HasKey(x => x.Id)
-                .ForSqlServerIsClustered();
+                .IsClustered();
 
             modelBuilder
                 .HasDefaultSchema(Schema);
