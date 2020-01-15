@@ -1,3 +1,10 @@
+## [5.1.1](https://github.com/informatievlaanderen/projection-handling/compare/v5.1.0...v5.1.1) (2020-01-15)
+
+
+### Bug Fixes
+
+* correct nullability for EF classes ([9ca2b17](https://github.com/informatievlaanderen/projection-handling/commit/9ca2b173269677dff5f908c9d084938af3213e5c))
+
 # [5.1.0](https://github.com/informatievlaanderen/projection-handling/compare/v5.0.0...v5.1.0) (2019-12-15)
 
 
