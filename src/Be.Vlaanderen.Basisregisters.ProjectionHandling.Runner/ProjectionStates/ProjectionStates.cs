@@ -8,7 +8,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.ProjectionState
     {
         public string Name { get; set; }
         public long Position { get; set; }
-        public string DesiredState { get; set; }
+        public string? DesiredState { get; set; }
         public DateTimeOffset? DesiredStateChangedAt { get; set; }
     }
 
