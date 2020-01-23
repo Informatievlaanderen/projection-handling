@@ -1,3 +1,10 @@
+## [5.1.2](https://github.com/informatievlaanderen/projection-handling/compare/v5.1.1...v5.1.2) (2020-01-23)
+
+
+### Bug Fixes
+
+* correct nullability for projectionstates ([8fe5b2e](https://github.com/informatievlaanderen/projection-handling/commit/8fe5b2e4285a4d4e4a22a9b4af89c7156388971d))
+
 ## [5.1.1](https://github.com/informatievlaanderen/projection-handling/compare/v5.1.0...v5.1.1) (2020-01-15)
 
 
