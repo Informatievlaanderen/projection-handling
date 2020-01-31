@@ -9,52 +9,52 @@ source https://api.nuget.org/v3/index.json
 // source https://informatievlaanderen.myget.org/F/nuget-mirror/api/v3/index.json username: "%MYGET_FEED_USER%" password: "%MYGET_FEED_PASS%" authtype: "basic"
 
 // PRODUCTION STUFF
-nuget Microsoft.EntityFrameworkCore 3.1.0
-nuget Microsoft.EntityFrameworkCore.SqlServer 3.1.0
-nuget Microsoft.EntityFrameworkCore.InMemory 3.1.0
-nuget Microsoft.EntityFrameworkCore.Design 3.1.0
+nuget Microsoft.EntityFrameworkCore 3.1.1
+nuget Microsoft.EntityFrameworkCore.SqlServer 3.1.1
+nuget Microsoft.EntityFrameworkCore.InMemory 3.1.1
+nuget Microsoft.EntityFrameworkCore.Design 3.1.1
 
-nuget Microsoft.Extensions.Logging 3.1.0
-nuget Microsoft.Extensions.DependencyInjection 3.1.0
-nuget Microsoft.Extensions.Http 3.1.0
+nuget Microsoft.Extensions.Logging 3.1.1
+nuget Microsoft.Extensions.DependencyInjection 3.1.1
+nuget Microsoft.Extensions.Http 3.1.1
 
-nuget Microsoft.Extensions.Configuration 3.1.0
-nuget Microsoft.Extensions.Configuration.CommandLine 3.1.0
-nuget Microsoft.Extensions.Configuration.FileExtensions 3.1.0
-nuget Microsoft.Extensions.Configuration.EnvironmentVariables 3.1.0
-nuget Microsoft.Extensions.Configuration.Json 3.1.0
+nuget Microsoft.Extensions.Configuration 3.1.1
+nuget Microsoft.Extensions.Configuration.CommandLine 3.1.1
+nuget Microsoft.Extensions.Configuration.FileExtensions 3.1.1
+nuget Microsoft.Extensions.Configuration.EnvironmentVariables 3.1.1
+nuget Microsoft.Extensions.Configuration.Json 3.1.1
 
 nuget Microsoft.SyndicationFeed.ReaderWriter 1.0.2
 
 nuget SqlStreamStore 1.1.3
 nuget SqlStreamStore.MsSql 1.1.3
 
-nuget Autofac.Extensions.DependencyInjection 5.0.1
+nuget Autofac.Extensions.DependencyInjection 6.0.0
 
 nuget Polly 7.2.0
-nuget CompareNETObjects 4.64.0
+nuget CompareNETObjects 4.65.0
 nuget Newtonsoft.Json 12.0.3
 
 // VBR STUFF
-nuget Be.Vlaanderen.Basisregisters.Build.Pipeline 3.2.0
+nuget Be.Vlaanderen.Basisregisters.Build.Pipeline 3.3.0
 
-nuget Be.Vlaanderen.Basisregisters.AggregateSource.SqlStreamStore.Autofac 4.1.0
+nuget Be.Vlaanderen.Basisregisters.AggregateSource.SqlStreamStore.Autofac 4.2.0
 
-nuget Be.Vlaanderen.Basisregisters.EventHandling 2.1.0
-nuget Be.Vlaanderen.Basisregisters.EventHandling.Autofac 2.1.0
+nuget Be.Vlaanderen.Basisregisters.EventHandling 2.2.0
+nuget Be.Vlaanderen.Basisregisters.EventHandling.Autofac 2.2.0
 
-nuget Be.Vlaanderen.Basisregisters.EntityFrameworkCore.EntityTypeConfiguration 2.1.0
+nuget Be.Vlaanderen.Basisregisters.EntityFrameworkCore.EntityTypeConfiguration 2.2.0
 
-nuget Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql 4.1.0
+nuget Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql 4.4.0
 
 // TEST STUFF
 nuget Microsoft.NET.Test.Sdk 16.4.0
 nuget NUnit 3.12.0
-nuget NUnit3TestAdapter 3.15.1
+nuget NUnit3TestAdapter 3.16.1
 nuget xunit 2.4.1
 nuget xunit.runner.visualstudio 2.4.1
 nuget xunit.categories 2.0.4
-nuget FluentAssertions 5.9.0
+nuget FluentAssertions 5.10.0
 
 // BUILD STUFF
 nuget SourceLink.Embed.AllSourceFiles 2.8.3 copy_local: true
