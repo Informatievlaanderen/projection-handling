@@ -6,6 +6,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
     using Microsoft.Data.SqlClient;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Logging;
+    using MigrationExtensions;
     using Polly;
 
     public interface IRunnerDbContextMigrator
@@ -46,7 +47,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
                         _logger.LogInformation("Running EF Migrations for {ContextType}", typeof(TContext).Name);
                         using (var migrationContext = _createContext())
                         {
-                            migrationContext.Database.SetCommandTimeout(new TimeSpan(1, 0, 0, 0));
+                            migrationContext.SetDefaultCommandTimeout();
                             await migrationContext.Database.MigrateAsync(cancellationToken);
                         }
                     },
