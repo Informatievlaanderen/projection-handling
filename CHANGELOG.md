@@ -1,3 +1,15 @@
+# [5.3.0](https://github.com/informatievlaanderen/projection-handling/compare/v5.2.0...v5.3.0) (2020-02-24)
+
+
+### Bug Fixes
+
+* make it compile and refactor into one extension method ([b329bd8](https://github.com/informatievlaanderen/projection-handling/commit/b329bd8158fb75e987c9475449f6ed3f0cf219f8))
+
+
+### Features
+
+* add extension for default command timeout for migrators ([0833d39](https://github.com/informatievlaanderen/projection-handling/commit/0833d3920a676db2073447c131f98a11f87a9127))
+
 # [5.2.0](https://github.com/informatievlaanderen/projection-handling/compare/v5.1.2...v5.2.0) (2020-01-31)
 
 
