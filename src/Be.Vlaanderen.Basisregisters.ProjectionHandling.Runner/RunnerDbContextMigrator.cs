@@ -46,10 +46,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
                     {
                         _logger.LogInformation("Running EF Migrations for {ContextType}", typeof(TContext).Name);
                         using (var migrationContext = _createContext())
-                        {
-                            migrationContext.SetDefaultCommandTimeout();
-                            await migrationContext.Database.MigrateAsync(cancellationToken);
-                        }
+                            await migrationContext.MigrateAsync(cancellationToken);
                     },
                     cancellationToken
                 );
