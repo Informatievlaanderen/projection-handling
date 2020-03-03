@@ -1,3 +1,10 @@
+## [5.3.1](https://github.com/informatievlaanderen/projection-handling/compare/v5.3.0...v5.3.1) (2020-03-03)
+
+
+### Bug Fixes
+
+* bump netcore 3.1.2 ([8f9a71f](https://github.com/informatievlaanderen/projection-handling/commit/8f9a71fb6268857b257733409274d5398e5c961f))
+
 # [5.3.0](https://github.com/informatievlaanderen/projection-handling/compare/v5.2.0...v5.3.0) (2020-02-24)
 
 
