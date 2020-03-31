@@ -1,3 +1,10 @@
+## [5.4.1](https://github.com/informatievlaanderen/projection-handling/compare/v5.4.0...v5.4.1) (2020-03-31)
+
+
+### Bug Fixes
+
+* use correct build user ([f063714](https://github.com/informatievlaanderen/projection-handling/commit/f063714ddb012a6ae4108c6939ef1ef33434c779))
+
 # [5.4.0](https://github.com/informatievlaanderen/projection-handling/compare/v5.3.1...v5.4.0) (2020-03-31)
 
 
