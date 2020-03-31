@@ -14,5 +14,6 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList.Model
 
         public int ErrorCount { get; set; }
         public DateTimeOffset? LastError { get; set; }
+        public string? LastErrorMessage { get; set; }
     }
 }
