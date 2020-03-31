@@ -1,3 +1,10 @@
+# [5.4.0](https://github.com/informatievlaanderen/projection-handling/compare/v5.3.1...v5.4.0) (2020-03-31)
+
+
+### Features
+
+* add last error message to last changed list ([c7e8cb7](https://github.com/informatievlaanderen/projection-handling/commit/c7e8cb7462c373a583cbc458c90b985b5a27ff58))
+
 ## [5.3.1](https://github.com/informatievlaanderen/projection-handling/compare/v5.3.0...v5.3.1) (2020-03-03)
 
 
