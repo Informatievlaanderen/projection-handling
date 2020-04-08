@@ -1,7 +1,7 @@
 namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList
 {
     using System;
-    using System.Data.SqlClient;
+    using Microsoft.Data.SqlClient;
     using Autofac;
     using DataDog.Tracing.Sql.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
