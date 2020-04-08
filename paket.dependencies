@@ -36,7 +36,7 @@ nuget CompareNETObjects 4.65.0
 nuget Newtonsoft.Json 12.0.3
 
 // VBR STUFF
-nuget Be.Vlaanderen.Basisregisters.Build.Pipeline 3.3.2
+nuget Be.Vlaanderen.Basisregisters.Build.Pipeline 3.3.5
 
 nuget Be.Vlaanderen.Basisregisters.AggregateSource.SqlStreamStore.Autofac 4.2.2
 
