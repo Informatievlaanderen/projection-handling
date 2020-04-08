@@ -1,3 +1,21 @@
+# [6.0.0](https://github.com/informatievlaanderen/projection-handling/compare/v5.4.1...v6.0.0) (2020-04-08)
+
+
+### Bug Fixes
+
+* update paket.lock ([1d1c620](https://github.com/informatievlaanderen/projection-handling/commit/1d1c620f4f7a0e31558ecebd53725fb5557bc881))
+* upgrade build pipeline and sql client usage ([da2878c](https://github.com/informatievlaanderen/projection-handling/commit/da2878c4e824356abe42ca476a09de6cb500e58a))
+
+
+### chore
+
+* upgrade sql stream store ([#26](https://github.com/informatievlaanderen/projection-handling/issues/26)) ([9f8a139](https://github.com/informatievlaanderen/projection-handling/commit/9f8a1393ef09193da00dce3bb813997472a9b3e1))
+
+
+### BREAKING CHANGES
+
+* Upgrade SqlStreamStore
+
 ## [5.4.1](https://github.com/informatievlaanderen/projection-handling/compare/v5.4.0...v5.4.1) (2020-03-31)
 
 
