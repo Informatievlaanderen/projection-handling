@@ -1,3 +1,10 @@
+## [6.0.1](https://github.com/informatievlaanderen/projection-handling/compare/v6.0.0...v6.0.1) (2020-05-06)
+
+
+### Bug Fixes
+
+* add missing index on LastChangedList GRAR-1271 ([9c758e3](https://github.com/informatievlaanderen/projection-handling/commit/9c758e37ca92440731fd2ac28a2a2f64e00f2681))
+
 # [6.0.0](https://github.com/informatievlaanderen/projection-handling/compare/v5.4.1...v6.0.0) (2020-04-08)
 
 
