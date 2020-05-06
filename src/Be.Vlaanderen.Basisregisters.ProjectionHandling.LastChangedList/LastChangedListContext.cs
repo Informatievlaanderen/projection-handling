@@ -44,6 +44,16 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList
                 .IsClustered();
 
             modelBuilder
+                .Entity<LastChangedRecord>()
+                .HasIndex(x => new
+                {
+                    x.Position,
+                    x.LastPopulatedPosition,
+                    x.ErrorCount,
+                    x.LastError
+                });
+
+            modelBuilder
                 .HasDefaultSchema(Schema);
         }
     }
