@@ -1,3 +1,10 @@
+## [6.0.2](https://github.com/informatievlaanderen/projection-handling/compare/v6.0.1...v6.0.2) (2020-05-13)
+
+
+### Bug Fixes
+
+* move to GH-actions ([d7a30b1](https://github.com/informatievlaanderen/projection-handling/commit/d7a30b154cdde61b862f13e4665d844e5e29a21f))
+
 ## [6.0.1](https://github.com/informatievlaanderen/projection-handling/compare/v6.0.0...v6.0.1) (2020-05-06)
 
 
