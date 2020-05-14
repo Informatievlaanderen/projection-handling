@@ -1,3 +1,10 @@
+## [6.0.3](https://github.com/informatievlaanderen/projection-handling/compare/v6.0.2...v6.0.3) (2020-05-14)
+
+
+### Bug Fixes
+
+* downgrade dotnet 3.1.4 references ([2c3a4f2](https://github.com/informatievlaanderen/projection-handling/commit/2c3a4f28a8d6bba96d53c12b8422d03a06b117b9))
+
 ## [6.0.2](https://github.com/informatievlaanderen/projection-handling/compare/v6.0.1...v6.0.2) (2020-05-13)
 
 
