@@ -2,20 +2,20 @@ framework: netcoreapp31
 source https://api.nuget.org/v3/index.json
 
 // PRODUCTION STUFF
-nuget Microsoft.EntityFrameworkCore 3.1.3
-nuget Microsoft.EntityFrameworkCore.SqlServer 3.1.3
-nuget Microsoft.EntityFrameworkCore.InMemory 3.1.3
-nuget Microsoft.EntityFrameworkCore.Design 3.1.3
+nuget Microsoft.EntityFrameworkCore 3.1.4
+nuget Microsoft.EntityFrameworkCore.SqlServer 3.1.4
+nuget Microsoft.EntityFrameworkCore.InMemory 3.1.4
+nuget Microsoft.EntityFrameworkCore.Design 3.1.4
 
-nuget Microsoft.Extensions.Logging 3.1.3
-nuget Microsoft.Extensions.DependencyInjection 3.1.3
-nuget Microsoft.Extensions.Http 3.1.3
+nuget Microsoft.Extensions.Logging 3.1.4
+nuget Microsoft.Extensions.DependencyInjection 3.1.4
+nuget Microsoft.Extensions.Http 3.1.4
 
-nuget Microsoft.Extensions.Configuration 3.1.3
-nuget Microsoft.Extensions.Configuration.CommandLine 3.1.3
-nuget Microsoft.Extensions.Configuration.FileExtensions 3.1.3
-nuget Microsoft.Extensions.Configuration.EnvironmentVariables 3.1.3
-nuget Microsoft.Extensions.Configuration.Json 3.1.3
+nuget Microsoft.Extensions.Configuration 3.1.4
+nuget Microsoft.Extensions.Configuration.CommandLine 3.1.4
+nuget Microsoft.Extensions.Configuration.FileExtensions 3.1.4
+nuget Microsoft.Extensions.Configuration.EnvironmentVariables 3.1.4
+nuget Microsoft.Extensions.Configuration.Json 3.1.4
 
 nuget Microsoft.SyndicationFeed.ReaderWriter 1.0.2
 
@@ -25,20 +25,20 @@ nuget SqlStreamStore.MsSql 1.2.0-beta.8
 nuget Autofac.Extensions.DependencyInjection 6.0.0
 
 nuget Polly 7.2.1
-nuget CompareNETObjects 4.65.0
+nuget CompareNETObjects 4.66.0
 nuget Newtonsoft.Json 12.0.3
 
 // VBR STUFF
-nuget Be.Vlaanderen.Basisregisters.Build.Pipeline 4.0.6
+nuget Be.Vlaanderen.Basisregisters.Build.Pipeline 4.1.0
 
-nuget Be.Vlaanderen.Basisregisters.AggregateSource.SqlStreamStore.Autofac 5.0.4
+nuget Be.Vlaanderen.Basisregisters.AggregateSource.SqlStreamStore.Autofac 5.0.5
 
-nuget Be.Vlaanderen.Basisregisters.EventHandling 2.2.2
-nuget Be.Vlaanderen.Basisregisters.EventHandling.Autofac 2.2.2
+nuget Be.Vlaanderen.Basisregisters.EventHandling 2.2.3
+nuget Be.Vlaanderen.Basisregisters.EventHandling.Autofac 2.2.3
 
-nuget Be.Vlaanderen.Basisregisters.EntityFrameworkCore.EntityTypeConfiguration 2.2.2
+nuget Be.Vlaanderen.Basisregisters.EntityFrameworkCore.EntityTypeConfiguration 2.2.3
 
-nuget Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql 4.4.2
+nuget Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql 4.4.3
 
 // TEST STUFF
 nuget Microsoft.NET.Test.Sdk 16.6.1
