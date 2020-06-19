@@ -80,7 +80,6 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.Tests
             var storedEventsOnSecondRun = 10;
             var projection = new MessageCountingProjection(m => m.Id == storedEventsOnFirstRun - 1 || m.Id == storedEventsOnFirstRun + storedEventsOnSecondRun -1 );
 
-
             //do a first catch-up run
             using (var testRunner =
                 new TestRunner(new EnvelopeFactory(eventMapping, new EventDeserializer(JsonConvert.DeserializeObject)),

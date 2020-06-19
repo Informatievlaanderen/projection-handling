@@ -1,3 +1,6 @@
+Microsoft.NET.Test.Sdk
+Microsoft.TestPlatform.ObjectModel
+
 Microsoft.Extensions.Logging
 xunit
 xunit.runner.visualstudio

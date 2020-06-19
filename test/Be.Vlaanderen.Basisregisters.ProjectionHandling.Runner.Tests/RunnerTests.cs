@@ -64,8 +64,6 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.Tests
             Assert.Equal(expectedCount, projection.HandledMessages.Distinct().Count());
         }
 
-        
-
         private Func<TestMessage, Task<AppendResult>> CreateMessageStorerAndStartHandling(ConnectedProjection<TestDbContext> projection)
         {
             var eventMapping =
