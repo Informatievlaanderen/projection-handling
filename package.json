@@ -1,6 +1,6 @@
 {
   "name": "projection-handling",
-  "version": "6.0.4",
+  "version": "6.0.5",
   "description": "Lightweight projection handling infrastructure.",
   "author": "Basisregisters Vlaanderen",
   "license": "MIT",
@@ -48,7 +48,10 @@
     ]
   },
   "release": {
-    "branches": [ "master", "main" ],
+    "branches": [
+      "master",
+      "main"
+    ],
     "verifyConditions": [
       "@semantic-release/changelog",
       "@semantic-release/git",
