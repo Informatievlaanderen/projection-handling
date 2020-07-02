@@ -1,3 +1,10 @@
+## [6.0.6](https://github.com/informatievlaanderen/projection-handling/compare/v6.0.5...v6.0.6) (2020-07-02)
+
+
+### Bug Fixes
+
+* update streamstore ([fdb39a5](https://github.com/informatievlaanderen/projection-handling/commit/fdb39a5b04ced5a0f82a3dff85436066ba2c2def))
+
 ## [6.0.5](https://github.com/informatievlaanderen/projection-handling/compare/v6.0.4...v6.0.5) (2020-06-19)
 
 
