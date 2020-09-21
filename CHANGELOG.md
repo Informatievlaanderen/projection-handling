@@ -1,3 +1,10 @@
+## [6.0.8](https://github.com/informatievlaanderen/projection-handling/compare/v6.0.7...v6.0.8) (2020-09-21)
+
+
+### Bug Fixes
+
+* move to 3.1.8 ([f41e55a](https://github.com/informatievlaanderen/projection-handling/commit/f41e55a97d6d33d7d050fbd6eb619c3c7d9a78b8))
+
 ## [6.0.7](https://github.com/informatievlaanderen/projection-handling/compare/v6.0.6...v6.0.7) (2020-07-18)
 
 
