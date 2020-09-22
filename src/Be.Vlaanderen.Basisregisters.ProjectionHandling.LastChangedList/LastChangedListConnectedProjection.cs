@@ -4,6 +4,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList
     using System.Threading;
     using System.Threading.Tasks;
     using Connector;
+    using Microsoft.EntityFrameworkCore;
     using Model;
 
     public abstract class LastChangedListConnectedProjection : ConnectedProjection<LastChangedListContext>
@@ -12,14 +13,22 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList
         protected abstract string UriFormat { get; }
 
         private readonly AcceptType[] _supportedAcceptTypes;
+        private readonly int _commandTimeoutInSeconds;
 
-        protected LastChangedListConnectedProjection(AcceptType[] supportedAcceptTypes) => _supportedAcceptTypes = supportedAcceptTypes;
+        protected LastChangedListConnectedProjection(AcceptType[] supportedAcceptTypes) : this(supportedAcceptTypes, 300) {}
+
+        protected LastChangedListConnectedProjection(AcceptType[] supportedAcceptTypes, int commandTimeoutInSeconds)
+        {
+            _supportedAcceptTypes = supportedAcceptTypes;
+            _commandTimeoutInSeconds = commandTimeoutInSeconds;
+        }
 
         protected async Task<IEnumerable<LastChangedRecord>> GetLastChangedRecords(
             string identifier,
             LastChangedListContext context,
             CancellationToken cancellationToken)
         {
+            context.Database.SetCommandTimeout(_commandTimeoutInSeconds);
             var attachedRecords = new List<LastChangedRecord>();
 
             // Create a record for every type that our API accepts.
@@ -45,6 +54,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList
             LastChangedListContext context,
             CancellationToken cancellationToken)
         {
+            context.Database.SetCommandTimeout(_commandTimeoutInSeconds);
             var attachedRecords = new List<LastChangedRecord>();
 
             // Create a record for every type that our API accepts.
