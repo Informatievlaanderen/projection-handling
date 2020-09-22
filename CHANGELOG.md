@@ -1,3 +1,10 @@
+# [6.1.0](https://github.com/informatievlaanderen/projection-handling/compare/v6.0.8...v6.1.0) (2020-09-22)
+
+
+### Features
+
+* add timeout to lastchangedlist commands ([b59471b](https://github.com/informatievlaanderen/projection-handling/commit/b59471b25c938880449cf196fdbdef6c5359a544))
+
 ## [6.0.8](https://github.com/informatievlaanderen/projection-handling/compare/v6.0.7...v6.0.8) (2020-09-21)
 
 
