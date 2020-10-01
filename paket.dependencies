@@ -49,6 +49,7 @@ nuget xunit 2.4.1
 nuget xunit.runner.visualstudio 2.4.3
 nuget xunit.categories 2.0.4
 nuget FluentAssertions 5.10.3
+nuget Moq 4.14.5
 
 // BUILD STUFF
 nuget SourceLink.Embed.AllSourceFiles 2.8.3 copy_local: true
