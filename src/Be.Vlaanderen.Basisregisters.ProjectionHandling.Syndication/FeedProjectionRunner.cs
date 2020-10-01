@@ -14,7 +14,13 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
     using Microsoft.SyndicationFeed;
     using Runner;
 
-    public class FeedProjectionRunner<TMessage, TContent, TContext>
+    public interface IFeedProjectionRunner<TContext>
+        where TContext : RunnerDbContext<TContext>
+    {
+        Task CatchUpAsync(Func<Owned<TContext>> context, CancellationToken cancellationToken);
+    }
+
+    public class FeedProjectionRunner<TMessage, TContent, TContext> : IFeedProjectionRunner<TContext>
         where TMessage : struct
         where TContext : RunnerDbContext<TContext>
     {

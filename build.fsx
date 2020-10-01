@@ -25,7 +25,8 @@ Target.create "Lib_Build" (fun _ -> build "Be.Vlaanderen.Basisregisters.Projecti
 Target.create "Lib_Test" (fun _ ->
   [
     "test" @@ "Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector.Tests"
-    "test" @@ "Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.Tests" ]
+    "test" @@ "Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.Tests"
+    "test" @@ "Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication.Tests" ]
   |> List.iter testWithDotNet
 )
 
