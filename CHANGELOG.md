@@ -1,3 +1,10 @@
+# [6.2.0](https://github.com/informatievlaanderen/projection-handling/compare/v6.1.0...v6.2.0) (2020-10-03)
+
+
+### Features
+
+* add feedprojector GRAR-1562 ([d182f34](https://github.com/informatievlaanderen/projection-handling/commit/d182f345a117dddb4cd3db212db899b4a4898037))
+
 # [6.1.0](https://github.com/informatievlaanderen/projection-handling/compare/v6.0.8...v6.1.0) (2020-09-22)
 
 
