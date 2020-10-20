@@ -50,6 +50,23 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
             projectionStateItem.Position = position;
         }
 
+        public async Task SetErrorMessage(string projectionName, string? errorMessage, CancellationToken cancellationToken)
+        {
+            var projectionStateItem = await ProjectionStates.SingleOrDefaultAsync(item => item.Name == projectionName, cancellationToken);
+
+            if (projectionStateItem == null)
+            {
+                projectionStateItem = new ProjectionStateItem
+                {
+                    Name = projectionName,
+                    Position = -1L
+                };
+                await ProjectionStates.AddAsync(projectionStateItem, cancellationToken);
+            }
+
+            projectionStateItem.ErrorMessage = errorMessage;
+        }
+
         public async Task UpdateProjectionDesiredState(string projectionName, string desiredState, CancellationToken cancellationToken)
         {
             var projectionStateItem = await ProjectionStates.SingleOrDefaultAsync(item => item.Name == projectionName, cancellationToken);

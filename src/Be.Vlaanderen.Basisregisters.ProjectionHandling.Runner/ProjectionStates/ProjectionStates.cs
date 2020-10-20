@@ -10,6 +10,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.ProjectionState
         public long Position { get; set; }
         public string? DesiredState { get; set; }
         public DateTimeOffset? DesiredStateChangedAt { get; set; }
+        public string? ErrorMessage { get; set; }
     }
 
     public class ProjectionStatesConfiguration : IEntityTypeConfiguration<ProjectionStateItem>
@@ -35,6 +36,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.ProjectionState
             b.Property(p => p.Position);
             b.Property(p => p.DesiredState);
             b.Property(p => p.DesiredStateChangedAt);
+            b.Property(p => p.ErrorMessage);
         }
     }
 }
