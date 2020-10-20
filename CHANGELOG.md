@@ -1,3 +1,16 @@
+# [7.0.0](https://github.com/informatievlaanderen/projection-handling/compare/v6.2.0...v7.0.0) (2020-10-20)
+
+
+### Features
+
+* add ErrorMessage to projection state GRAR-1302 ([06e07fd](https://github.com/informatievlaanderen/projection-handling/commit/06e07fd22f652aff2e33b6590439fe0fefb4483d))
+* add errormessage to projection state lastchangedlist ([fe22c2c](https://github.com/informatievlaanderen/projection-handling/commit/fe22c2c855a4dea9464ed93b5e75a0218b8481c2))
+
+
+### BREAKING CHANGES
+
+* the added columns means package users will have to run migrations.
+
 # [6.2.0](https://github.com/informatievlaanderen/projection-handling/compare/v6.1.0...v6.2.0) (2020-10-03)
 
 
