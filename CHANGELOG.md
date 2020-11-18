@@ -1,3 +1,10 @@
+## [7.0.1](https://github.com/informatievlaanderen/projection-handling/compare/v7.0.0...v7.0.1) (2020-11-18)
+
+
+### Bug Fixes
+
+* remove set-env usage in gh-actions ([3fbff73](https://github.com/informatievlaanderen/projection-handling/commit/3fbff739fb078cf71bead268c408ce7ada6062a5))
+
 # [7.0.0](https://github.com/informatievlaanderen/projection-handling/compare/v6.2.0...v7.0.0) (2020-10-20)
 
 
