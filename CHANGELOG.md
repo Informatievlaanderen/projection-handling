@@ -1,3 +1,10 @@
+## [7.0.3](https://github.com/informatievlaanderen/projection-handling/compare/v7.0.2...v7.0.3) (2020-11-19)
+
+
+### Bug Fixes
+
+* update aggregatesource reference ([af31a24](https://github.com/informatievlaanderen/projection-handling/commit/af31a245b51cfa1fe6c625de82af3439f5e4d51e))
+
 ## [7.0.2](https://github.com/informatievlaanderen/projection-handling/compare/v7.0.1...v7.0.2) (2020-11-19)
 
 
