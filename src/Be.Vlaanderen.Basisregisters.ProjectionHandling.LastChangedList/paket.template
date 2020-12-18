@@ -15,7 +15,7 @@ licenseUrl https://opensource.org/licenses/MIT
 description Lightweight projection handling infrastructure.
 
 dependencies
-  framework: netcoreapp31
+  framework: net5.0
     Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner CURRENTVERSION
     Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore.Autofac CURRENTVERSION
 
@@ -29,5 +29,5 @@ dependencies
     Polly >= LOCKEDVERSION
 
 files
-  bin\Release\netcoreapp3.1\Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList.dll => lib\netcoreapp3.1
-  bin\Release\netcoreapp3.1\Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList.pdb => lib\netcoreapp3.1
+  bin\Release\net5.0\Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList.dll => lib\net5.0
+  bin\Release\net5.0\Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList.pdb => lib\net5.0

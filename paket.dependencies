@@ -1,64 +1,56 @@
-framework: netcoreapp31
+framework: net5.0
 source https://api.nuget.org/v3/index.json
 
 // PRODUCTION STUFF
-nuget Microsoft.EntityFrameworkCore 3.1.8
-nuget Microsoft.EntityFrameworkCore.SqlServer 3.1.8
-nuget Microsoft.EntityFrameworkCore.InMemory 3.1.8
-nuget Microsoft.EntityFrameworkCore.Design 3.1.8
+nuget Microsoft.EntityFrameworkCore 5.0.1
+nuget Microsoft.EntityFrameworkCore.SqlServer 5.0.1
+nuget Microsoft.EntityFrameworkCore.InMemory 5.0.1
+nuget Microsoft.EntityFrameworkCore.Design 5.0.1
 
-nuget Microsoft.Extensions.Logging 3.1.8
-nuget Microsoft.Extensions.DependencyInjection 3.1.8
-nuget Microsoft.Extensions.Http 3.1.8
+nuget Microsoft.Extensions.Logging 5.0.0
+nuget Microsoft.Extensions.DependencyInjection 5.0.1
+nuget Microsoft.Extensions.Http 5.0.0
 
-nuget Microsoft.Extensions.Configuration 3.1.8
-nuget Microsoft.Extensions.Configuration.CommandLine 3.1.8
-nuget Microsoft.Extensions.Configuration.FileExtensions 3.1.8
-nuget Microsoft.Extensions.Configuration.EnvironmentVariables 3.1.8
-nuget Microsoft.Extensions.Configuration.Json 3.1.8
+nuget Microsoft.Extensions.Configuration 5.0.0
+nuget Microsoft.Extensions.Configuration.CommandLine 5.0.0
+nuget Microsoft.Extensions.Configuration.FileExtensions 5.0.0
+nuget Microsoft.Extensions.Configuration.EnvironmentVariables 5.0.0
+nuget Microsoft.Extensions.Configuration.Json 5.0.0
 
 nuget Microsoft.SyndicationFeed.ReaderWriter 1.0.2
 
 nuget SqlStreamStore 1.2.0
 nuget SqlStreamStore.MsSql 1.2.0
 
-nuget Autofac.Extensions.DependencyInjection 6.0.0
+nuget Autofac.Extensions.DependencyInjection 7.1.0
 
 nuget Polly 7.2.1
 nuget CompareNETObjects 4.67.0
 nuget Newtonsoft.Json 12.0.3
 
 // VBR STUFF
-nuget Be.Vlaanderen.Basisregisters.Build.Pipeline 4.2.3
+nuget Be.Vlaanderen.Basisregisters.Build.Pipeline 5.0.1
 
-nuget Be.Vlaanderen.Basisregisters.AggregateSource.SqlStreamStore.Autofac 5.0.11
+nuget Be.Vlaanderen.Basisregisters.AggregateSource.SqlStreamStore.Autofac 5.0.12
 
-nuget Be.Vlaanderen.Basisregisters.EventHandling 2.3.1
-nuget Be.Vlaanderen.Basisregisters.EventHandling.Autofac 2.3.1
+nuget Be.Vlaanderen.Basisregisters.EventHandling 3.0.3
+nuget Be.Vlaanderen.Basisregisters.EventHandling.Autofac 3.0.3
 
-nuget Be.Vlaanderen.Basisregisters.EntityFrameworkCore.EntityTypeConfiguration 2.2.6
+nuget Be.Vlaanderen.Basisregisters.EntityFrameworkCore.EntityTypeConfiguration 2.2.8
 
-nuget Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql 4.5.4
+nuget Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql 4.5.5
 
 // TEST STUFF
-nuget Microsoft.NET.Test.Sdk 16.7.1
-nuget Microsoft.TestPlatform.ObjectModel 16.7.1
+nuget Microsoft.NET.Test.Sdk 16.8.3
+nuget Microsoft.TestPlatform.ObjectModel 16.8.3
 nuget NUnit 3.12.0
 nuget NUnit3TestAdapter 3.17.0
 nuget xunit 2.4.1
 nuget xunit.runner.visualstudio 2.4.3
 nuget xunit.categories 2.0.4
 nuget FluentAssertions 5.10.3
-nuget Moq 4.14.5
+nuget Moq 4.15.2
 
 // BUILD STUFF
 nuget SourceLink.Embed.AllSourceFiles 2.8.3 copy_local: true
 nuget SourceLink.Copy.PdbFiles 2.8.3 copy_local: true
-
-// MS Nuget issue, they are referencing previews
-// https://github.com/fsprojects/Paket/issues/3907
-//group NuGetIssue
-//  framework: netcoreapp31
-//  source https://api.nuget.org/v3/index.json
-//  nuget Be.Vlaanderen.Basisregisters.Build.Pipeline 4.2.3
-//  nuget Nuget.Packaging < 5.7
