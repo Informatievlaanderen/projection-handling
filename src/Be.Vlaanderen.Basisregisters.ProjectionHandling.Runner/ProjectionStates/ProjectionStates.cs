@@ -30,7 +30,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.ProjectionState
         {
             b.ToTable(TableName, _schema)
                 .HasKey(p => p.Name)
-                .ForSqlServerIsClustered();
+                .IsClustered();
 
             b.Property(p => p.Name);
             b.Property(p => p.Position);

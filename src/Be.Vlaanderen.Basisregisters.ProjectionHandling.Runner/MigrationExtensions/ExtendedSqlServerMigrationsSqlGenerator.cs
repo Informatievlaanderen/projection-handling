@@ -6,7 +6,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.MigrationExtens
 
     public class ExtendedSqlServerMigrationsSqlGenerator : SqlServerMigrationsSqlGenerator
     {
-        public ExtendedSqlServerMigrationsSqlGenerator(MigrationsSqlGeneratorDependencies dependencies, IMigrationsAnnotationProvider migrationsAnnotations) :
+        public ExtendedSqlServerMigrationsSqlGenerator(MigrationsSqlGeneratorDependencies dependencies, IRelationalAnnotationProvider migrationsAnnotations) :
             base(dependencies, migrationsAnnotations)
         { }
 

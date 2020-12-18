@@ -15,11 +15,11 @@ licenseUrl https://opensource.org/licenses/MIT
 description Lightweight projection handling infrastructure.
 
 dependencies
-  framework: netcoreapp31
+  framework: net5.0
     Be.Vlaanderen.Basisregisters.EventHandling >= LOCKEDVERSION
 
     SqlStreamStore >= LOCKEDVERSION
 
 files
-  bin\Release\netcoreapp3.1\Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore.dll => lib\netcoreapp3.1
-  bin\Release\netcoreapp3.1\Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore.pdb => lib\netcoreapp3.1
+  bin\Release\net5.0\Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore.dll => lib\net5.0
+  bin\Release\net5.0\Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore.pdb => lib\net5.0
