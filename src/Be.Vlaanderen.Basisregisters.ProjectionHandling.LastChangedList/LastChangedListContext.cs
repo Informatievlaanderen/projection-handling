@@ -24,6 +24,17 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList
 
             modelBuilder
                 .Entity<LastChangedRecord>()
+                .Property(x => x.ToBeIndexed)
+                .ValueGeneratedOnAddOrUpdate()
+                .HasComputedColumnSql("CAST(CASE WHEN (([Position] > [LastPopulatedPosition]) AND ([ErrorCount] < 10)) THEN 1 ELSE 0 END AS bit) PERSISTED");
+
+            modelBuilder
+                .Entity<LastChangedRecord>()
+                .HasIndex(x => x.ToBeIndexed)
+                .IncludeProperties(x => x.LastError);
+
+            modelBuilder
+                .Entity<LastChangedRecord>()
                 .HasIndex(x => x.Position);
 
             modelBuilder

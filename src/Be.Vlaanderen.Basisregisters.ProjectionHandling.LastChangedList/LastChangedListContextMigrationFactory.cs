@@ -6,8 +6,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList
     public class LastChangedListContextMigrationFactory : RunnerDbContextMigrationFactory<LastChangedListContext> {
 
         public LastChangedListContextMigrationFactory(string connectionStringName)
-            : base(connectionStringName, HistoryConfiguration)
-        { }
+            : base(connectionStringName, HistoryConfiguration) { }
 
         private static MigrationHistoryConfiguration HistoryConfiguration =>
             new MigrationHistoryConfiguration

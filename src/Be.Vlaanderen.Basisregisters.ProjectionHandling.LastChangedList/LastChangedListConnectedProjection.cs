@@ -89,20 +89,13 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList
 
         private static string GetApplicationType(AcceptType acceptType)
         {
-            switch (acceptType)
+            return acceptType switch
             {
-                case AcceptType.Json:
-                    return "application/json";
-
-                case AcceptType.JsonLd:
-                    return "application/ld+json";
-
-                case AcceptType.Xml:
-                    return "application/xml";
-
-                default:
-                    return string.Empty;
-            }
+                AcceptType.Json => "application/json",
+                AcceptType.JsonLd => "application/ld+json",
+                AcceptType.Xml => "application/xml",
+                _ => string.Empty
+            };
         }
     }
 }
