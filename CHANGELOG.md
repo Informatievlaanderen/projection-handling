@@ -1,3 +1,10 @@
+## [7.0.5](https://github.com/informatievlaanderen/projection-handling/compare/v7.0.4...v7.0.5) (2021-01-07)
+
+
+### Bug Fixes
+
+* improve performance for determining to be indexed values GRAR-1673 ([0f1dd14](https://github.com/informatievlaanderen/projection-handling/commit/0f1dd1449d55cfa0af910d522d93caa5a087c4e2))
+
 ## [7.0.4](https://github.com/informatievlaanderen/projection-handling/compare/v7.0.3...v7.0.4) (2020-12-18)
 
 
