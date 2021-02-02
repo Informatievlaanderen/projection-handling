@@ -2,10 +2,10 @@ framework: net5.0
 source https://api.nuget.org/v3/index.json
 
 // PRODUCTION STUFF
-nuget Microsoft.EntityFrameworkCore 5.0.1
-nuget Microsoft.EntityFrameworkCore.SqlServer 5.0.1
-nuget Microsoft.EntityFrameworkCore.InMemory 5.0.1
-nuget Microsoft.EntityFrameworkCore.Design 5.0.1
+nuget Microsoft.EntityFrameworkCore 5.0.2
+nuget Microsoft.EntityFrameworkCore.SqlServer 5.0.2
+nuget Microsoft.EntityFrameworkCore.InMemory 5.0.2
+nuget Microsoft.EntityFrameworkCore.Design 5.0.2
 
 nuget Microsoft.Extensions.Logging 5.0.0
 nuget Microsoft.Extensions.DependencyInjection 5.0.1
@@ -25,31 +25,31 @@ nuget SqlStreamStore.MsSql 1.2.0
 nuget Autofac.Extensions.DependencyInjection 7.1.0
 
 nuget Polly 7.2.1
-nuget CompareNETObjects 4.67.0
+nuget CompareNETObjects 4.71.0
 nuget Newtonsoft.Json 12.0.3
 
 // VBR STUFF
-nuget Be.Vlaanderen.Basisregisters.Build.Pipeline 5.0.1
+nuget Be.Vlaanderen.Basisregisters.Build.Pipeline 5.0.2
 
-nuget Be.Vlaanderen.Basisregisters.AggregateSource.SqlStreamStore.Autofac 5.0.12
+nuget Be.Vlaanderen.Basisregisters.AggregateSource.SqlStreamStore.Autofac 5.0.13
 
-nuget Be.Vlaanderen.Basisregisters.EventHandling 3.0.3
-nuget Be.Vlaanderen.Basisregisters.EventHandling.Autofac 3.0.3
+nuget Be.Vlaanderen.Basisregisters.EventHandling 3.0.4
+nuget Be.Vlaanderen.Basisregisters.EventHandling.Autofac 3.0.4
 
-nuget Be.Vlaanderen.Basisregisters.EntityFrameworkCore.EntityTypeConfiguration 2.2.8
+nuget Be.Vlaanderen.Basisregisters.EntityFrameworkCore.EntityTypeConfiguration 2.2.9
 
-nuget Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql 4.5.5
+nuget Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql 4.5.6
 
 // TEST STUFF
 nuget Microsoft.NET.Test.Sdk 16.8.3
 nuget Microsoft.TestPlatform.ObjectModel 16.8.3
-nuget NUnit 3.12.0
+nuget NUnit 3.13.1
 nuget NUnit3TestAdapter 3.17.0
 nuget xunit 2.4.1
 nuget xunit.runner.visualstudio 2.4.3
 nuget xunit.categories 2.0.4
 nuget FluentAssertions 5.10.3
-nuget Moq 4.15.2
+nuget Moq 4.16.0
 
 // BUILD STUFF
 nuget SourceLink.Embed.AllSourceFiles 2.8.3 copy_local: true
