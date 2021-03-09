@@ -1,3 +1,10 @@
+# [7.1.0](https://github.com/informatievlaanderen/projection-handling/compare/v7.0.6...v7.1.0) (2021-03-09)
+
+
+### Features
+
+* introduce connected projection name, description attribute GRAR-1876 ([96749eb](https://github.com/informatievlaanderen/projection-handling/commit/96749ebfb840c3feea7441a409378d10b0f0dd10))
+
 ## [7.0.6](https://github.com/informatievlaanderen/projection-handling/compare/v7.0.5...v7.0.6) (2021-02-02)
 
 
