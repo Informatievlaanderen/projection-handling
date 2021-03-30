@@ -22,7 +22,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
 
                 return Enum.TryParse<TMessage>(title, out var @event) && cache.TryGetValue(@event, out var resolvedHandlers)
                     ? resolvedHandlers
-                    : throw new InvalidOperationException($"Could not resolve a handler for {title}.");
+                    : throw new AtomResolveHandlerException($"Could not resolve a handler for {title}.");
             };
         }
     }
