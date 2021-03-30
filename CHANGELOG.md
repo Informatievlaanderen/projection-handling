@@ -1,3 +1,16 @@
+# [8.0.0](https://github.com/informatievlaanderen/projection-handling/compare/v7.1.0...v8.0.0) (2021-03-30)
+
+
+### Bug Fixes
+
+* use a specific exception if atom handler can't be resolved ([9e92dd1](https://github.com/informatievlaanderen/projection-handling/commit/9e92dd14aeb9f441075b3b95ec2980b27b9fcdf6))
+
+
+### BREAKING CHANGES
+
+* When resolving a handler for atomprojections a AtomResolveHandlerException is now
+thrown
+
 # [7.1.0](https://github.com/informatievlaanderen/projection-handling/compare/v7.0.6...v7.1.0) (2021-03-09)
 
 
