@@ -116,7 +116,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
 
                 try
                 {
-                    using (var contentXmlReader = XmlReader.Create(new StringReader(entry.Description), new XmlReaderSettings { Async = true }))
+                    using (var contentXmlReader = XmlReader.Create(new StringReader(entry.Description), new XmlReaderSettings {Async = true}))
                     {
                         var atomEntry = new AtomEntry(entry, _dataContractSerializer.ReadObject(contentXmlReader));
 
@@ -128,9 +128,14 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
                         }
                     }
                 }
-                catch (Exception e) when (e is InvalidOperationException || e is ApplicationException)
+                catch (AtomResolveHandlerException e)
                 {
-                    _logger.LogWarning(e.Message, e);
+                    _logger.LogWarning(e, e.Message);
+                }
+                catch (Exception e)
+                {
+                    _logger.LogError(e, e.Message);
+                    throw;
                 }
             }
         }
