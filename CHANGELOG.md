@@ -1,3 +1,10 @@
+## [8.0.1](https://github.com/informatievlaanderen/projection-handling/compare/v8.0.0...v8.0.1) (2021-03-31)
+
+
+### Bug Fixes
+
+* sync feed only swallows AtomResolveHandlerException ([56c4893](https://github.com/informatievlaanderen/projection-handling/commit/56c48931debe5190268587653f789bf2f3cd52af))
+
 # [8.0.0](https://github.com/informatievlaanderen/projection-handling/compare/v7.1.0...v8.0.0) (2021-03-30)
 
 
