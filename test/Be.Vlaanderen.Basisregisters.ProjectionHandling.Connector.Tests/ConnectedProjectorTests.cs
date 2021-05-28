@@ -113,7 +113,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector.Tests
 
             await sut.ProjectAsync(connection, messages);
 
-            Assert.That(connection.RecordedCalls, Is.EquivalentTo(expectedCalls));
+            Assert.That(connection.RecordedCalls, Is.EqualTo(expectedCalls));
         }
 
         [TestCaseSource(typeof(ProjectorProjectCases), nameof(ProjectorProjectCases.ProjectMessagesWithTokenCases))]
@@ -128,7 +128,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector.Tests
 
             await sut.ProjectAsync(connection, messages, token);
 
-            Assert.That(connection.RecordedCalls, Is.EquivalentTo(expectedCalls));
+            Assert.That(connection.RecordedCalls, Is.EqualTo(expectedCalls));
         }
 
         [Test]
