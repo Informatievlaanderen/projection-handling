@@ -1,3 +1,10 @@
+## [8.0.3](https://github.com/informatievlaanderen/projection-handling/compare/v8.0.2...v8.0.3) (2021-10-20)
+
+
+### Bug Fixes
+
+* removed static fields, with no static use ([2b16303](https://github.com/informatievlaanderen/projection-handling/commit/2b163037c1d8373425ae2ee239eaabee47dd5a11))
+
 ## [8.0.2](https://github.com/informatievlaanderen/projection-handling/compare/v8.0.1...v8.0.2) (2021-05-28)
 
 
