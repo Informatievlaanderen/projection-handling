@@ -29,10 +29,9 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
         private readonly IRegistryAtomFeedReader _atomFeedReader;
         private readonly DataContractSerializer _dataContractSerializer;
         private readonly AtomEntryProjectionHandlerResolver<TMessage, TContext> _atomEntryProjectionHandlerResolver;
-
-        // ReSharper disable StaticMemberInGenericType
-        public static string RunnerName { get; private set; }
-        public static Uri FeedUri { get; private set; }
+                
+        public string RunnerName { get; }
+        public Uri FeedUri { get; }
         public string FeedUserName { get; }
         public string FeedPassword { get; }
         public bool EmbedEvent { get; }
