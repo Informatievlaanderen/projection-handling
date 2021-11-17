@@ -1,3 +1,10 @@
+# [8.1.0](https://github.com/informatievlaanderen/projection-handling/compare/v8.0.3...v8.1.0) (2021-11-17)
+
+
+### Features
+
+* add ConnectedProjectionTest ([665f1fa](https://github.com/informatievlaanderen/projection-handling/commit/665f1fa2d05a0e43cbd5b48be4fae5152492a1f5))
+
 ## [8.0.3](https://github.com/informatievlaanderen/projection-handling/compare/v8.0.2...v8.0.3) (2021-10-20)
 
 
