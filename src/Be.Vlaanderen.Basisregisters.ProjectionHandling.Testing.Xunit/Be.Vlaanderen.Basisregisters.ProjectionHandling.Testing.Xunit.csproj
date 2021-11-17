@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <Compile Include="..\Be.Vlaanderen.Basisregisters.ProjectionHandling.Testing.NUnit\ExtensionsForConnectedProjectionTestSpecification.cs" Link="ExtensionsForConnectedProjectionTestSpecification.cs" />
+    <Compile Include="..\Be.Vlaanderen.Basisregisters.ProjectionHandling.Testing.NUnit\ConnectedProjectionTest.cs" Link="ConnectedProjectionTest.cs" />
   </ItemGroup>
 
   <ItemGroup>
