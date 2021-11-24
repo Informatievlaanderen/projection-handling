@@ -37,7 +37,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
             modelBuilder.AddEntityConfigurationsFromAssembly(typeof(TContext).GetTypeInfo().Assembly);
         }
 
-        public async Task UpdateProjectionState(string projectionName, long position, CancellationToken cancellationToken)
+        public virtual async Task UpdateProjectionState(string projectionName, long position, CancellationToken cancellationToken)
         {
             var projectionStateItem = await ProjectionStates.SingleOrDefaultAsync(item => item.Name == projectionName, cancellationToken);
 
@@ -50,7 +50,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
             projectionStateItem.Position = position;
         }
 
-        public async Task SetErrorMessage(string projectionName, string? errorMessage, CancellationToken cancellationToken)
+        public virtual async Task SetErrorMessage(string projectionName, string? errorMessage, CancellationToken cancellationToken)
         {
             var projectionStateItem = await ProjectionStates.SingleOrDefaultAsync(item => item.Name == projectionName, cancellationToken);
 
@@ -67,7 +67,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
             projectionStateItem.ErrorMessage = errorMessage;
         }
 
-        public async Task UpdateProjectionDesiredState(string projectionName, string desiredState, CancellationToken cancellationToken)
+        public virtual async Task UpdateProjectionDesiredState(string projectionName, string desiredState, CancellationToken cancellationToken)
         {
             var projectionStateItem = await ProjectionStates.SingleOrDefaultAsync(item => item.Name == projectionName, cancellationToken);
 
