@@ -10,7 +10,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList
     public abstract class LastChangedListConnectedProjection : ConnectedProjection<LastChangedListContext>
     {
         protected abstract string CacheKeyFormat { get; }
-        protected abstract string UriFormat { get; }
+        protected abstract string BuildUri(AcceptType acceptType, string identifier);
 
         private readonly AcceptType[] _supportedAcceptTypes;
         private readonly int _commandTimeoutInSeconds;
@@ -73,7 +73,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList
                     {
                         Id = id,
                         CacheKey = string.Format(CacheKeyFormat, identifier, shortenedApplicationType),
-                        Uri = string.Format(UriFormat, identifier),
+                        Uri = BuildUri(acceptType, identifier),
                         AcceptType = GetApplicationType(acceptType)
                     };
 
