@@ -1,3 +1,17 @@
+# [9.0.0](https://github.com/informatievlaanderen/projection-handling/compare/v8.1.0...v9.0.0) (2021-11-25)
+
+
+### Features
+
+* refactor BuildUri + BuildCacheKey GAWR-666 ([e09e067](https://github.com/informatievlaanderen/projection-handling/commit/e09e0672b9e24b8579f69cd21ba65ef84fc9ab08))
+* the RunnerDbContext methods are now overridable ([045cf9b](https://github.com/informatievlaanderen/projection-handling/commit/045cf9b9bf4dbac600524c0e104108acfa53da5b))
+
+
+### BREAKING CHANGES
+
+* - Replaced UriFormat property with BuildUri method to allow flexibility for uri per accept type
+- Replaced CacheKeyFormat property with BuildCacheKey method to allow the same flexibility
+
 # [8.1.0](https://github.com/informatievlaanderen/projection-handling/compare/v8.0.3...v8.1.0) (2021-11-17)
 
 
