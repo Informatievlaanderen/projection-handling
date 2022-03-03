@@ -87,47 +87,6 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList
             return attachedRecords;
         }
 
-        protected async Task<IEnumerable<LastChangedRecord>> GetLastChangedRecordsAndUpdatePositionAndETag(
-            string identifier,
-            long position,
-            string etag,
-            LastChangedListContext context,
-            CancellationToken cancellationToken)
-        {
-            context.Database.SetCommandTimeout(_commandTimeoutInSeconds);
-            var attachedRecords = new List<LastChangedRecord>();
-
-            // Create a record for every type that our API accepts.
-            foreach (var acceptType in _supportedAcceptTypes)
-            {
-                var shortenedApplicationType = acceptType.ToString().ToLowerInvariant();
-                var id = $"{identifier}.{shortenedApplicationType}";
-
-                var record = await context
-                    .LastChangedList
-                    .FindAsync(id, cancellationToken: cancellationToken);
-
-                if (record == null)
-                {
-                    record = new LastChangedRecord
-                    {
-                        Id = id,
-                        CacheKey = BuildCacheKey(acceptType, identifier),
-                        Uri = BuildUri(acceptType, identifier),
-                        AcceptType = GetApplicationType(acceptType)
-                    };
-
-                    await context.LastChangedList.AddAsync(record, cancellationToken);
-                }
-
-                record.Position = position;
-                record.ETag = etag;
-                attachedRecords.Add(record);
-            }
-
-            return attachedRecords;
-        }
-
         private static string GetApplicationType(AcceptType acceptType)
         {
             return acceptType switch
