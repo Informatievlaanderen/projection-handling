@@ -1,3 +1,10 @@
+# [9.1.0](https://github.com/informatievlaanderen/projection-handling/compare/v9.0.0...v9.1.0) (2022-03-03)
+
+
+### Features
+
+* add e-tag to LastChangedRecord ([adb2d93](https://github.com/informatievlaanderen/projection-handling/commit/adb2d93743addd3143a4be94b73e2dda53173c10))
+
 # [9.0.0](https://github.com/informatievlaanderen/projection-handling/compare/v8.1.0...v9.0.0) (2021-11-25)
 
 
