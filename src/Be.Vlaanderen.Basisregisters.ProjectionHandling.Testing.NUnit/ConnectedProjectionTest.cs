@@ -52,7 +52,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Testing
         {
             _context = When.Given(events.Select(e =>
             {
-                if (e is Envelope || (e.GetType().IsGenericTypeDefinition && e.GetType().GetGenericTypeDefinition() == typeof(Envelope<>)))
+                if (e is Envelope || (e.GetType().IsGenericType && e.GetType().GetGenericTypeDefinition() == typeof(Envelope<>)))
                 {
                     return e;
                 }
