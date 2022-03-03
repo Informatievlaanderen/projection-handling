@@ -1,3 +1,10 @@
+## [9.1.2](https://github.com/informatievlaanderen/projection-handling/compare/v9.1.1...v9.1.2) (2022-03-03)
+
+
+### Bug Fixes
+
+* do not envelope already enveloped events ([eb3e4a1](https://github.com/informatievlaanderen/projection-handling/commit/eb3e4a1ca6de677245a937ba17273faa2d35d25e))
+
 ## [9.1.1](https://github.com/informatievlaanderen/projection-handling/compare/v9.1.0...v9.1.1) (2022-03-03)
 
 
