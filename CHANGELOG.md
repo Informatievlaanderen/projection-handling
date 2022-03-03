@@ -1,3 +1,10 @@
+## [9.1.4](https://github.com/informatievlaanderen/projection-handling/compare/v9.1.3...v9.1.4) (2022-03-03)
+
+
+### Bug Fixes
+
+* IsGenericType instead of IsGenericTypeDefinition ([408aa96](https://github.com/informatievlaanderen/projection-handling/commit/408aa967f45302c79c29e12f5ab6d9d3cc47af37))
+
 ## [9.1.3](https://github.com/informatievlaanderen/projection-handling/compare/v9.1.2...v9.1.3) (2022-03-03)
 
 
