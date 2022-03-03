@@ -51,7 +51,13 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Testing
         public ConnectedProjectionTest<TContext, TProjection> Given(params object[] events)
         {
             _context = When.Given(events.Select(e =>
-                    new Envelope(e, new ConcurrentDictionary<string, object>()).ToGenericEnvelope()));
+            {
+                if (e is Envelope || e.GetType().GetGenericTypeDefinition() == typeof(Envelope<>))
+                {
+                    return e;
+                }
+                return new Envelope(e, new ConcurrentDictionary<string, object>()).ToGenericEnvelope();
+            }));
 
             return this;
         }
