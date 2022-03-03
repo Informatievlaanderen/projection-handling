@@ -1,3 +1,10 @@
+## [9.1.3](https://github.com/informatievlaanderen/projection-handling/compare/v9.1.2...v9.1.3) (2022-03-03)
+
+
+### Bug Fixes
+
+* generic envelope check for projection test ([92a48b9](https://github.com/informatievlaanderen/projection-handling/commit/92a48b9a9dfee1fa649147a5be9daefe69e63415))
+
 ## [9.1.2](https://github.com/informatievlaanderen/projection-handling/compare/v9.1.1...v9.1.2) (2022-03-03)
 
 
