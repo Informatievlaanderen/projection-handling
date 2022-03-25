@@ -14,9 +14,9 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.MigrationExtens
         public ExtendedSqlServerMigrationsAnnotationProvider(RelationalAnnotationProviderDependencies dependencies) : base(dependencies)
         { }
 
-        public override IEnumerable<IAnnotation> For(ITableIndex index)
+        public override IEnumerable<IAnnotation> For(ITableIndex index, bool designTime)
         {
-            var baseAnnotations = base.For(index);
+            var baseAnnotations = base.For(index, designTime);
             var customAnnotations = index.GetAnnotations().Where(a => a.Name == IndexExtensions.ColumnStoreIndexAnnotationName);
 
             return baseAnnotations.Concat(customAnnotations);
