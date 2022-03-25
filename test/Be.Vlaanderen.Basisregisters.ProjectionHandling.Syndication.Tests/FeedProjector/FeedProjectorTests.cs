@@ -30,9 +30,9 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication.Tests.Feed
             () => _sut.Start(CancellationToken.None);
 
         [Fact]
-        public void Then_the_projector_does_not_throw_an_exception()
+        public async Task Then_the_projector_does_not_throw_an_exception()
         {
-           StartProjections.Should().NotThrowAsync();
+           await StartProjections.Should().NotThrowAsync();
         }
 
         [Fact]
