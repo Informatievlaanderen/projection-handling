@@ -1,3 +1,15 @@
+# [10.0.0](https://github.com/informatievlaanderen/projection-handling/compare/v9.1.4...v10.0.0) (2022-03-25)
+
+
+### Features
+
+* move to dotnet 6.0.3 ([36de26b](https://github.com/informatievlaanderen/projection-handling/commit/36de26bc2a04abbcacfe58777f181a13be35e191))
+
+
+### BREAKING CHANGES
+
+* move to dotnet 6.0.3
+
 ## [9.1.4](https://github.com/informatievlaanderen/projection-handling/compare/v9.1.3...v9.1.4) (2022-03-03)
 
 
