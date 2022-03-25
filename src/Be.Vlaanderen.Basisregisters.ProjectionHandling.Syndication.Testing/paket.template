@@ -15,7 +15,7 @@ licenseUrl https://opensource.org/licenses/MIT
 description Lightweight projection handling infrastructure.
 
 dependencies
-  framework: net5.0
+  framework: net6.0
     Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication CURRENTVERSION
 
     Microsoft.SyndicationFeed.ReaderWriter >= LOCKEDVERSION
@@ -23,5 +23,5 @@ dependencies
     FluentAssertions >= LOCKEDVERSION
 
 files
-  bin\Release\net5.0\Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication.Testing.dll => lib\net5.0
-  bin\Release\net5.0\Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication.Testing.pdb => lib\net5.0
+  bin\Release\net6.0\Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication.Testing.dll => lib\net6.0
+  bin\Release\net6.0\Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication.Testing.pdb => lib\net6.0

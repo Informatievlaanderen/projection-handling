@@ -32,7 +32,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication.Tests.Feed
         [Fact]
         public void Then_the_projector_does_not_throw_an_exception()
         {
-           StartProjections.Should().NotThrow();
+           StartProjections.Should().NotThrowAsync();
         }
 
         [Fact]
