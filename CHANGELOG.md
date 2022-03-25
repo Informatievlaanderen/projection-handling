@@ -1,3 +1,10 @@
+## [10.0.1](https://github.com/informatievlaanderen/projection-handling/compare/v10.0.0...v10.0.1) (2022-03-25)
+
+
+### Bug Fixes
+
+* test in FeedProjectorTests ([43f278a](https://github.com/informatievlaanderen/projection-handling/commit/43f278aa1c915eefa23bdfdad5ab751e1560c85f))
+
 # [10.0.0](https://github.com/informatievlaanderen/projection-handling/compare/v9.1.4...v10.0.0) (2022-03-25)
 
 
