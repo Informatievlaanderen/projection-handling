@@ -26,9 +26,12 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector
         /// <param name="handler">The message handler.</param>
         /// <exception cref="System.ArgumentNullException">Thrown when <paramref name="handler" /> is <c>null</c>.</exception>
         protected void When<TMessage>(Func<TConnection, TMessage, Task> handler)
+            where TMessage : IMessage
         {
             if (handler == null)
+            {
                 throw new ArgumentNullException(nameof(handler));
+            }
 
             _handlers.Add(
                 new ConnectedProjectionHandler<TConnection>(
@@ -45,7 +48,9 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector
         protected void When<TMessage>(Action<TConnection, TMessage> handler)
         {
             if (handler == null)
+            {
                 throw new ArgumentNullException(nameof(handler));
+            }
 
             _handlers.Add(
                 new ConnectedProjectionHandler<TConnection>(
@@ -53,7 +58,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector
                     (connection, message, token) =>
                     {
                         handler(connection, (TMessage) message);
-                        return Task.FromResult<object>(null);
+                        return Task.CompletedTask;
                     }));
         }
 
@@ -66,7 +71,9 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector
         protected void When<TMessage>(Func<TConnection, TMessage, CancellationToken, Task> handler)
         {
             if (handler == null)
+            {
                 throw new ArgumentNullException(nameof(handler));
+            }
 
             _handlers.Add(
                 new ConnectedProjectionHandler<TConnection>(
