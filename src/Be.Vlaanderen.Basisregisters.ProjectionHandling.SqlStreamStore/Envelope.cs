@@ -5,8 +5,10 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore
     using System.Collections.Generic;
     using System.Linq;
     using System.Linq.Expressions;
+    using EventHandling;
 
     public class Envelope<TMessage> // Used by handlers
+        where TMessage : IMessage
     {
         private readonly Envelope _envelope;
 
