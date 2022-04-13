@@ -1,3 +1,15 @@
+# [11.0.0](https://github.com/informatievlaanderen/projection-handling/compare/v10.0.1...v11.0.0) (2022-04-13)
+
+
+### Features
+
+* add IMessage constraint on Envelope ([2a34560](https://github.com/informatievlaanderen/projection-handling/commit/2a34560539120659b01d1810f74fa65646ccafce))
+
+
+### BREAKING CHANGES
+
+* Introduce IMessage constraint on `Envelope`
+
 ## [10.0.1](https://github.com/informatievlaanderen/projection-handling/compare/v10.0.0...v10.0.1) (2022-03-25)
 
 
