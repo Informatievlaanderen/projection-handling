@@ -33,8 +33,8 @@ nuget Be.Vlaanderen.Basisregisters.Build.Pipeline 6.0.3
 
 nuget Be.Vlaanderen.Basisregisters.AggregateSource.SqlStreamStore.Autofac 6.0.0
 
-nuget Be.Vlaanderen.Basisregisters.EventHandling 4.0.0
-nuget Be.Vlaanderen.Basisregisters.EventHandling.Autofac 4.0.0
+nuget Be.Vlaanderen.Basisregisters.EventHandling 4.1.0
+nuget Be.Vlaanderen.Basisregisters.EventHandling.Autofac 4.1.0
 
 nuget Be.Vlaanderen.Basisregisters.EntityFrameworkCore.EntityTypeConfiguration 3.0.0
 

@@ -97,7 +97,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.Tests
 
     [EventName("TestMessage")]
     [EventDescription("TestMessage description")]
-    public class TestMessage
+    public class TestMessage : IMessage
     {
         public int Id { get; set; }
     }
