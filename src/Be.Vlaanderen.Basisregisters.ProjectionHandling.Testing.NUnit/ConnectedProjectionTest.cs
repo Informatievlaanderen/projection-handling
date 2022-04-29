@@ -16,9 +16,10 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Testing
     /// <typeparam name="TContext"></typeparam>
     /// <typeparam name="TProjection"></typeparam>
     public class ConnectedProjectionTest<TContext, TProjection>
-        where TProjection : ConnectedProjection<TContext>, new() where TContext : DbContext
+        where TProjection : ConnectedProjection<TContext> where TContext : DbContext
     {
         private readonly Func<TContext> _createContextFactory;
+        private readonly Func<TProjection> _projectionFactory;
         private ConnectedProjectionScenario<TContext> _context;
 
         /// <summary>
@@ -28,7 +29,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Testing
         {
             get
             {
-                var projection = new TProjection();
+                var projection = _projectionFactory();
                 var resolver = ConcurrentResolve.WhenEqualToHandlerMessageType(projection.Handlers);
                 return new ConnectedProjectionScenario<TContext>(resolver);
             }
@@ -38,9 +39,11 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Testing
         /// ctor of the ConnectedProjectionTest
         /// </summary>
         /// <param name="createContextFactory">factory method on how to create the context</param>
-        public ConnectedProjectionTest(Func<TContext> createContextFactory)
+        /// <param name="projectionFactory">factory method on how to create the projection</param>
+        public ConnectedProjectionTest(Func<TContext> createContextFactory, Func<TProjection> projectionFactory)
         {
             _createContextFactory = createContextFactory;
+            _projectionFactory = projectionFactory;
         }
 
         /// <summary>
