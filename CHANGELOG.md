@@ -1,3 +1,10 @@
+## [11.0.2](https://github.com/informatievlaanderen/projection-handling/compare/v11.0.1...v11.0.2) (2022-04-29)
+
+
+### Bug Fixes
+
+* run sonar end when release version != none ([e046bdc](https://github.com/informatievlaanderen/projection-handling/commit/e046bdcde99473d3c325189557a41b7ee1a1dd24))
+
 ## [11.0.1](https://github.com/informatievlaanderen/projection-handling/compare/v11.0.0...v11.0.1) (2022-04-29)
 
 
