@@ -1,3 +1,11 @@
+## [11.0.1](https://github.com/informatievlaanderen/projection-handling/compare/v11.0.0...v11.0.1) (2022-04-29)
+
+
+### Bug Fixes
+
+* redirect sonar to /dev/null ([5d35c53](https://github.com/informatievlaanderen/projection-handling/commit/5d35c53510c3468606b0cb7732dd633c6be5670d))
+* relax requirement on `TProjection` for `ConnectedProjectionTest` ([12cf4da](https://github.com/informatievlaanderen/projection-handling/commit/12cf4da466a93bf09d49ecb17a221209bd221d4d))
+
 # [11.0.0](https://github.com/informatievlaanderen/projection-handling/compare/v10.0.1...v11.0.0) (2022-04-13)
 
 
