@@ -17,7 +17,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
     public interface IFeedProjectionRunner<TContext>
         where TContext : RunnerDbContext<TContext>
     {
-        Task CatchUpAsync(Func<Owned<TContext>> context, CancellationToken cancellationToken);
+        Task CatchUpAsync(Func<Owned<TContext>> contextFactory, CancellationToken cancellationToken);
     }
 
     public class FeedProjectionRunner<TMessage, TContent, TContext> : IFeedProjectionRunner<TContext>
@@ -64,12 +64,12 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
         }
 
         public async Task CatchUpAsync(
-            Func<Owned<TContext>> context,
+            Func<Owned<TContext>> contextFactory,
             CancellationToken cancellationToken)
         {
             // Discover last projected position
             long? position;
-            await using (var ctx = context().Value)
+            await using (var context = contextFactory().Value)
             {
                 var dbPosition = await ctx
                     .ProjectionStates
@@ -90,7 +90,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
                         break;
                     }
 
-                    await using (var ctx = context().Value)
+                    await using (var context = contextFactory().Value)
                     {
                         await ProjectAtomEntriesAsync(entries, ctx, cancellationToken);
 
@@ -113,13 +113,14 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
         {
             foreach (var entry in entries)
             {
-                _logger.LogInformation($"[{DateTime.Now}] [{entry.Id}] [{entry.Title}]");
+                var logMessage = $"[{DateTime.Now}] [{entry.Id}] [{entry.Title}]";
+                _logger.LogInformation(logMessage);
 
                 try
                 {
                     using var contentXmlReader = XmlReader.Create(new StringReader(entry.Description), new XmlReaderSettings {Async = true});
                     var content = _dataContractSerializer.ReadObject(contentXmlReader);
-                    if (content != null)
+                    if (content is not null)
                     {
                         var atomEntry = new AtomEntry(entry, content);
 
