@@ -71,7 +71,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
             long? position;
             await using (var context = contextFactory().Value)
             {
-                var dbPosition = await ctx
+                var dbPosition = await context
                     .ProjectionStates
                     .SingleOrDefaultAsync(p => p.Name == RunnerName, cancellationToken);
 
@@ -92,10 +92,10 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
 
                     await using (var context = contextFactory().Value)
                     {
-                        await ProjectAtomEntriesAsync(entries, ctx, cancellationToken);
+                        await ProjectAtomEntriesAsync(entries, context, cancellationToken);
 
-                        await ctx.UpdateProjectionState(RunnerName, lastEntryId, cancellationToken);
-                        await ctx.SaveChangesAsync(cancellationToken);
+                        await context.UpdateProjectionState(RunnerName, lastEntryId, cancellationToken);
+                        await context.SaveChangesAsync(cancellationToken);
                     }
 
                     position = lastEntryId + 1;
