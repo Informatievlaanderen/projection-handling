@@ -64,21 +64,21 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
         }
 
         public async Task CatchUpAsync(
-            Func<Owned<TContext>> contextFactory,
-            CancellationToken cancellationToken = default)
+            Func<Owned<TContext>> context,
+            CancellationToken cancellationToken)
         {
             // Discover last projected position
             long? position;
-            using (var context = contextFactory().Value)
+            await using (var ctx = context().Value)
             {
-                var dbPosition = await context
+                var dbPosition = await ctx
                     .ProjectionStates
                     .SingleOrDefaultAsync(p => p.Name == RunnerName, cancellationToken);
 
                 position = dbPosition?.Position + 1;
             }
 
-            while (true)
+            while (!cancellationToken.IsCancellationRequested)
             {
                 // Read new events
                 var entries = (await _atomFeedReader.ReadEntriesAsync(FeedUri, position, FeedUserName, FeedPassword, EmbedEvent, EmbedObject)).ToList();
@@ -86,14 +86,16 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
                 while (entries.Any())
                 {
                     if (!long.TryParse(entries.Last().Id, out var lastEntryId))
-                        break;
-
-                    using (var context = contextFactory().Value)
                     {
-                        await ProjectAtomEntriesAsync(entries, context, cancellationToken);
+                        break;
+                    }
 
-                        await context.UpdateProjectionState(RunnerName, lastEntryId, cancellationToken);
-                        await context.SaveChangesAsync(cancellationToken);
+                    await using (var ctx = context().Value)
+                    {
+                        await ProjectAtomEntriesAsync(entries, ctx, cancellationToken);
+
+                        await ctx.UpdateProjectionState(RunnerName, lastEntryId, cancellationToken);
+                        await ctx.SaveChangesAsync(cancellationToken);
                     }
 
                     position = lastEntryId + 1;
@@ -115,9 +117,11 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
 
                 try
                 {
-                    using (var contentXmlReader = XmlReader.Create(new StringReader(entry.Description), new XmlReaderSettings {Async = true}))
+                    using var contentXmlReader = XmlReader.Create(new StringReader(entry.Description), new XmlReaderSettings {Async = true});
+                    var content = _dataContractSerializer.ReadObject(contentXmlReader);
+                    if (content != null)
                     {
-                        var atomEntry = new AtomEntry(entry, _dataContractSerializer.ReadObject(contentXmlReader));
+                        var atomEntry = new AtomEntry(entry, content);
 
                         foreach (var resolvedProjectionHandler in _atomEntryProjectionHandlerResolver(atomEntry))
                         {
