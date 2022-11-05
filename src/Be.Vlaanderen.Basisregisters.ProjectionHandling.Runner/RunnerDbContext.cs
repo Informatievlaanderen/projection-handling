@@ -8,13 +8,15 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
     using Microsoft.EntityFrameworkCore;
     using ProjectionStates;
 
-    public abstract class RunnerDbContext<TContext> : DbContext where TContext : DbContext
+    public abstract class RunnerDbContext<TContext> : DbContext
+        where TContext : DbContext
     {
         public abstract string ProjectionStateSchema { get; }
 
-        public DbSet<ProjectionStateItem> ProjectionStates { get; set; }
+        public DbSet<ProjectionStateItem>? ProjectionStates { get; set; }
 
-        protected RunnerDbContext() { }
+        protected RunnerDbContext()
+        { }
 
         // This needs to be DbContextOptions<T> for Autofac!
         protected RunnerDbContext(DbContextOptions<TContext> options) : base(options) { }
@@ -24,7 +26,9 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
             base.OnConfiguring(optionsBuilder);
 
             if (!optionsBuilder.IsConfigured)
+            {
                 OnConfiguringOptionsBuilder(optionsBuilder);
+            }
         }
 
         protected virtual void OnConfiguringOptionsBuilder(DbContextOptionsBuilder optionsBuilder) { }
@@ -37,8 +41,13 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
             modelBuilder.AddEntityConfigurationsFromAssembly(typeof(TContext).GetTypeInfo().Assembly);
         }
 
-        public virtual async Task UpdateProjectionState(string projectionName, long position, CancellationToken cancellationToken)
+        public virtual async Task UpdateProjectionState(string? projectionName, long position, CancellationToken cancellationToken)
         {
+            if (projectionName is null || ProjectionStates is null)
+            {
+                return;
+            }
+
             var projectionStateItem = await ProjectionStates.SingleOrDefaultAsync(item => item.Name == projectionName, cancellationToken);
 
             if (projectionStateItem == null)
@@ -52,6 +61,11 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
 
         public virtual async Task SetErrorMessage(string projectionName, string? errorMessage, CancellationToken cancellationToken)
         {
+            if (ProjectionStates is null)
+            {
+                return;
+            }
+
             var projectionStateItem = await ProjectionStates.SingleOrDefaultAsync(item => item.Name == projectionName, cancellationToken);
 
             if (projectionStateItem == null)
@@ -69,6 +83,11 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
 
         public virtual async Task UpdateProjectionDesiredState(string projectionName, string desiredState, CancellationToken cancellationToken)
         {
+            if (ProjectionStates is null)
+            {
+                return;
+            }
+
             var projectionStateItem = await ProjectionStates.SingleOrDefaultAsync(item => item.Name == projectionName, cancellationToken);
 
             if (projectionStateItem == null)

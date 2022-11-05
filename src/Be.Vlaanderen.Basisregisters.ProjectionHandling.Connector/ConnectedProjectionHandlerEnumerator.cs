@@ -8,7 +8,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector
     /// <summary>
     /// Represents a <see cref="T:Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector.ConnectedProjectionHandler`1" /> array enumerator.
     /// </summary>
-    public class ConnectedProjectionHandlerEnumerator<TConnection> : IEnumerator<ConnectedProjectionHandler<TConnection>>
+    public sealed class ConnectedProjectionHandlerEnumerator<TConnection> : IEnumerator<ConnectedProjectionHandler<TConnection>>
     {
         private readonly ConnectedProjectionHandler<TConnection>[] _handlers;
         private int _index;
@@ -53,10 +53,14 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector
             get
             {
                 if (_index == -1)
+                {
                     throw new InvalidOperationException("Enumeration has not started. Call MoveNext.");
+                }
 
                 if (_index == _handlers.Length)
+                {
                     throw new InvalidOperationException("Enumeration has already ended. Call Reset.");
+                }
 
                 return _handlers[_index];
             }
@@ -72,6 +76,9 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector
         /// <summary>
         /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
         /// </summary>
-        public void Dispose() { }
+        public void Dispose()
+        {
+            // intentionally left blank
+        }
     }
 }
