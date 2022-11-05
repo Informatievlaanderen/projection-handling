@@ -23,7 +23,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
         private readonly ConnectedProjector<TContext> _projector;
 
         // ReSharper disable once StaticMemberInGenericType
-        public static string RunnerName { get; private set; }
+        public static string? RunnerName { get; private set; }
 
         public int CatchupThreshold { get; set; } = 1000;
         public int CatchupPageSize { get; set; } = 1000;
@@ -96,14 +96,12 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
 
                         if (_envelopeFactory.TryCreate(message, out var envelope))
                         {
-                            using (var context = contextFactory().Value)
-                            {
-                                await context.UpdateProjectionState(RunnerName, message.Position, cancellationToken);
+                            await using var context = contextFactory().Value;
+                            await context.UpdateProjectionState(RunnerName, message.Position, cancellationToken);
 
-                                await _projector.ProjectAsync(context, envelope, cancellationToken);
+                            await _projector.ProjectAsync(context, envelope, cancellationToken);
 
-                                await context.SaveChangesAsync(cancellationToken);
-                            }
+                            await context.SaveChangesAsync(cancellationToken);
                         }
                         else
                         {
@@ -144,7 +142,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
 
             // discover runner position
             long? position;
-            using (var context = contextFactory().Value)
+            await using (var context = contextFactory().Value)
             {
                 var dbPosition = await context
                     .ProjectionStates
@@ -182,14 +180,12 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
 
                             if (_envelopeFactory.TryCreate(message, out var envelope))
                             {
-                                using (var context = contextFactory().Value)
-                                {
-                                    await context.UpdateProjectionState(RunnerName, message.Position, cancellationToken);
+                                await using var context = contextFactory().Value;
+                                await context.UpdateProjectionState(RunnerName, message.Position, cancellationToken);
 
-                                    await _projector.ProjectAsync(context, envelope, cancellationToken);
+                                await _projector.ProjectAsync(context, envelope, cancellationToken);
 
-                                    await context.SaveChangesAsync(cancellationToken);
-                                }
+                                await context.SaveChangesAsync(cancellationToken);
                             }
                             else
                             {
@@ -231,12 +227,14 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
                     page.Messages.Length,
                     page.FromPosition);
 
-                using (var context = contextFactory().Value)
+                await using (var context = contextFactory().Value)
                 {
                     foreach (var message in page.Messages)
                     {
                         if (message.Position == fromPositionInclusive && message.Position != global::SqlStreamStore.Streams.Position.Start)
+                        {
                             continue; // because fromPosition should be exclusive
+                        }
 
                         positionOfLastMessageOnPage = message.Position;
                         _logger.LogTrace(
@@ -262,7 +260,9 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
                     }
 
                     if (positionOfLastMessageOnPage.HasValue)
+                    {
                         await context.UpdateProjectionState(RunnerName, positionOfLastMessageOnPage.Value, cancellationToken);
+                    }
 
                     await context.SaveChangesAsync(cancellationToken);
                 }
@@ -275,39 +275,39 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
                         page.Messages.Length,
                         page.FromPosition);
 
-                    using (var context = contextFactory().Value)
+                    await using var context = contextFactory().Value;
+                    positionOfLastMessageOnPage = null;
+                    foreach (var message in page.Messages)
                     {
-                        positionOfLastMessageOnPage = null;
-                        foreach (var message in page.Messages)
+                        positionOfLastMessageOnPage = message.Position;
+                        _logger.LogTrace(
+                            "[{Latency}] [POS {Position}] [{StreamId}] [{Type}]",
+                            DateTime.UtcNow - message.CreatedUtc, // This is not very precise since we could have differing clocks, and should be seen as merely informational
+                            message.Position,
+                            message.StreamId,
+                            message.Type);
+
+                        if (_envelopeFactory.TryCreate(message, out var envelope))
                         {
-                            positionOfLastMessageOnPage = message.Position;
-                            _logger.LogTrace(
-                                "[{Latency}] [POS {Position}] [{StreamId}] [{Type}]",
-                                DateTime.UtcNow - message.CreatedUtc, // This is not very precise since we could have differing clocks, and should be seen as merely informational
+                            await _projector.ProjectAsync(context, envelope, cancellationToken);
+                        }
+                        else
+                        {
+                            _logger.LogDebug(
+                                "Skipping message {Type} at position {Position} in stream {Stream}@{Version} because it does not appear in the event mapping",
+                                message.Type,
                                 message.Position,
                                 message.StreamId,
-                                message.Type);
-
-                            if (_envelopeFactory.TryCreate(message, out var envelope))
-                            {
-                                await _projector.ProjectAsync(context, envelope, cancellationToken);
-                            }
-                            else
-                            {
-                                _logger.LogDebug(
-                                    "Skipping message {Type} at position {Position} in stream {Stream}@{Version} because it does not appear in the event mapping",
-                                    message.Type,
-                                    message.Position,
-                                    message.StreamId,
-                                    message.StreamVersion);
-                            }
+                                message.StreamVersion);
                         }
-
-                        if (positionOfLastMessageOnPage.HasValue)
-                            await context.UpdateProjectionState(RunnerName, positionOfLastMessageOnPage.Value, cancellationToken);
-
-                        await context.SaveChangesAsync(cancellationToken);
                     }
+
+                    if (positionOfLastMessageOnPage.HasValue)
+                    {
+                        await context.UpdateProjectionState(RunnerName, positionOfLastMessageOnPage.Value, cancellationToken);
+                    }
+
+                    await context.SaveChangesAsync(cancellationToken);
                 }
 
                 await StartAsyncInternal(streamStore, contextFactory, cancellationToken); // subscribe when done catching up
@@ -326,18 +326,34 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
             }
         }
 
-        public void Dispose() => CleanUp();
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                CleanUp();
+            }
+        }
 
         private void CleanUp()
         {
             while (_tasks.TryTake(out var task))
             {
                 if (task.IsCanceled || task.IsCompleted || task.IsFaulted)
+                {
                     task.Dispose();
+                }
             }
 
             while (_subscriptions.TryTake(out var subscription))
+            {
                 subscription.Dispose();
+            }
         }
     }
 }
