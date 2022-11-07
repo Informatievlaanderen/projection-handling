@@ -6,7 +6,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.MigrationExtens
 
     public static class IndexExtensions
     {
-        public static string ColumnStoreIndexAnnotationName = "SqlServer:ColumnStoreIndex";
+        public static readonly string ColumnStoreIndexAnnotationName = "SqlServer:ColumnStoreIndex";
 
         public static IndexBuilder IsColumnStore(this IndexBuilder indexBuilder, string name)
         {
