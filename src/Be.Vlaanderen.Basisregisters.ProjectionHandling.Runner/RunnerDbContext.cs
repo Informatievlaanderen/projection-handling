@@ -13,7 +13,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
     {
         public abstract string ProjectionStateSchema { get; }
 
-        public DbSet<ProjectionStateItem>? ProjectionStates { get; set; }
+        public DbSet<ProjectionStateItem> ProjectionStates => Set<ProjectionStateItem>();
 
         protected RunnerDbContext()
         { }
@@ -43,7 +43,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
 
         public virtual async Task UpdateProjectionState(string? projectionName, long position, CancellationToken cancellationToken)
         {
-            if (projectionName is null || ProjectionStates is null)
+            if (projectionName is null)
             {
                 return;
             }
@@ -61,11 +61,6 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
 
         public virtual async Task SetErrorMessage(string projectionName, string? errorMessage, CancellationToken cancellationToken)
         {
-            if (ProjectionStates is null)
-            {
-                return;
-            }
-
             var projectionStateItem = await ProjectionStates.SingleOrDefaultAsync(item => item.Name == projectionName, cancellationToken);
 
             if (projectionStateItem == null)
@@ -83,11 +78,6 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
 
         public virtual async Task UpdateProjectionDesiredState(string projectionName, string desiredState, CancellationToken cancellationToken)
         {
-            if (ProjectionStates is null)
-            {
-                return;
-            }
-
             var projectionStateItem = await ProjectionStates.SingleOrDefaultAsync(item => item.Name == projectionName, cancellationToken);
 
             if (projectionStateItem == null)
