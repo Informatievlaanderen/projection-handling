@@ -3,14 +3,22 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
     using System;
     using System.Runtime.Serialization;
 
-    public class AtomResolveHandlerException : Exception
+    [Serializable]
+    public sealed class AtomResolveHandlerException : Exception
     {
-        public AtomResolveHandlerException() { }
+        public AtomResolveHandlerException()
+        { }
 
-        protected AtomResolveHandlerException(SerializationInfo info, StreamingContext context) : base(info, context) { }
+        private AtomResolveHandlerException(SerializationInfo info, StreamingContext context)
+            : base(info, context)
+        { }
 
-        public AtomResolveHandlerException(string? message) : base(message) { }
+        public AtomResolveHandlerException(string? message)
+            : base(message)
+        { }
 
-        public AtomResolveHandlerException(string? message, Exception? innerException) : base(message, innerException) { }
+        public AtomResolveHandlerException(string? message, Exception? innerException)
+            : base(message, innerException)
+        { }
     }
 }
