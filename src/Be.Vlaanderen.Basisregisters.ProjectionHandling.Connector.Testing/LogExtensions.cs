@@ -33,7 +33,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector.Testing
 
         private static bool IsOfTypeAnonymous(this Type type)
         {
-            ArgumentNullException.ThrowIfNull(nameof(type));
+            ArgumentNullException.ThrowIfNull(type);
 
             // HACK: The only way to detect anonymous types right now.
             return Attribute.IsDefined(type, typeof(CompilerGeneratedAttribute), false) &&
