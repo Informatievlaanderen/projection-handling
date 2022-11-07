@@ -5,9 +5,9 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore.Autofac
 
     public class EnvelopeModule : Module
     {
-        protected override void Load(ContainerBuilder containerBuilder)
+        protected override void Load(ContainerBuilder builder)
         {
-            containerBuilder
+            builder
                 .Register(c => new EnvelopeFactory(c.Resolve<EventMapping>(), c.Resolve<EventDeserializer>()))
                 .As<EnvelopeFactory>();
         }
