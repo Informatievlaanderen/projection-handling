@@ -9,7 +9,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector.Testing
 
     public static class LogExtensions
     {
-        public static JsonSerializerSettings LogSerializerSettings = new JsonSerializerSettings();
+        public static readonly JsonSerializerSettings LogSerializerSettings = new JsonSerializerSettings();
 
         public static string ToLogStringLimited<T>(
             this IEnumerable<T> objects,
@@ -18,7 +18,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector.Testing
         {
             var objectsList = objects.ToList();
             return objectsList.Count < max
-                ? JsonConvert.SerializeObject(objectsList.Select(o => o.ToAnonymousWithTypeInfo()), formatting, LogSerializerSettings)
+                ? JsonConvert.SerializeObject(objectsList.Select(x => x?.ToAnonymousWithTypeInfo()), formatting, LogSerializerSettings)
                 : "...";
         }
 
@@ -33,8 +33,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector.Testing
 
         private static bool IsOfTypeAnonymous(this Type type)
         {
-            if (type == null)
-                throw new ArgumentNullException(nameof(type));
+            ArgumentNullException.ThrowIfNull(nameof(type));
 
             // HACK: The only way to detect anonymous types right now.
             return Attribute.IsDefined(type, typeof(CompilerGeneratedAttribute), false) &&
