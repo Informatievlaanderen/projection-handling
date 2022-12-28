@@ -1,0 +1,14 @@
+Microsoft.EntityFrameworkCore.SqlServer
+Microsoft.EntityFrameworkCore.Design
+
+Microsoft.Extensions.DependencyInjection
+
+SqlStreamStore.MsSql
+
+Be.Vlaanderen.Basisregisters.DependencyInjection
+
+Polly
+
+Be.Vlaanderen.Basisregisters.EventHandling.Microsoft
+Be.Vlaanderen.Basisregisters.AggregateSource.SqlStreamStore.Microsoft
+Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql
