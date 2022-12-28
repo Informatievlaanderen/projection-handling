@@ -1,3 +1,20 @@
+## [11.0.3](https://github.com/informatievlaanderen/projection-handling/compare/v11.0.2...v11.0.3) (2022-12-28)
+
+
+### Bug Fixes
+
+* add Microsoft.Extensions.DependencyInjection ([1e92b23](https://github.com/informatievlaanderen/projection-handling/commit/1e92b23637f6f93a232a138f38f5760941a3e043))
+* add nuget to dependabot ([68065bf](https://github.com/informatievlaanderen/projection-handling/commit/68065bf32e6aab883e8bb7ab30ec637b1e24733d))
+* break out of endless recursion ([027ec9b](https://github.com/informatievlaanderen/projection-handling/commit/027ec9bf87fb049986f5c45fe24c151ccdbfbcc2))
+* comply with Serializable pattern ([7ce101d](https://github.com/informatievlaanderen/projection-handling/commit/7ce101db08a2ddb06ccd511663d8b97f9a893a00))
+* ctx to context ([9e26140](https://github.com/informatievlaanderen/projection-handling/commit/9e2614086068d3e1fe50b2eca2314e96859f1650))
+* fields should not have public accessibility ([700b49c](https://github.com/informatievlaanderen/projection-handling/commit/700b49c555ded38ac26fb811b2bec096f995a14c))
+* implement IDisposable correctly ([4167170](https://github.com/informatievlaanderen/projection-handling/commit/4167170cf1ae4a4ed38d7df62cdc1fd48c92d0da))
+* make ProjectionStates not nullable ([5dc4197](https://github.com/informatievlaanderen/projection-handling/commit/5dc4197f016f473001a4ed744c2d39aea8fcda5e))
+* rename context to contextFactory ([baedadc](https://github.com/informatievlaanderen/projection-handling/commit/baedadc410162ba01ab5ed56d571ddac6ef63936))
+* rename parameter ([db87af6](https://github.com/informatievlaanderen/projection-handling/commit/db87af61be2d2d5381b935e96d0f1d316dbb9f7f))
+* use VBR_SONAR_TOKEN ([e44114c](https://github.com/informatievlaanderen/projection-handling/commit/e44114cabb69983f955d54736e25dd85b0131e47))
+
 ## [11.0.2](https://github.com/informatievlaanderen/projection-handling/compare/v11.0.1...v11.0.2) (2022-04-29)
 
 
