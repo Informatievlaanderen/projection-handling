@@ -7,7 +7,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.Microsoft
     using System.Threading;
     using System.Threading.Tasks;
     using Connector;
-    using OwnedInstances;
+    using DependencyInjection.OwnedInstances;
     using SqlStreamStore;
     using global::Microsoft.Extensions.Logging;
     using global::SqlStreamStore;
