@@ -1,3 +1,10 @@
+## [11.0.4](https://github.com/informatievlaanderen/projection-handling/compare/v11.0.3...v11.0.4) (2022-12-29)
+
+
+### Bug Fixes
+
+* move owned instances to DependencyInjection library ([951cdbc](https://github.com/informatievlaanderen/projection-handling/commit/951cdbc44c3ec722def2cd871016d46e81319051))
+
 ## [11.0.3](https://github.com/informatievlaanderen/projection-handling/compare/v11.0.2...v11.0.3) (2022-12-28)
 
 
