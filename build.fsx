@@ -1,5 +1,5 @@
 #r "paket:
-version 7.0.2-rc001
+version 7.0.2
 framework: net6.0
 source https://api.nuget.org/v3/index.json
 nuget Be.Vlaanderen.Basisregisters.Build.Pipeline 6.0.3 //"
@@ -33,6 +33,7 @@ Target.create "Lib_Build" (fun _ ->
   buildSource "Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore.Autofac"
   buildSource "Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore.Microsoft"
   buildSource "Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication"
+  buildSource "Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication.Microsoft"
   buildSource "Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication.Testing"
   buildSource "Be.Vlaanderen.Basisregisters.ProjectionHandling.Testing.NUnit"
   buildSource "Be.Vlaanderen.Basisregisters.ProjectionHandling.Testing.Xunit"
@@ -60,6 +61,7 @@ Target.create "Lib_Publish" (fun _ ->
   publishSource "Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore.Autofac"
   publishSource "Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore.Microsoft"
   publishSource "Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication"
+  publishSource "Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication.Microsoft"
   publishSource "Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication.Testing"
   publishSource "Be.Vlaanderen.Basisregisters.ProjectionHandling.Testing.NUnit"
   publishSource "Be.Vlaanderen.Basisregisters.ProjectionHandling.Testing.Xunit"
