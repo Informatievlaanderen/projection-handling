@@ -115,6 +115,7 @@ jobs:
         node packages/Be.Vlaanderen.Basisregisters.Build.Pipeline/Content/ci-nuget.js dist/$LIBNAME/$LIBNAME.LastChangedList.$SEMVER.nupkg
         node packages/Be.Vlaanderen.Basisregisters.Build.Pipeline/Content/ci-nuget.js dist/$LIBNAME/$LIBNAME.LastChangedList.Microsoft.$SEMVER.nupkg
         node packages/Be.Vlaanderen.Basisregisters.Build.Pipeline/Content/ci-nuget.js dist/$LIBNAME/$LIBNAME.Syndication.$SEMVER.nupkg
+        node packages/Be.Vlaanderen.Basisregisters.Build.Pipeline/Content/ci-nuget.js dist/$LIBNAME/$LIBNAME.Syndication.Microsoft.$SEMVER.nupkg
         node packages/Be.Vlaanderen.Basisregisters.Build.Pipeline/Content/ci-nuget.js dist/$LIBNAME/$LIBNAME.Syndication.Testing.$SEMVER.nupkg
       env:
         LIBNAME: Be.Vlaanderen.Basisregisters.ProjectionHandling
