@@ -1,3 +1,11 @@
+## [11.0.5](https://github.com/informatievlaanderen/projection-handling/compare/v11.0.4...v11.0.5) (2022-12-31)
+
+
+### Bug Fixes
+
+* add Syndication.Microsoft project ([adf3126](https://github.com/informatievlaanderen/projection-handling/commit/adf3126a18f75eb781470a4c3a67d471e1526356))
+* fix paket.template ([c182f17](https://github.com/informatievlaanderen/projection-handling/commit/c182f17f680838655902a83691f3817b83637ac1))
+
 ## [11.0.4](https://github.com/informatievlaanderen/projection-handling/compare/v11.0.3...v11.0.4) (2022-12-29)
 
 
