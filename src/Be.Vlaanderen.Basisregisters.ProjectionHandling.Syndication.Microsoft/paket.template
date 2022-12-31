@@ -1,8 +1,8 @@
 type file
 version 1.0.0
 
-id Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
-title Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
+id Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication.Microsoft
+title Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication.Microsoft
 
 authors Basisregisters Vlaanderen
 owners Digitaal Vlaanderen <https://vlaanderen.be/digitaal-vlaanderen>
@@ -21,5 +21,5 @@ dependencies
     Microsoft.SyndicationFeed.ReaderWriter >= LOCKEDVERSION
 
 files
-  bin\Release\net6.0\Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication.dll => lib\net6.0
-  bin\Release\net6.0\Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication.pdb => lib\net6.0
+  bin\Release\net6.0\Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication.Microsoft.dll => lib\net6.0
+  bin\Release\net6.0\Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication.Microsoft.pdb => lib\net6.0
