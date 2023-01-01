@@ -4,6 +4,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList.Micros
     using global::Microsoft.EntityFrameworkCore;
     using global::Microsoft.EntityFrameworkCore.Design;
     using Model;
+    using Runner.Microsoft;
 
     public class LastChangedListContext : RunnerDbContext<LastChangedListContext>
     {

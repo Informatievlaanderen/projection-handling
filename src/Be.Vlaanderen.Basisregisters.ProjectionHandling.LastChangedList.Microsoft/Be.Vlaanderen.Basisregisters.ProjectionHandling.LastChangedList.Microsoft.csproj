@@ -7,8 +7,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector\Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector.csproj" />
-    <ProjectReference Include="..\Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner\Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.csproj" />
-    <ProjectReference Include="..\Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore.Autofac\Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore.Autofac.csproj" />
+    <ProjectReference Include="..\Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.Microsoft\Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.Microsoft.csproj" />
+    <ProjectReference Include="..\Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore.Microsoft\Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore.Microsoft.csproj" />
     <ProjectReference Include="..\Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore\Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore.csproj" />
   </ItemGroup>
 
