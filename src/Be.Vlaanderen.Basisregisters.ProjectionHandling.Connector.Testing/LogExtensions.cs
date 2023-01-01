@@ -9,7 +9,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector.Testing
 
     public static class LogExtensions
     {
-        public static readonly JsonSerializerSettings LogSerializerSettings = new JsonSerializerSettings();
+        public static JsonSerializerSettings LogSerializerSettings { get; set; } = new JsonSerializerSettings();
 
         public static string ToLogStringLimited<T>(
             this IEnumerable<T> objects,
