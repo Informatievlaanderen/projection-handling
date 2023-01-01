@@ -2,12 +2,12 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList.Micros
 {
     using System;
     using Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql.EntityFrameworkCore;
-    using Runner.MigrationExtensions;
     using DependencyInjection;
     using global::Microsoft.Data.SqlClient;
     using global::Microsoft.EntityFrameworkCore;
     using global::Microsoft.Extensions.DependencyInjection;
     using global::Microsoft.Extensions.Logging;
+    using Runner.Microsoft.MigrationExtensions;
 
     public class LastChangedListModule : IServiceCollectionModule
     {

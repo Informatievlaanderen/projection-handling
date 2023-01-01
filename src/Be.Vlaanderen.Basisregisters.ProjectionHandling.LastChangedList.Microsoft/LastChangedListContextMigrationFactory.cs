@@ -1,7 +1,7 @@
 namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList.Microsoft
 {
-    using Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner;
     using global::Microsoft.EntityFrameworkCore;
+    using Runner.Microsoft;
 
     public class LastChangedListContextMigrationFactory : RunnerDbContextMigrationFactory<LastChangedListContext> {
 
