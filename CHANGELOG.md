@@ -1,3 +1,10 @@
+## [11.0.6](https://github.com/informatievlaanderen/projection-handling/compare/v11.0.5...v11.0.6) (2023-01-01)
+
+
+### Bug Fixes
+
+* fix LastChangedList.Microsoft ([56eb606](https://github.com/informatievlaanderen/projection-handling/commit/56eb6060931f5b9d36ad03c3e2d9a2a7ba425803))
+
 ## [11.0.5](https://github.com/informatievlaanderen/projection-handling/compare/v11.0.4...v11.0.5) (2022-12-31)
 
 
