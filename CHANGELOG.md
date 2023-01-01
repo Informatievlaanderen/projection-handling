@@ -1,3 +1,10 @@
+## [11.0.7](https://github.com/informatievlaanderen/projection-handling/compare/v11.0.6...v11.0.7) (2023-01-01)
+
+
+### Bug Fixes
+
+* make LogSerializerSettings writable ([f51f227](https://github.com/informatievlaanderen/projection-handling/commit/f51f2277d10b84f1405f66801c12ae24ae145328))
+
 ## [11.0.6](https://github.com/informatievlaanderen/projection-handling/compare/v11.0.5...v11.0.6) (2023-01-01)
 
 
