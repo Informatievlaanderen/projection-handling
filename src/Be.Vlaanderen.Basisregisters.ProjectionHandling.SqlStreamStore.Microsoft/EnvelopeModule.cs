@@ -8,7 +8,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore.Microso
     {
         public void Load(IServiceCollection services)
         {
-            services.AddTransient<EnvelopeFactory>(_ => new EnvelopeFactory(_.GetRequiredService<EventMapping>(), _.GetRequiredService<EventDeserializer>()));
+            services.ConfigureEnvelope();
         }
     }
 }
