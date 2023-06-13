@@ -1,3 +1,16 @@
+# [11.1.0](https://github.com/informatievlaanderen/projection-handling/compare/v11.0.7...v11.1.0) (2023-06-13)
+
+
+### Bug Fixes
+
+* FindAsync return type must match original FindAsync method ([e872565](https://github.com/informatievlaanderen/projection-handling/commit/e87256527e16dc23fd14565532b2661a162e4b9f))
+
+
+### Features
+
+* add direct envelope microsoft ioc registration ([20178b9](https://github.com/informatievlaanderen/projection-handling/commit/20178b9604823f5d6c434003a6a9e8d0372748d1))
+* add lastchangedlist direct ioc registration ([e5bb7b1](https://github.com/informatievlaanderen/projection-handling/commit/e5bb7b130f96916b6eaf80423ac5d8b70e1538b8))
+
 ## [11.0.7](https://github.com/informatievlaanderen/projection-handling/compare/v11.0.6...v11.0.7) (2023-01-01)
 
 
