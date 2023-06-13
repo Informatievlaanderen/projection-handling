@@ -6,7 +6,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector
 
     public static class FindAsyncExtension
     {
-        public static ValueTask<TEntity> FindAsync<TEntity, T>(
+        public static ValueTask<TEntity?> FindAsync<TEntity, T>(
             this DbSet<TEntity> dbSet,
             T keyValue,
             CancellationToken cancellationToken)
