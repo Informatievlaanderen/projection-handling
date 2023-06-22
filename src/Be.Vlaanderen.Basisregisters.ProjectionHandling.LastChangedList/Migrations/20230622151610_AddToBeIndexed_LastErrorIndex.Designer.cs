@@ -4,6 +4,7 @@ using Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList.Migrations
 {
     [DbContext(typeof(LastChangedListContext))]
-    partial class LastChangedListContextModelSnapshot : ModelSnapshot
+    [Migration("20230622151610_AddToBeIndexed_LastErrorIndex")]
+    partial class AddToBeIndexed_LastErrorIndex
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

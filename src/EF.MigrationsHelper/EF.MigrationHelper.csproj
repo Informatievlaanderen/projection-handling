@@ -4,7 +4,6 @@
     <TargetFramework>net6.0</TargetFramework>
     <LangVersion>latest</LangVersion>
 
-    <RuntimeFrameworkVersion>5.0.1</RuntimeFrameworkVersion>
     <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
     <OutputType>Exe</OutputType>
 
