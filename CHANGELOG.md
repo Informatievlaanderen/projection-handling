@@ -1,3 +1,10 @@
+## [11.1.1](https://github.com/informatievlaanderen/projection-handling/compare/v11.1.0...v11.1.1) (2023-06-22)
+
+
+### Performance Improvements
+
+* add index to lastchangedlist ([b3ed6e0](https://github.com/informatievlaanderen/projection-handling/commit/b3ed6e048b7639bdde48682566f122192b4d1c22))
+
 # [11.1.0](https://github.com/informatievlaanderen/projection-handling/compare/v11.0.7...v11.1.0) (2023-06-13)
 
 
