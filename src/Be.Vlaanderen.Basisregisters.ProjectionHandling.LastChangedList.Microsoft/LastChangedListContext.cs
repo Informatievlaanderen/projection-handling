@@ -52,6 +52,10 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList.Micros
 
             modelBuilder
                 .Entity<LastChangedRecord>()
+                .HasIndex(x => new { x.ToBeIndexed, x.LastError });
+
+            modelBuilder
+                .Entity<LastChangedRecord>()
                 .HasKey(x => x.Id)
                 .IsClustered();
 
