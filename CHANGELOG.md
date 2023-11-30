@@ -1,3 +1,10 @@
+## [11.1.2](https://github.com/informatievlaanderen/projection-handling/compare/v11.1.1...v11.1.2) (2023-11-30)
+
+
+### Bug Fixes
+
+* add StreamId to Envelope Metadata ([23a5dd9](https://github.com/informatievlaanderen/projection-handling/commit/23a5dd90aca49469585fcfc396432beaa7c0d976))
+
 ## [11.1.1](https://github.com/informatievlaanderen/projection-handling/compare/v11.1.0...v11.1.1) (2023-06-22)
 
 
