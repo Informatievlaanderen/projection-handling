@@ -25,6 +25,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore
                 ? new Dictionary<string, object>(deserializedMetadata, StringComparer.OrdinalIgnoreCase)
                 : new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase);
 
+            metadata[Envelope.StreamIdMetadataKey] = message.StreamId;
             metadata[Envelope.PositionMetadataKey] = message.Position;
             metadata[Envelope.EventNameMetadataKey] = message.Type;
             metadata[Envelope.CreatedUtcMetadataKey] = message.CreatedUtc;

@@ -14,6 +14,8 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore
 
         public TMessage Message => (TMessage)_envelope.Message;
 
+        public string StreamId => (string)_envelope.Metadata[Envelope.StreamIdMetadataKey];
+
         public long Position => (long)_envelope.Metadata[Envelope.PositionMetadataKey];
 
         public string EventName => (string)_envelope.Metadata[Envelope.EventNameMetadataKey];
@@ -29,6 +31,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore
 
     public class Envelope // Used by dispatchers
     {
+        public const string StreamIdMetadataKey = "StreamId";
         public const string PositionMetadataKey = "Position";
         public const string EventNameMetadataKey = "EventName";
         public const string CreatedUtcMetadataKey = "CreatedUtc";
