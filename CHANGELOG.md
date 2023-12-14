@@ -1,3 +1,21 @@
+# [12.0.0](https://github.com/informatievlaanderen/projection-handling/compare/v11.1.2...v12.0.0) (2023-12-14)
+
+
+### Bug Fixes
+
+* style to trigger build ([b4e4184](https://github.com/informatievlaanderen/projection-handling/commit/b4e418475b88d5919ddc02ef8b7531f1f88fb4c8))
+
+
+### Code Refactoring
+
+* runner + split sqlserver, npgsql ([e28ca27](https://github.com/informatievlaanderen/projection-handling/commit/e28ca279bc22095af31679a2e57fe94d38e5da91))
+
+
+### BREAKING CHANGES
+
+* `Runner` is now agnostic of database provider.
+`Runner.SqlServer` and `Runner.Npgsql` are added.
+
 ## [11.1.2](https://github.com/informatievlaanderen/projection-handling/compare/v11.1.1...v11.1.2) (2023-11-30)
 
 
