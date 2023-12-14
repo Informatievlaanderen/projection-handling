@@ -43,6 +43,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.Npgsql
 
             var optionsBuilder = new DbContextOptionsBuilder<TContext>()
                 .UseNpgsql(
+                    connectionString,
                     options =>
                     {
                         options.EnableRetryOnFailure();
