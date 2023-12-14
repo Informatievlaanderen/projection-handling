@@ -1,3 +1,10 @@
+## [12.0.1](https://github.com/informatievlaanderen/projection-handling/compare/v12.0.0...v12.0.1) (2023-12-14)
+
+
+### Bug Fixes
+
+* add connectionstring to NpgsqlMigrationFactory ([360d214](https://github.com/informatievlaanderen/projection-handling/commit/360d214c888fb514527a5a041516c1c620e3b18f))
+
 # [12.0.0](https://github.com/informatievlaanderen/projection-handling/compare/v11.1.2...v12.0.0) (2023-12-14)
 
 
