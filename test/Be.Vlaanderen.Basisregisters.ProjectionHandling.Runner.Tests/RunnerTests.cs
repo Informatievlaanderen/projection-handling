@@ -190,8 +190,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.Tests
         protected override void OnConfiguringOptionsBuilder(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder
-                .UseSqlServer(
-                    @"Server=(localdb)\mssqllocaldb;Database=EFProviders.InMemory.TestDb.TestDbContext;Trusted_Connection=True;");
+                .UseInMemoryDatabase(Guid.NewGuid().ToString("D"));
         }
     }
 }

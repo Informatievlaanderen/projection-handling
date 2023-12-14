@@ -8,6 +8,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Logging;
     using Runner.MigrationExtensions;
+    using Runner.SqlServer.MigrationExtensions;
 
     public class LastChangedListModule : Module
     {

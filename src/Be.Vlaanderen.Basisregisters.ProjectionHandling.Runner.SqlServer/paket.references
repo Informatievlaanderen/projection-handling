@@ -1,0 +1,6 @@
+Microsoft.EntityFrameworkCore.SqlServer
+
+SourceLink.Embed.AllSourceFiles
+SourceLink.Copy.PdbFiles
+
+Polly

@@ -1,9 +1,9 @@
 namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList
 {
     using Microsoft.EntityFrameworkCore;
-    using Runner;
+    using Runner.SqlServer;
 
-    public class LastChangedListContextMigrationFactory : RunnerDbContextMigrationFactory<LastChangedListContext> {
+    public class LastChangedListContextMigrationFactory : SqlServerRunnerDbContextMigrationFactory<LastChangedListContext> {
 
         public LastChangedListContextMigrationFactory(string connectionStringName)
             : base(connectionStringName, HistoryConfiguration) { }

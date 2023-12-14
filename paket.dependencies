@@ -4,8 +4,12 @@ source https://api.nuget.org/v3/index.json
 // PRODUCTION STUFF
 nuget Microsoft.EntityFrameworkCore 6.0.3
 nuget Microsoft.EntityFrameworkCore.SqlServer 6.0.3
+nuget Microsoft.EntityFrameworkCore.Relational 6.0.3
 nuget Microsoft.EntityFrameworkCore.InMemory 6.0.3
 nuget Microsoft.EntityFrameworkCore.Design 6.0.3
+
+nuget Npgsql 6.0.3
+nuget Npgsql.EntityFrameworkCore.PostgreSQL 6.0.3
 
 nuget Microsoft.Extensions.Logging 6.0.0
 nuget Microsoft.Extensions.DependencyInjection 6.0.0
