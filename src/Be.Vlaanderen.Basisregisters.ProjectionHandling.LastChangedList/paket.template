@@ -16,7 +16,7 @@ description Lightweight projection handling infrastructure.
 
 dependencies
   framework: net6.0
-    Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner CURRENTVERSION
+    Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.SqlServer CURRENTVERSION
     Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore CURRENTVERSION
 
     Be.Vlaanderen.Basisregisters.AggregateSource.SqlStreamStore >= LOCKEDVERSION
