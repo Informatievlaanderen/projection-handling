@@ -79,6 +79,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList.Micros
         public LastChangedListContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<LastChangedListContext>();
+            
             optionsBuilder.UseSqlServer(
                 @"Server=(localdb)\mssqllocaldb;Database=EFProviders.InMemory.LastChangedListContext;Trusted_Connection=True;",
                 options =>
