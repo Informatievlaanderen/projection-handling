@@ -4,37 +4,21 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
     using System.IO;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Design;
-    using Microsoft.EntityFrameworkCore.Infrastructure;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Logging;
-    using MigrationExtensions;
 
     public interface IRunnerDbContextMigratorFactory
     {
         IRunnerDbContextMigrator CreateMigrator(IConfiguration configuration, ILoggerFactory loggerFactory);
     }
 
-    public abstract class RunnerDbContextMigrationFactory<TContext> : IDesignTimeDbContextFactory<TContext>, IRunnerDbContextMigratorFactory
+    public abstract class RunnerDbContextMigrationFactoryBase<TContext> : IDesignTimeDbContextFactory<TContext>
         where TContext : RunnerDbContext<TContext>
     {
-        protected RunnerDbContextMigrationFactory(
-            string connectionStringName,
-            MigrationHistoryConfiguration migrationHistoryConfiguration)
-        {
-            if (string.IsNullOrWhiteSpace(connectionStringName))
-                throw new ArgumentNullException(nameof(connectionStringName));
-
-            _connectionStringName = connectionStringName;
-
-            _migrationHistoryConfiguration = migrationHistoryConfiguration ?? throw new ArgumentNullException(nameof(migrationHistoryConfiguration));
-        }
-
-        private readonly string _connectionStringName;
-        private readonly MigrationHistoryConfiguration _migrationHistoryConfiguration;
-        
         protected abstract TContext CreateContext(DbContextOptions<TContext> migrationContextOptions);
         protected virtual void ConfigureOptionsBuilder(DbContextOptionsBuilder<TContext> optionsBuilder) { }
-        protected virtual void ConfigureSqlServerOptions(SqlServerDbContextOptionsBuilder sqlServerOptions) { }
+
+        protected abstract DbContextOptionsBuilder<TContext> CreateOptionsBuilder(IConfiguration configuration);
 
         public TContext CreateDbContext(string[] args)
         {
@@ -48,49 +32,6 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
             var contextOptions = CreateOptionsBuilder(configuration).Options;
 
             return CreateContext(contextOptions);
-        }
-
-        public IRunnerDbContextMigrator CreateMigrator(IConfiguration configuration, ILoggerFactory loggerFactory)
-        {
-            var contextOptions = CreateOptionsBuilder(configuration, loggerFactory).Options;
-
-            return new RunnerDbContextMigrator<TContext>(() => CreateContext(contextOptions), loggerFactory);
-        }
-
-        private DbContextOptionsBuilder<TContext> CreateOptionsBuilder(IConfiguration configuration)
-        {
-            var connectionString = configuration?.GetConnectionString(_connectionStringName);
-            if (string.IsNullOrWhiteSpace(connectionString))
-                throw new InvalidOperationException($"Could not find a connection string with name '{connectionString}'");
-            
-            var optionsBuilder = new DbContextOptionsBuilder<TContext>()
-                .UseSqlServer(
-                    connectionString,
-                    sqlServerOptions =>
-                    {
-                        sqlServerOptions.EnableRetryOnFailure();
-
-                        sqlServerOptions.MigrationsHistoryTable(
-                            _migrationHistoryConfiguration.Table,
-                            _migrationHistoryConfiguration.Schema);
-
-                        ConfigureSqlServerOptions(sqlServerOptions);
-                    }
-                )
-                .UseExtendedSqlServerMigrations();
-
-            ConfigureOptionsBuilder(optionsBuilder);
-
-            return optionsBuilder;
-        }        
-
-        private DbContextOptionsBuilder<TContext> CreateOptionsBuilder(IConfiguration configuration, ILoggerFactory loggerFactory)
-        {
-            if (loggerFactory == null)
-                throw new ArgumentNullException(nameof(loggerFactory));
-
-            return CreateOptionsBuilder(configuration)
-                .UseLoggerFactory(loggerFactory);
         }
 
         public class MigrationHistoryConfiguration

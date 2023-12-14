@@ -21,7 +21,7 @@ dependencies
 
     Be.Vlaanderen.Basisregisters.EntityFrameworkCore.EntityTypeConfiguration >= LOCKEDVERSION
 
-    Microsoft.EntityFrameworkCore.SqlServer >= LOCKEDVERSION
+    Microsoft.EntityFrameworkCore.Relational >= LOCKEDVERSION
     Microsoft.EntityFrameworkCore.InMemory >= LOCKEDVERSION
     SqlStreamStore >= LOCKEDVERSION
     Autofac.Extensions.DependencyInjection >= LOCKEDVERSION

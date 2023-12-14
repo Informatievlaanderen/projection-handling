@@ -29,8 +29,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.ProjectionState
         public void Configure(EntityTypeBuilder<ProjectionStateItem> b)
         {
             b.ToTable(TableName, _schema)
-                .HasKey(p => p.Name)
-                .IsClustered();
+                .HasKey(p => p.Name);
 
             b.Property(p => p.Name);
             b.Property(p => p.Position);

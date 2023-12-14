@@ -1,4 +1,4 @@
-namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.MigrationExtensions
+namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.SqlServer.MigrationExtensions
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata;
