@@ -1,3 +1,10 @@
+# [12.1.0](https://github.com/informatievlaanderen/projection-handling/compare/v12.0.1...v12.1.0) (2024-02-02)
+
+
+### Features
+
+* add cachevalidator wether to update position ([7aa7022](https://github.com/informatievlaanderen/projection-handling/commit/7aa7022a41c561cf1d2e116b0a2c4751e23059ec))
+
 ## [12.0.1](https://github.com/informatievlaanderen/projection-handling/compare/v12.0.0...v12.0.1) (2023-12-14)
 
 
