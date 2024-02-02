@@ -1,11 +1,13 @@
 namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList
 {
+    using System;
     using System.Collections.Generic;
     using System.Threading;
     using System.Threading.Tasks;
     using Connector;
     using Microsoft.EntityFrameworkCore;
     using Model;
+    using Polly;
 
     public abstract class LastChangedListConnectedProjection : ConnectedProjection<LastChangedListContext>
     {
@@ -14,13 +16,27 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList
 
         private readonly AcceptType[] _supportedAcceptTypes;
         private readonly int _commandTimeoutInSeconds;
+        private readonly ICacheValidator? _cacheValidator = null;
+        private readonly int _cacheCheckIntervalInSeconds;
 
-        protected LastChangedListConnectedProjection(AcceptType[] supportedAcceptTypes) : this(supportedAcceptTypes, 300) {}
+        protected LastChangedListConnectedProjection(AcceptType[] supportedAcceptTypes)
+            : this(supportedAcceptTypes, 300) {}
 
         protected LastChangedListConnectedProjection(AcceptType[] supportedAcceptTypes, int commandTimeoutInSeconds)
         {
             _supportedAcceptTypes = supportedAcceptTypes;
             _commandTimeoutInSeconds = commandTimeoutInSeconds;
+        }
+
+        protected LastChangedListConnectedProjection(AcceptType[] supportedAcceptTypes, ICacheValidator cacheValidator)
+            : this(supportedAcceptTypes, 300, cacheValidator, 5) {}
+
+        protected LastChangedListConnectedProjection(AcceptType[] supportedAcceptTypes, int commandTimeoutInSeconds, ICacheValidator cacheValidator, int cacheCheckIntervalInSeconds)
+        {
+            _supportedAcceptTypes = supportedAcceptTypes;
+            _commandTimeoutInSeconds = commandTimeoutInSeconds;
+            _cacheValidator = cacheValidator;
+            _cacheCheckIntervalInSeconds = cacheCheckIntervalInSeconds;
         }
 
         protected async Task<IEnumerable<LastChangedRecord>> GetLastChangedRecords(
@@ -54,6 +70,8 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList
             LastChangedListContext context,
             CancellationToken cancellationToken)
         {
+            await WaitTillCanCache(position, cancellationToken);
+
             context.Database.SetCommandTimeout(_commandTimeoutInSeconds);
             var attachedRecords = new List<LastChangedRecord>();
 
@@ -85,6 +103,19 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList
             }
 
             return attachedRecords;
+        }
+
+        private async Task WaitTillCanCache(long position, CancellationToken ct)
+        {
+            if (_cacheValidator is null)
+            {
+                return;
+            }
+
+            await Policy
+                .HandleResult<bool>(isValid => !isValid)
+                .WaitAndRetryForeverAsync(i => TimeSpan.FromSeconds(_cacheCheckIntervalInSeconds))
+                .ExecuteAsync(async () => await _cacheValidator.CanCache(position, ct));
         }
 
         private static string GetApplicationType(AcceptType acceptType)
