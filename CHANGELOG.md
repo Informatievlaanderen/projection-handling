@@ -1,3 +1,10 @@
+## [12.1.1](https://github.com/informatievlaanderen/projection-handling/compare/v12.1.0...v12.1.1) (2024-02-06)
+
+
+### Bug Fixes
+
+* use configureawait false in lastchangedlist ([22f3f32](https://github.com/informatievlaanderen/projection-handling/commit/22f3f32d997376e3981340a174f39565f1572676))
+
 # [12.1.0](https://github.com/informatievlaanderen/projection-handling/compare/v12.0.1...v12.1.0) (2024-02-02)
 
 
