@@ -28,7 +28,7 @@ nuget SqlStreamStore.MsSql 1.2.0
 
 nuget Autofac.Extensions.DependencyInjection 7.2.0
 
-nuget Polly 7.2.3
+nuget Polly 7.2.4
 nuget CompareNETObjects 4.76.0
 nuget Newtonsoft.Json 13.0.1
 

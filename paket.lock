@@ -428,7 +428,7 @@ NUGET
     NUnit (3.13.3)
       NETStandard.Library (>= 2.0)
     NUnit3TestAdapter (4.2.1)
-    Polly (7.2.3)
+    Polly (7.2.4)
     runtime.native.System (4.3.1)
       Microsoft.NETCore.Platforms (>= 1.1.1)
       Microsoft.NETCore.Targets (>= 1.1.3)

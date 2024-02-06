@@ -55,7 +55,8 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList
 
                 var record = await context
                     .LastChangedList
-                    .FindAsync(id, cancellationToken: cancellationToken);
+                    .FindAsync(id, cancellationToken: cancellationToken)
+                    .ConfigureAwait(false);
 
                 if (record != null)
                     attachedRecords.Add(record);
@@ -70,7 +71,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList
             LastChangedListContext context,
             CancellationToken cancellationToken)
         {
-            await WaitTillCanCache(position, cancellationToken);
+            await WaitTillCanCache(position, cancellationToken).ConfigureAwait(false);
 
             context.Database.SetCommandTimeout(_commandTimeoutInSeconds);
             var attachedRecords = new List<LastChangedRecord>();
@@ -83,7 +84,8 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList
 
                 var record = await context
                     .LastChangedList
-                    .FindAsync(id, cancellationToken: cancellationToken);
+                    .FindAsync(id, cancellationToken: cancellationToken)
+                    .ConfigureAwait(false);
 
                 if (record == null)
                 {
@@ -95,7 +97,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList
                         AcceptType = GetApplicationType(acceptType)
                     };
 
-                    await context.LastChangedList.AddAsync(record, cancellationToken);
+                    await context.LastChangedList.AddAsync(record, cancellationToken).ConfigureAwait(false);
                 }
 
                 record.Position = position;
@@ -114,8 +116,9 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList
 
             await Policy
                 .HandleResult<bool>(isValid => !isValid)
-                .WaitAndRetryForeverAsync(i => TimeSpan.FromSeconds(_cacheCheckIntervalInSeconds))
-                .ExecuteAsync(async () => await _cacheValidator.CanCache(position, ct));
+                .WaitAndRetryForeverAsync(_ => TimeSpan.FromSeconds(_cacheCheckIntervalInSeconds))
+                .ExecuteAsync(async () => await _cacheValidator.CanCache(position, ct).ConfigureAwait(false))
+                .ConfigureAwait(false);
         }
 
         private static string GetApplicationType(AcceptType acceptType)
