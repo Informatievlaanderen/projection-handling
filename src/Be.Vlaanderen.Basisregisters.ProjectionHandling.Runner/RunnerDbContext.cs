@@ -48,12 +48,12 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
                 return;
             }
 
-            var projectionStateItem = await ProjectionStates.SingleOrDefaultAsync(item => item.Name == projectionName, cancellationToken);
+            var projectionStateItem = await ProjectionStates.SingleOrDefaultAsync(item => item.Name == projectionName, cancellationToken).ConfigureAwait(false);
 
             if (projectionStateItem == null)
             {
                 projectionStateItem = new ProjectionStateItem { Name = projectionName };
-                await ProjectionStates.AddAsync(projectionStateItem, cancellationToken);
+                await ProjectionStates.AddAsync(projectionStateItem, cancellationToken).ConfigureAwait(false);
             }
 
             projectionStateItem.Position = position;
@@ -61,7 +61,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
 
         public virtual async Task SetErrorMessage(string projectionName, string? errorMessage, CancellationToken cancellationToken)
         {
-            var projectionStateItem = await ProjectionStates.SingleOrDefaultAsync(item => item.Name == projectionName, cancellationToken);
+            var projectionStateItem = await ProjectionStates.SingleOrDefaultAsync(item => item.Name == projectionName, cancellationToken).ConfigureAwait(false);
 
             if (projectionStateItem == null)
             {
@@ -70,7 +70,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
                     Name = projectionName,
                     Position = -1L
                 };
-                await ProjectionStates.AddAsync(projectionStateItem, cancellationToken);
+                await ProjectionStates.AddAsync(projectionStateItem, cancellationToken).ConfigureAwait(false);
             }
 
             projectionStateItem.ErrorMessage = errorMessage;
@@ -78,7 +78,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
 
         public virtual async Task UpdateProjectionDesiredState(string projectionName, string desiredState, CancellationToken cancellationToken)
         {
-            var projectionStateItem = await ProjectionStates.SingleOrDefaultAsync(item => item.Name == projectionName, cancellationToken);
+            var projectionStateItem = await ProjectionStates.SingleOrDefaultAsync(item => item.Name == projectionName, cancellationToken).ConfigureAwait(false);
 
             if (projectionStateItem == null)
             {
@@ -87,7 +87,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
                     Name = projectionName,
                     Position = -1L
                 };
-                await ProjectionStates.AddAsync(projectionStateItem, cancellationToken);
+                await ProjectionStates.AddAsync(projectionStateItem, cancellationToken).ConfigureAwait(false);
             }
 
             projectionStateItem.DesiredState = desiredState;

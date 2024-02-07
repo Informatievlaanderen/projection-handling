@@ -97,11 +97,11 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
                         if (_envelopeFactory.TryCreate(message, out var envelope))
                         {
                             await using var context = contextFactory().Value;
-                            await context.UpdateProjectionState(RunnerName, message.Position, cancellationToken);
+                            await context.UpdateProjectionState(RunnerName, message.Position, cancellationToken).ConfigureAwait(false);
 
-                            await _projector.ProjectAsync(context, envelope, cancellationToken);
+                            await _projector.ProjectAsync(context, envelope, cancellationToken).ConfigureAwait(false);
 
-                            await context.SaveChangesAsync(cancellationToken);
+                            await context.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
                         }
                         else
                         {
@@ -117,7 +117,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
                     {
                         _logger.LogWarning(exception, "Subscription {SubscriptionName} was dropped. Reason: {Reason}", subscription.Name, reason);
 
-                        await Task.Delay(TimeSpan.FromSeconds(5));
+                        await Task.Delay(TimeSpan.FromSeconds(5)).ConfigureAwait(false);
 
                         // When Handle throws, we will no longer be subscribed (and no subsequent subscribe will be attempted).
                         Handle(streamStore, contextFactory);
@@ -130,7 +130,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
         {
             cancellationToken.Register(CleanUp);
 
-            await StartAsyncInternal(streamStore, contextFactory, cancellationToken);
+            await StartAsyncInternal(streamStore, contextFactory, cancellationToken).ConfigureAwait(false);
         }
 
         private async Task StartAsyncInternal(
@@ -146,13 +146,13 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
             {
                 var dbPosition = await context
                     .ProjectionStates
-                    .SingleOrDefaultAsync(p => p.Name == RunnerName, cancellationToken);
+                    .SingleOrDefaultAsync(p => p.Name == RunnerName, cancellationToken).ConfigureAwait(false);
 
                 position = dbPosition?.Position;
             }
 
             // discover head position
-            var head = await streamStore.ReadHeadPosition(cancellationToken);
+            var head = await streamStore.ReadHeadPosition(cancellationToken).ConfigureAwait(false);
 
             // determine whether to play catch up or start subscribing
             var shouldCatchUp = position.HasValue
@@ -181,11 +181,11 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
                             if (_envelopeFactory.TryCreate(message, out var envelope))
                             {
                                 await using var context = contextFactory().Value;
-                                await context.UpdateProjectionState(RunnerName, message.Position, cancellationToken);
+                                await context.UpdateProjectionState(RunnerName, message.Position, cancellationToken).ConfigureAwait(false);
 
-                                await _projector.ProjectAsync(context, envelope, cancellationToken);
+                                await _projector.ProjectAsync(context, envelope, cancellationToken).ConfigureAwait(false);
 
-                                await context.SaveChangesAsync(cancellationToken);
+                                await context.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
                             }
                             else
                             {
@@ -201,9 +201,9 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
                         {
                             _logger.LogWarning(exception, "Subscription {SubscriptionName} was dropped. Reason: {Reason}", subscription.Name, reason);
 
-                            await Task.Delay(TimeSpan.FromSeconds(5), cancellationToken);
+                            await Task.Delay(TimeSpan.FromSeconds(5), cancellationToken).ConfigureAwait(false);
 
-                            await StartAsyncInternal(streamStore, contextFactory, cancellationToken);
+                            await StartAsyncInternal(streamStore, contextFactory, cancellationToken).ConfigureAwait(false);
                         }));
             }
         }
@@ -220,7 +220,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
 
                 var fromPositionInclusive = position ?? global::SqlStreamStore.Streams.Position.Start;
 
-                var page = await streamStore.ReadAllForwards(fromPositionInclusive, CatchupPageSize, true, cancellationToken);
+                var page = await streamStore.ReadAllForwards(fromPositionInclusive, CatchupPageSize, true, cancellationToken).ConfigureAwait(false);
 
                 _logger.LogDebug(
                     "Processing page of {PageSize} starting at POS {FromPosition}",
@@ -246,7 +246,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
 
                         if (_envelopeFactory.TryCreate(message, out var envelope))
                         {
-                            await _projector.ProjectAsync(context, envelope, cancellationToken);
+                            await _projector.ProjectAsync(context, envelope, cancellationToken).ConfigureAwait(false);
                         }
                         else
                         {
@@ -261,15 +261,15 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
 
                     if (positionOfLastMessageOnPage.HasValue)
                     {
-                        await context.UpdateProjectionState(RunnerName, positionOfLastMessageOnPage.Value, cancellationToken);
+                        await context.UpdateProjectionState(RunnerName, positionOfLastMessageOnPage.Value, cancellationToken).ConfigureAwait(false);
                     }
 
-                    await context.SaveChangesAsync(cancellationToken);
+                    await context.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
                 }
 
                 while (!page.IsEnd)
                 {
-                    page = await page.ReadNext(cancellationToken);
+                    page = await page.ReadNext(cancellationToken).ConfigureAwait(false);
                     _logger.LogDebug(
                         "Processing page of {PageSize} starting at POS {FromPosition}",
                         page.Messages.Length,
@@ -289,7 +289,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
 
                         if (_envelopeFactory.TryCreate(message, out var envelope))
                         {
-                            await _projector.ProjectAsync(context, envelope, cancellationToken);
+                            await _projector.ProjectAsync(context, envelope, cancellationToken).ConfigureAwait(false);
                         }
                         else
                         {
@@ -304,13 +304,13 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
 
                     if (positionOfLastMessageOnPage.HasValue)
                     {
-                        await context.UpdateProjectionState(RunnerName, positionOfLastMessageOnPage.Value, cancellationToken);
+                        await context.UpdateProjectionState(RunnerName, positionOfLastMessageOnPage.Value, cancellationToken).ConfigureAwait(false);
                     }
 
-                    await context.SaveChangesAsync(cancellationToken);
+                    await context.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
                 }
 
-                await StartAsyncInternal(streamStore, contextFactory, cancellationToken); // subscribe when done catching up
+                await StartAsyncInternal(streamStore, contextFactory, cancellationToken).ConfigureAwait(false); // subscribe when done catching up
             }
             catch (Exception exception)
             {
@@ -320,9 +320,9 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
                     RunnerName,
                     positionOfLastMessageOnPage ?? -1L);
 
-                await Task.Delay(TimeSpan.FromSeconds(5), cancellationToken);
+                await Task.Delay(TimeSpan.FromSeconds(5), cancellationToken).ConfigureAwait(false);
 
-                await StartAsyncInternal(streamStore, contextFactory, cancellationToken);
+                await StartAsyncInternal(streamStore, contextFactory, cancellationToken).ConfigureAwait(false);
             }
         }
 

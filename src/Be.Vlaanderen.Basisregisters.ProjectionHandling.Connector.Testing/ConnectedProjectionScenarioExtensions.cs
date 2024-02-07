@@ -21,7 +21,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector.Testing
         {
             return scenario.Verify(async ctx =>
             {
-                var actualEntities = await query(ctx).ToListAsync();
+                var actualEntities = await query(ctx).ToListAsync().ConfigureAwait(false);
                 if (actualEntities.Count != expectedEntities.Length)
                     return VerificationResult.Fail(
                         $"  Expected {expectedEntities.Length} entities, but found {actualEntities.Count} entities. {actualEntities.ToLogStringLimited(max: 10)}");
@@ -66,7 +66,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector.Testing
         {
             return scenario.Verify(async ctx =>
             {
-                var actualEntities = await query(ctx).ToListAsync();
+                var actualEntities = await query(ctx).ToListAsync().ConfigureAwait(false);
                 if (actualEntities.Count > 0)
                     return VerificationResult.Fail(
                         $"  Expected none, but found {actualEntities.Count} entities. {actualEntities.ToLogStringLimited(max: 10)}");
