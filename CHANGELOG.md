@@ -1,3 +1,5 @@
+## [12.1.2](https://github.com/informatievlaanderen/projection-handling/compare/v12.1.1...v12.1.2) (2024-02-07)
+
 ## [12.1.1](https://github.com/informatievlaanderen/projection-handling/compare/v12.1.0...v12.1.1) (2024-02-06)
 
 
