@@ -29,7 +29,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
         private readonly IRegistryAtomFeedReader _atomFeedReader;
         private readonly DataContractSerializer _dataContractSerializer;
         private readonly AtomEntryProjectionHandlerResolver<TMessage, TContext> _atomEntryProjectionHandlerResolver;
-                
+
         public string RunnerName { get; }
         public Uri FeedUri { get; }
         public string FeedUserName { get; }
@@ -73,7 +73,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
             {
                 var dbPosition = await context
                     .ProjectionStates
-                    .SingleOrDefaultAsync(p => p.Name == RunnerName, cancellationToken);
+                    .SingleOrDefaultAsync(p => p.Name == RunnerName, cancellationToken).ConfigureAwait(false);
 
                 position = dbPosition?.Position + 1;
             }
@@ -81,7 +81,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
             while (!cancellationToken.IsCancellationRequested)
             {
                 // Read new events
-                var entries = (await _atomFeedReader.ReadEntriesAsync(FeedUri, position, FeedUserName, FeedPassword, EmbedEvent, EmbedObject)).ToList();
+                var entries = (await _atomFeedReader.ReadEntriesAsync(FeedUri, position, FeedUserName, FeedPassword, EmbedEvent, EmbedObject).ConfigureAwait(false)).ToList();
 
                 while (entries.Any())
                 {
@@ -92,14 +92,14 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
 
                     await using (var context = contextFactory().Value)
                     {
-                        await ProjectAtomEntriesAsync(entries, context, cancellationToken);
+                        await ProjectAtomEntriesAsync(entries, context, cancellationToken).ConfigureAwait(false);
 
-                        await context.UpdateProjectionState(RunnerName, lastEntryId, cancellationToken);
-                        await context.SaveChangesAsync(cancellationToken);
+                        await context.UpdateProjectionState(RunnerName, lastEntryId, cancellationToken).ConfigureAwait(false);
+                        await context.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
                     }
 
                     position = lastEntryId + 1;
-                    entries = (await _atomFeedReader.ReadEntriesAsync(FeedUri, position, FeedUserName, FeedPassword, EmbedEvent, EmbedObject)).ToList();
+                    entries = (await _atomFeedReader.ReadEntriesAsync(FeedUri, position, FeedUserName, FeedPassword, EmbedEvent, EmbedObject).ConfigureAwait(false)).ToList();
                 }
 
                 Thread.Sleep(_pollingInMilliseconds);
@@ -128,7 +128,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
                         {
                             await resolvedProjectionHandler
                                 .Handler
-                                .Invoke(atomEntry, context, cancellationToken);
+                                .Invoke(atomEntry, context, cancellationToken).ConfigureAwait(false);
                         }
                     }
                 }
