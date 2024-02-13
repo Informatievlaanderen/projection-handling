@@ -4,6 +4,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList
     using Microsoft.EntityFrameworkCore.Design;
     using Model;
     using Runner;
+    using Runner.ProjectionStates;
 
     public class LastChangedListContext : RunnerDbContext<LastChangedListContext>
     {
@@ -20,53 +21,10 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            //base.OnModelCreating(modelBuilder);
 
-            modelBuilder
-                .Entity<LastChangedRecord>()
-                .Property(x => x.ToBeIndexed)
-                .ValueGeneratedOnAddOrUpdate()
-                .HasComputedColumnSql("CAST(CASE WHEN (([Position] > [LastPopulatedPosition]) AND ([ErrorCount] < 10)) THEN 1 ELSE 0 END AS bit) PERSISTED");
-
-            modelBuilder
-                .Entity<LastChangedRecord>()
-                .HasIndex(x => x.ToBeIndexed)
-                .IncludeProperties(x => x.LastError);
-
-            modelBuilder
-                .Entity<LastChangedRecord>()
-                .HasIndex(x => x.Position);
-
-            modelBuilder
-                .Entity<LastChangedRecord>()
-                .HasIndex(x => x.CacheKey);
-
-            modelBuilder
-                .Entity<LastChangedRecord>()
-                .HasIndex(x => x.ErrorCount);
-
-            modelBuilder
-                .Entity<LastChangedRecord>()
-                .HasIndex(x => x.LastError);
-
-            modelBuilder
-                .Entity<LastChangedRecord>()
-                .HasIndex(x => new { x.ToBeIndexed, x.LastError });
-
-            modelBuilder
-                .Entity<LastChangedRecord>()
-                .HasKey(x => x.Id)
-                .IsClustered();
-
-            modelBuilder
-                .Entity<LastChangedRecord>()
-                .HasIndex(x => new
-                {
-                    x.Position,
-                    x.LastPopulatedPosition,
-                    x.ErrorCount,
-                    x.LastError
-                });
+            modelBuilder.ApplyConfiguration(new ProjectionStatesConfiguration(ProjectionStateSchema));
+            modelBuilder.ApplyConfiguration(new LastChangedRecordConfiguration(TableName, Schema));
 
             modelBuilder
                 .HasDefaultSchema(Schema);
