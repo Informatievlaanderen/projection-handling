@@ -15,11 +15,11 @@ licenseUrl https://opensource.org/licenses/MIT
 description Lightweight projection handling infrastructure.
 
 dependencies
-  framework: net6.0
+  framework: netstandard2.1
     Be.Vlaanderen.Basisregisters.EventHandling >= LOCKEDVERSION
 
     SqlStreamStore >= LOCKEDVERSION
 
 files
-  bin\Release\net6.0\Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore.dll => lib\net6.0
-  bin\Release\net6.0\Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore.pdb => lib\net6.0
+  Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore.dll => lib\netstandard2.1
+  Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore.pdb => lib\netstandard2.1

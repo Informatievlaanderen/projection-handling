@@ -3,14 +3,16 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.SqlServer.Migra
     using Microsoft.EntityFrameworkCore.Metadata;
     using Microsoft.EntityFrameworkCore.Migrations;
     using Microsoft.EntityFrameworkCore.Migrations.Operations;
+    using Microsoft.EntityFrameworkCore.Update;
 
     public class ExtendedSqlServerMigrationsSqlGenerator : SqlServerMigrationsSqlGenerator
     {
-        public ExtendedSqlServerMigrationsSqlGenerator(MigrationsSqlGeneratorDependencies dependencies, IRelationalAnnotationProvider migrationsAnnotations) :
-            base(dependencies, migrationsAnnotations)
+        public ExtendedSqlServerMigrationsSqlGenerator(
+            MigrationsSqlGeneratorDependencies dependencies,
+            ICommandBatchPreparer commandBatchPreparer) : base(dependencies, commandBatchPreparer)
         { }
 
-        protected override void IndexTraits(MigrationOperation operation, IModel model, MigrationCommandListBuilder builder)
+        protected override void IndexTraits(MigrationOperation operation, IModel? model, MigrationCommandListBuilder builder)
         {
             base.IndexTraits(operation, model, builder);
 

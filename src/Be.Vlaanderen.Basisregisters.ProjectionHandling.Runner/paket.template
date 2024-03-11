@@ -15,11 +15,9 @@ licenseUrl https://opensource.org/licenses/MIT
 description Lightweight projection handling infrastructure.
 
 dependencies
-  framework: net6.0
+  framework: net8.0
     Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector CURRENTVERSION
     Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore CURRENTVERSION
-
-    Be.Vlaanderen.Basisregisters.EntityFrameworkCore.EntityTypeConfiguration >= LOCKEDVERSION
 
     Microsoft.EntityFrameworkCore.Relational >= LOCKEDVERSION
     Microsoft.EntityFrameworkCore.InMemory >= LOCKEDVERSION
@@ -32,5 +30,5 @@ dependencies
     Microsoft.Extensions.Configuration.Json >= LOCKEDVERSION
 
 files
-  bin\Release\net6.0\Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.dll => lib\net6.0
-  bin\Release\net6.0\Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.pdb => lib\net6.0
+  Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.dll => lib\net8.0
+  Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.pdb => lib\net8.0

@@ -10,7 +10,5 @@ Microsoft.Extensions.Configuration.FileExtensions
 Microsoft.Extensions.Configuration.EnvironmentVariables
 Microsoft.Extensions.Configuration.Json
 
-Be.Vlaanderen.Basisregisters.EntityFrameworkCore.EntityTypeConfiguration
-
 SourceLink.Embed.AllSourceFiles
 SourceLink.Copy.PdbFiles

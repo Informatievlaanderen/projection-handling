@@ -15,7 +15,7 @@ licenseUrl https://opensource.org/licenses/MIT
 description Lightweight projection handling infrastructure.
 
 dependencies
-  framework: net6.0
+  framework: net8.0
     Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.SqlServer CURRENTVERSION
     Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore CURRENTVERSION
 
@@ -29,5 +29,5 @@ dependencies
     Polly >= LOCKEDVERSION
 
 files
-  bin\Release\net6.0\Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList.dll => lib\net6.0
-  bin\Release\net6.0\Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList.pdb => lib\net6.0
+  Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList.dll => lib\net8.0
+  Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList.pdb => lib\net8.0

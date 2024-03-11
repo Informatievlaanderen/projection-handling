@@ -4,7 +4,6 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
     using System.Reflection;
     using System.Threading;
     using System.Threading.Tasks;
-    using EntityFrameworkCore.EntityTypeConfiguration;
     using Microsoft.EntityFrameworkCore;
     using ProjectionStates;
 
@@ -38,7 +37,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.ApplyConfiguration(new ProjectionStatesConfiguration(ProjectionStateSchema));
-            modelBuilder.AddEntityConfigurationsFromAssembly(typeof(TContext).GetTypeInfo().Assembly);
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(TContext).GetTypeInfo().Assembly);
         }
 
         public virtual async Task UpdateProjectionState(string? projectionName, long position, CancellationToken cancellationToken)
