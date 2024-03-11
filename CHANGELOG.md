@@ -1,3 +1,19 @@
+# [13.0.0](https://github.com/informatievlaanderen/projection-handling/compare/v12.1.3...v13.0.0) (2024-03-11)
+
+
+### Features
+
+* move to dotnet 8.0.2 and remove .Microsoft projects ([ac5bce8](https://github.com/informatievlaanderen/projection-handling/commit/ac5bce8a106753732121404e70f770b0dfbe6abc))
+
+
+### BREAKING CHANGES
+
+* move to dotnet 8.0.2 and remove
+Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList.Microsoft,
+Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.Microsoft,
+Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore.Microsoft and
+Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication.Microsoft
+
 ## [12.1.3](https://github.com/informatievlaanderen/projection-handling/compare/v12.1.2...v12.1.3) (2024-02-13)
 
 ## [12.1.2](https://github.com/informatievlaanderen/projection-handling/compare/v12.1.1...v12.1.2) (2024-02-07)
