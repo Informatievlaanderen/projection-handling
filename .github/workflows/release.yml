@@ -267,84 +267,84 @@ jobs:
       uses: actions/download-artifact@v4
       continue-on-error: false
       with:
-        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling-Connector-${{ needs.set-release-version.outputs.version }}
+        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector-${{ needs.set-release-version.outputs.version }}
         path: dist/nuget/
 
     - name: Download NuGet Connector
       uses: actions/download-artifact@v4
       continue-on-error: false
       with:
-        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling-Connector-Testing-${{ needs.set-release-version.outputs.version }}
+        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector.Testing-${{ needs.set-release-version.outputs.version }}
         path: dist/nuget/
 
     - name: Download NuGet LastChangedList
       uses: actions/download-artifact@v4
       continue-on-error: false
       with:
-        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling-LastChangedList-${{ needs.set-release-version.outputs.version }}
+        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList-${{ needs.set-release-version.outputs.version }}
         path: dist/nuget/
 
     - name: Download NuGet Runner
       uses: actions/download-artifact@v4
       continue-on-error: false
       with:
-        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling-Runner-${{ needs.set-release-version.outputs.version }}
+        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner-${{ needs.set-release-version.outputs.version }}
         path: dist/nuget/
 
     - name: Download NuGet Runner Npgsql
       uses: actions/download-artifact@v4
       continue-on-error: false
       with:
-        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling-Runner-Npgsql-${{ needs.set-release-version.outputs.version }}
+        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.Npgsql-${{ needs.set-release-version.outputs.version }}
         path: dist/nuget/
 
     - name: Download NuGet Runner SqlServer
       uses: actions/download-artifact@v4
       continue-on-error: false
       with:
-        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling-Runner-SqlServer-${{ needs.set-release-version.outputs.version }}
+        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.SqlServer-${{ needs.set-release-version.outputs.version }}
         path: dist/nuget/
 
     - name: Download NuGet SqlStreamStore
       uses: actions/download-artifact@v4
       continue-on-error: false
       with:
-        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling-SqlStreamStore-${{ needs.set-release-version.outputs.version }}
+        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore-${{ needs.set-release-version.outputs.version }}
         path: dist/nuget/
 
     - name: Download NuGet SqlStreamStore Autofac
       uses: actions/download-artifact@v4
       continue-on-error: false
       with:
-        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling-SqlStreamStore-Autofac-${{ needs.set-release-version.outputs.version }}
+        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore.Autofac-${{ needs.set-release-version.outputs.version }}
         path: dist/nuget/
 
     - name: Download NuGet Syndication
       uses: actions/download-artifact@v4
       continue-on-error: false
       with:
-        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling-Syndication-${{ needs.set-release-version.outputs.version }}
+        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication-${{ needs.set-release-version.outputs.version }}
         path: dist/nuget/
 
     - name: Download NuGet Syndication Testing
       uses: actions/download-artifact@v4
       continue-on-error: false
       with:
-        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling-Syndication-Testing-${{ needs.set-release-version.outputs.version }}
+        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication.Testing-${{ needs.set-release-version.outputs.version }}
         path: dist/nuget/
 
     - name: Download NuGet Testing NUnit
       uses: actions/download-artifact@v4
       continue-on-error: false
       with:
-        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling-Testing-NUnit-${{ needs.set-release-version.outputs.version }}
+        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling.Testing.NUnit-${{ needs.set-release-version.outputs.version }}
         path: dist/nuget/
 
     - name: Download NuGet Testing XUnit
       uses: actions/download-artifact@v4
       continue-on-error: false
       with:
-        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling-Testing-Xunit-${{ needs.set-release-version.outputs.version }}
+        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling.Testing.Xunit-${{ needs.set-release-version.outputs.version }}
         path: dist/nuget/
 
     - name: Run Semantic Release
@@ -391,73 +391,73 @@ jobs:
     - name: Download NuGet Connector package
       uses: actions/download-artifact@v4
       with:
-        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling-Connector-${{ needs.release.outputs.version }}
+        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector-${{ needs.release.outputs.version }}
         path: ~/
 
     - name: Download NuGet Connector Testing package
       uses: actions/download-artifact@v4
       with:
-        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling-Connector-Testing-${{ needs.release.outputs.version }}
+        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector.Testing-${{ needs.release.outputs.version }}
         path: ~/
 
     - name: Download NuGet LastChangedList package
       uses: actions/download-artifact@v4
       with:
-        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling-LastChangedList-${{ needs.release.outputs.version }}
+        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList-${{ needs.release.outputs.version }}
         path: ~/
 
     - name: Download NuGet Runner package
       uses: actions/download-artifact@v4
       with:
-        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling-Runner-${{ needs.release.outputs.version }}
+        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner-${{ needs.release.outputs.version }}
         path: ~/
 
     - name: Download NuGet Runner Npgsql package
       uses: actions/download-artifact@v4
       with:
-        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling-Runner-Npgsql-${{ needs.release.outputs.version }}
+        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.Npgsql-${{ needs.release.outputs.version }}
         path: ~/
       
     - name: Download NuGet Runner SqlServer package
       uses: actions/download-artifact@v4
       with:
-        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling-Runner-SqlServer-${{ needs.release.outputs.version }}
+        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.SqlServer-${{ needs.release.outputs.version }}
         path: ~/
 
     - name: Download NuGet SqlStreamStore package
       uses: actions/download-artifact@v4
       with:
-        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling-SqlStreamStore-${{ needs.release.outputs.version }}
+        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore-${{ needs.release.outputs.version }}
         path: ~/
 
     - name: Download NuGet SqlStreamStore Autofac package
       uses: actions/download-artifact@v4
       with:
-        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling-SqlStreamStore-Autofac-${{ needs.release.outputs.version }}
+        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore.Autofac-${{ needs.release.outputs.version }}
         path: ~/
 
     - name: Download NuGet Syndication package
       uses: actions/download-artifact@v4
       with:
-        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling-Syndication-${{ needs.release.outputs.version }}
+        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication-${{ needs.release.outputs.version }}
         path: ~/
 
     - name: Download NuGet Syndication Testing package
       uses: actions/download-artifact@v4
       with:
-        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling-Syndication-Testing-${{ needs.release.outputs.version }}
+        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication.Testing-${{ needs.release.outputs.version }}
         path: ~/
 
     - name: Download NuGet Testing NUnit package
       uses: actions/download-artifact@v4
       with:
-        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling-Testing-NUnit-${{ needs.release.outputs.version }}
+        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling.Testing.NUnit-${{ needs.release.outputs.version }}
         path: ~/
         
     - name: Download NuGet Testing XUnit package
       uses: actions/download-artifact@v4
       with:
-        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling-Testing-Xunit-${{ needs.release.outputs.version }}
+        name: nuget-Be.Vlaanderen.Basisregisters.ProjectionHandling.Testing.Xunit-${{ needs.release.outputs.version }}
         path: ~/
 
     - name: Publish packages to NuGet
