@@ -11,13 +11,10 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.Tests
     using global::SqlStreamStore.Streams;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Logging;
-    using Microsoft.VisualStudio.TestPlatform.ObjectModel.Client;
     using Newtonsoft.Json;
     using Polly;
-    using ProjectionStates;
     using SqlStreamStore;
     using Xunit;
-    using Xunit.Sdk;
 
     [Collection("RunnerTests")]//prevents the tests from running in parallel on the same InMemory DbContext
     public class RunnerTests : IDisposable
@@ -35,7 +32,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.Tests
             await store(new TestMessage());
 
             Policy
-                .Handle<AssertActualExpectedException>()
+                .Handle<Exception>()
                 .WaitAndRetry(5, i => TimeSpan.FromSeconds(2))
                 .Execute(() =>
                 {

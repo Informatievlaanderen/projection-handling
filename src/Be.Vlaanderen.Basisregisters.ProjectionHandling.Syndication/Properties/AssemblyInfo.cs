@@ -8,6 +8,6 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCopyright("Copyright (c) Vlaamse overheid")]
 [assembly: AssemblyCompany("Vlaamse overheid")]
 
-[assembly: Guid("ef404910-86aa-4637-a88f-57ada5843fac")]
+[assembly: Guid("2ac48e9d-8e34-4b3c-b64b-7f35ca6275c2")]
 
 [assembly: NeutralResourcesLanguage("en")]
