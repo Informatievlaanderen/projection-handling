@@ -1,20 +1,16 @@
 namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList
 {
     using System;
-    using Microsoft.Data.SqlClient;
     using Autofac;
-    using DataDog.Tracing.Sql.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Logging;
-    using Runner.MigrationExtensions;
     using Runner.SqlServer.MigrationExtensions;
 
     public class LastChangedListModule : Module
     {
         public LastChangedListModule(
             string connectionString,
-            string datadogServiceName,
             IServiceCollection services,
             ILoggerFactory loggerFactory)
         {
@@ -22,7 +18,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList
 
             var hasConnectionString = !string.IsNullOrWhiteSpace(connectionString);
             if (hasConnectionString)
-                RunOnSqlServer(datadogServiceName, services, loggerFactory, connectionString);
+                RunOnSqlServer(services, loggerFactory, connectionString);
             else
                 RunInMemoryDb(services, loggerFactory, logger);
 
@@ -36,20 +32,15 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList
         }
 
         private static void RunOnSqlServer(
-            string datadogServiceName,
             IServiceCollection services,
             ILoggerFactory loggerFactory,
             string backofficeProjectionsConnectionString)
         {
             services
-                .AddScoped(s =>
-                    new TraceDbConnection<LastChangedListContext>(
-                        new SqlConnection(backofficeProjectionsConnectionString),
-                        datadogServiceName))
-                .AddDbContext<LastChangedListContext>((provider, options) => options
+                .AddDbContext<LastChangedListContext>((_, options) => options
                     .UseLoggerFactory(loggerFactory)
                     .UseSqlServer(
-                        provider.GetRequiredService<TraceDbConnection<LastChangedListContext>>(),
+                        backofficeProjectionsConnectionString,
                         sqlServerOptions =>
                         {
                             sqlServerOptions.EnableRetryOnFailure();

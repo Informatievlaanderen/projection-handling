@@ -40,8 +40,6 @@ nuget Be.Vlaanderen.Basisregisters.AggregateSource.SqlStreamStore.Autofac 9.0.1
 nuget Be.Vlaanderen.Basisregisters.EventHandling 5.0.0
 nuget Be.Vlaanderen.Basisregisters.EventHandling.Autofac 5.0.0
 
-nuget Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql 6.0.0
-
 // TEST STUFF
 nuget Microsoft.NET.Test.Sdk 17.9.0
 nuget Microsoft.TestPlatform.ObjectModel 17.9.0
