@@ -11,4 +11,3 @@ Polly
 
 Be.Vlaanderen.Basisregisters.EventHandling
 Be.Vlaanderen.Basisregisters.AggregateSource.SqlStreamStore
-Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql
