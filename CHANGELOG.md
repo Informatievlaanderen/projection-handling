@@ -1,3 +1,15 @@
+# [14.0.0](https://github.com/informatievlaanderen/projection-handling/compare/v13.0.0...v14.0.0) (2024-04-05)
+
+
+### Code Refactoring
+
+* remove datadog ([d4bf7c5](https://github.com/informatievlaanderen/projection-handling/commit/d4bf7c515f560d4e0be83432317503b36300b505))
+
+
+### BREAKING CHANGES
+
+* remove datadog from the project
+
 # [13.0.0](https://github.com/informatievlaanderen/projection-handling/compare/v12.1.3...v13.0.0) (2024-03-11)
 
 
