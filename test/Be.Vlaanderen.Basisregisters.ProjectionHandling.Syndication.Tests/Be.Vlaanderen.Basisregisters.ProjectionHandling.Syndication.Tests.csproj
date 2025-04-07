@@ -1,9 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="..\..\packages\Be.Vlaanderen.Basisregisters.Build.Pipeline\Content\Be.Vlaanderen.Basisregisters.Build.Pipeline.Settings.Test.props" />
+  <Import Project="..\..\.build\Be.Vlaanderen.Basisregisters.Build.Pipeline\Content\Be.Vlaanderen.Basisregisters.Build.Pipeline.Settings.Test.props" />
   
   <ItemGroup>
     <ProjectReference Include="..\..\src\Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication\Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication.csproj" />
   </ItemGroup>
 
-  <Import Project="..\..\.paket\Paket.Restore.targets" />
+  <ItemGroup>
+    <PackageReference Include="Moq" />
+    <PackageReference Include="Microsoft.Extensions.Logging" />
+    <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.categories" />
+    <PackageReference Include="xunit.runner.visualstudio" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="Microsoft.TestPlatform.ObjectModel" />
+    <PackageReference Include="FluentAssertions" />
+  </ItemGroup>
 </Project>

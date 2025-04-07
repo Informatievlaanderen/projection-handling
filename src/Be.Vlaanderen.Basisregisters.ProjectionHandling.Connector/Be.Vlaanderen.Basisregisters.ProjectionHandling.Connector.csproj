@@ -1,9 +1,27 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="..\..\packages\Be.Vlaanderen.Basisregisters.Build.Pipeline\Content\Be.Vlaanderen.Basisregisters.Build.Pipeline.Settings.Library.props" />
+  <Import Project="..\..\.build\Be.Vlaanderen.Basisregisters.Build.Pipeline\Content\Be.Vlaanderen.Basisregisters.Build.Pipeline.Settings.Library.props" />
+
+  <PropertyGroup>
+    <Version>1.0.0</Version>
+    <PackageId>Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector</PackageId>
+    <Title>Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector</Title>
+    <Authors>Basisregisters Vlaanderen</Authors>
+    <Owners>Digitaal Vlaanderen</Owners>
+    <Copyright>Copyright (c) Digitaal Vlaanderen</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageProjectUrl>https://github.com/Informatievlaanderen/projection-handling</PackageProjectUrl>
+    <PackageIcon>logo.png</PackageIcon>
+    <Description>Lightweight projection handling infrastructure.</Description>
+  </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="paket.template" CopyToOutputDirectory="Always" />
+    <None Include="..\..\.build\Be.Vlaanderen.Basisregisters.Build.Pipeline\Content\logo.png" Pack="true" PackagePath="" />
   </ItemGroup>
 
-  <Import Project="..\..\.paket\Paket.Restore.targets" />
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" />
+    <PackageReference Include="SourceLink.Embed.AllSourceFiles" PrivateAssets="all" />
+    <PackageReference Include="SourceLink.Copy.PdbFiles" PrivateAssets="all" />
+  </ItemGroup>
 </Project>

@@ -1,6 +1,7 @@
 namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector
 {
     using System;
+    using System.ComponentModel;
     using System.Runtime.Serialization;
 
     [Serializable]
@@ -14,6 +15,8 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector
             : base($"Item with id '{id}' not found in projection '{typeof(TProjection).FullName}'.", inner)
         { }
 
+        [Obsolete]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         private ProjectionItemNotFoundException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         { }

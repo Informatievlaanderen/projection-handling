@@ -20,7 +20,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore
         {
             var @event = Deserialize(message);
 
-            var deserializedMetadata = (Dictionary<string, object>)_eventDeserializer.DeserializeObject(message.JsonMetadata, typeof(Dictionary<string, object>));
+            var deserializedMetadata = (Dictionary<string, object>?)_eventDeserializer.DeserializeObject(message.JsonMetadata, typeof(Dictionary<string, object>));
             var metadata = deserializedMetadata != null
                 ? new Dictionary<string, object>(deserializedMetadata, StringComparer.OrdinalIgnoreCase)
                 : new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase);
@@ -39,14 +39,14 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore
             return envelope;
         }
 
-        public bool TryCreate(StreamMessage message, out object envelope)
+        public bool TryCreate(StreamMessage message, out object? envelope)
         {
             envelope = _eventMapping.HasEventType(message.Type) ? Create(message) : null;
 
             return envelope != null;
         }
 
-        private object Deserialize(StreamMessage message)
+        private object? Deserialize(StreamMessage message)
         {
             var eventData = message.GetJsonData().GetAwaiter().GetResult();
             var eventType = _eventMapping.GetEventType(message.Type);

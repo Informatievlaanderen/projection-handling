@@ -74,7 +74,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector.Testing
         /// <returns>
         ///   <c>true</c> if the specified <see cref="System.Object" /> is equal to this instance; otherwise, <c>false</c>.
         /// </returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (ReferenceEquals(null, obj))
                 return false;
