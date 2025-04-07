@@ -10,6 +10,8 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector
             this DbSet<TEntity> dbSet,
             T keyValue,
             CancellationToken cancellationToken)
-            where TEntity : class => dbSet.FindAsync(new object[] { keyValue }, cancellationToken);
+            where TEntity : class
+            where T : notnull
+                => dbSet.FindAsync([keyValue], cancellationToken);
     }
 }

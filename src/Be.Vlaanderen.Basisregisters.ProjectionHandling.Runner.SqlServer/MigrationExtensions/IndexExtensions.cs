@@ -13,7 +13,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner.SqlServer.Migra
             var includeStatement = new StringBuilder();
 
             indexBuilder.HasAnnotation(ColumnStoreIndexAnnotationName, includeStatement.ToString());
-            indexBuilder.HasName(name);
+            indexBuilder.HasDatabaseName(name);
 
             return indexBuilder;
         }

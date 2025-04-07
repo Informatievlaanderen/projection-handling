@@ -53,7 +53,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector
                     (connection, message, token) =>
                     {
                         handler(connection, (TMessage) message);
-                        return Task.FromResult<object>(null);
+                        return Task.FromResult<object?>(null);
                     }));
         }
 

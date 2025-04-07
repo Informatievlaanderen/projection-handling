@@ -1,6 +1,7 @@
 namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
 {
     using System;
+    using System.ComponentModel;
     using System.Runtime.Serialization;
 
     [Serializable]
@@ -9,6 +10,8 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Syndication
         public AtomResolveHandlerException()
         { }
 
+        [Obsolete]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         private AtomResolveHandlerException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         { }

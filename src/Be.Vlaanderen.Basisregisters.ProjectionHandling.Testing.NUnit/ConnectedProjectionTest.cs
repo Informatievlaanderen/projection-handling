@@ -20,7 +20,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Testing
     {
         private readonly Func<TContext> _createContextFactory;
         private readonly Func<TProjection> _projectionFactory;
-        private ConnectedProjectionScenario<TContext> _context;
+        private ConnectedProjectionScenario<TContext>? _context;
 
         /// <summary>
         /// Setting up the projection scenario with resolver
@@ -98,7 +98,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Testing
 
         private ConnectedProjectionTestSpecification<TContext> CreateTest(Func<TContext, Task> assertions)
         {
-            return _context.Verify(async context =>
+            return _context!.Verify(async context =>
             {
                 try
                 {

@@ -30,7 +30,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector
         ///     A <see cref="Task" />.
         /// </returns>
         /// <exception cref="System.ArgumentNullException">Thrown when <paramref name="connection"/> or <paramref name="message"/> is <c>null</c>.</exception>
-        public Task ProjectAsync(TConnection connection, object message)
+        public Task ProjectAsync(TConnection connection, object? message)
             => ProjectAsync(connection, message, CancellationToken.None);
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector
         ///     A <see cref="Task" />.
         /// </returns>
         /// <exception cref="System.ArgumentNullException">Thrown when <paramref name="connection"/> or <paramref name="message"/> is <c>null</c>.</exception>
-        public Task ProjectAsync(TConnection connection, object message, CancellationToken cancellationToken)
+        public Task ProjectAsync(TConnection connection, object? message, CancellationToken cancellationToken)
         {
             if (message == null)
                 throw new ArgumentNullException(nameof(message));
@@ -62,7 +62,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector
         ///     A <see cref="Task" />.
         /// </returns>
         /// <exception cref="System.ArgumentNullException">Thrown when <paramref name="connection"/> or <paramref name="messages"/> is <c>null</c>.</exception>
-        public Task ProjectAsync(TConnection connection, IEnumerable<object> messages)
+        public Task ProjectAsync(TConnection connection, IEnumerable<object>? messages)
             => ProjectAsync(connection, messages, CancellationToken.None);
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.Connector
         ///     A <see cref="Task" />.
         /// </returns>
         /// <exception cref="System.ArgumentNullException">Thrown when <paramref name="connection"/> or <paramref name="messages"/> is <c>null</c>.</exception>
-        public Task ProjectAsync(TConnection connection, IEnumerable<object> messages, CancellationToken cancellationToken)
+        public Task ProjectAsync(TConnection connection, IEnumerable<object>? messages, CancellationToken cancellationToken)
         {
             if (messages == null)
                 throw new ArgumentNullException(nameof(messages));

@@ -43,7 +43,7 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore
         public object Message { get; }
         public IReadOnlyDictionary<string, object> Metadata { get; }
 
-        public Envelope(object message, IReadOnlyDictionary<string, object> metadata)
+        public Envelope(object? message, IReadOnlyDictionary<string, object>? metadata)
         {
             Message = message ?? throw new ArgumentNullException(nameof(message));
             Metadata = metadata ?? throw new ArgumentNullException(nameof(metadata));
