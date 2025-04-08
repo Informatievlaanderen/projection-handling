@@ -1,3 +1,15 @@
+# [15.0.0](https://github.com/informatievlaanderen/projection-handling/compare/v14.0.0...v15.0.0) (2025-04-08)
+
+
+### Code Refactoring
+
+* use renovate and nuget + update pipeline ([a02b60a](https://github.com/informatievlaanderen/projection-handling/commit/a02b60ae3de9b2b699fb6719afa1880322094131))
+
+
+### BREAKING CHANGES
+
+* update to dotnet 9
+
 # [14.0.0](https://github.com/informatievlaanderen/projection-handling/compare/v13.0.0...v14.0.0) (2024-04-05)
 
 
