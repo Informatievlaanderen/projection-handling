@@ -18,10 +18,10 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList.Migrat
 #pragma warning disable 612, 618
             modelBuilder
                 .HasDefaultSchema("Redis")
-                .HasAnnotation("ProductVersion", "6.0.3")
+                .HasAnnotation("ProductVersion", "9.0.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
             modelBuilder.Entity("Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList.Model.LastChangedRecord", b =>
                 {
@@ -98,8 +98,6 @@ namespace Be.Vlaanderen.Basisregisters.ProjectionHandling.LastChangedList.Migrat
                         .HasColumnType("bigint");
 
                     b.HasKey("Name");
-
-                    SqlServerKeyBuilderExtensions.IsClustered(b.HasKey("Name"));
 
                     b.ToTable("ProjectionStates", "Redis");
                 });
