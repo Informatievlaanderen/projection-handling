@@ -1,3 +1,10 @@
+## [15.0.1](https://github.com/informatievlaanderen/projection-handling/compare/v15.0.0...v15.0.1) (2025-04-15)
+
+
+### Bug Fixes
+
+* **lastchangedlist:** correct migrations ([89ac1a9](https://github.com/informatievlaanderen/projection-handling/commit/89ac1a9331cbf2d4214e49af23e47cf43b01e103))
+
 # [15.0.0](https://github.com/informatievlaanderen/projection-handling/compare/v14.0.0...v15.0.0) (2025-04-08)
 
 
