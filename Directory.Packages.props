@@ -38,8 +38,8 @@
         <PackageVersion Include="Be.Vlaanderen.Basisregisters.EventHandling" Version="7.0.0" />
         <PackageVersion Include="Be.Vlaanderen.Basisregisters.EventHandling.Autofac" Version="7.0.0" />
 
-        <PackageVersion Include="Microsoft.TestPlatform.ObjectModel" Version="17.13.0" />
-        <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
+        <PackageVersion Include="Microsoft.TestPlatform.ObjectModel" Version="17.14.0" />
+        <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.14.0" />
         <PackageVersion Include="Moq" Version="4.20.72" />
         <PackageVersion Include="NUnit" Version="4.3.2" />
         <PackageVersion Include="NUnit3TestAdapter" Version="5.0.0" />
