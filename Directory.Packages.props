@@ -30,7 +30,7 @@
         <PackageVersion Include="SqlStreamStore.MsSql" Version="1.2.0" />
         <PackageVersion Include="Autofac.Extensions.DependencyInjection" Version="10.0.0" />
 
-        <PackageVersion Include="CompareNETObjects" Version="4.83.0" />
+        <PackageVersion Include="CompareNETObjects" Version="4.84.0" />
         <PackageVersion Include="Newtonsoft.Json" Version="13.0.3" />
 
         <PackageVersion Include="Be.Vlaanderen.Basisregisters.AggregateSource.SqlStreamStore" Version="10.0.2" />
