@@ -82,11 +82,11 @@
       },
       "Polly": {
         "type": "Direct",
-        "requested": "[8.5.2, )",
-        "resolved": "8.5.2",
-        "contentHash": "vbXsGgkG86nG+TOwY+SmtrGrRHmHH0DQaxtILx//d3Dz/ocJ8izSNYzdvU2gEtWa/LDD8zJLvD3HdjEkdlvkhg==",
+        "requested": "[8.6.6, )",
+        "resolved": "8.6.6",
+        "contentHash": "czKHYJ6uGowPijuZt4kgF4njfGvWxVZ8mKBcrZ9iEtwDe9HKdF0ug6p6TwUG8EHuuufgbDU//rSBFebt5/0Fyw==",
         "dependencies": {
-          "Polly.Core": "8.5.2"
+          "Polly.Core": "8.6.6"
         }
       },
       "SourceLink.Copy.PdbFiles": {
@@ -480,8 +480,8 @@
       },
       "Polly.Core": {
         "type": "Transitive",
-        "resolved": "8.5.2",
-        "contentHash": "1MJKdxv4zwDmiWvYvVN24DsrWUfgQ4F83voH8bhbtLMdPuGy8CfTUzsgQhvyrl1a7hrM6f/ydwLVdVUI0xooUw=="
+        "resolved": "8.6.6",
+        "contentHash": "lCBL9mmhF9TZxHG3beVRkyjlLohkIC464xIAq7J7Y59C+z42hmsdUaeCKl2SIAYertOUU5TeBXyQDLDQGIKePQ=="
       },
       "System.ClientModel": {
         "type": "Transitive",
@@ -679,7 +679,7 @@
           "Be.Vlaanderen.Basisregisters.ProjectionHandling.Runner": "[1.0.0, )",
           "Be.Vlaanderen.Basisregisters.ProjectionHandling.SqlStreamStore": "[1.0.0, )",
           "Microsoft.EntityFrameworkCore.SqlServer": "[9.0.3, )",
-          "Polly": "[8.5.2, )"
+          "Polly": "[8.6.6, )"
         }
       },
       "be.vlaanderen.basisregisters.projectionhandling.sqlstreamstore": {
