@@ -1,3 +1,15 @@
+# [16.0.0](https://github.com/informatievlaanderen/projection-handling/compare/v15.0.1...v16.0.0) (2026-06-02)
+
+
+### Features
+
+* update packages + upgrade to dotnet 10 ([fda8f7c](https://github.com/informatievlaanderen/projection-handling/commit/fda8f7c5613e1ac342e0b6bfccf98a914313ce84))
+
+
+### BREAKING CHANGES
+
+* update to dotnet 10
+
 ## [15.0.1](https://github.com/informatievlaanderen/projection-handling/compare/v15.0.0...v15.0.1) (2025-04-15)
 
 
