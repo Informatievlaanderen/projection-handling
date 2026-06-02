@@ -4,13 +4,13 @@
     ".NETStandard,Version=v2.1": {
       "Be.Vlaanderen.Basisregisters.EventHandling": {
         "type": "Direct",
-        "requested": "[7.0.0, )",
-        "resolved": "7.0.0",
-        "contentHash": "+KRMy1JBvzh8FF2tPZevMbLAZWkKUHQMyxAR1pBz2DbGiZ91rEjmlRbXnDbIlamZZI4DCcxtgbDMntuhIWCMOg==",
+        "requested": "[7.1.0, )",
+        "resolved": "7.1.0",
+        "contentHash": "iSvBdLox7XZQCtMScU8kF227nOTxDZkStKApIsoKPYMu/VWBcKJ0828y9MbmZ9x2eUAYbxSpPwoGEiCX9i4M9A==",
         "dependencies": {
-          "Be.Vlaanderen.Basisregisters.Converters.TrimString": "5.0.0",
-          "Newtonsoft.Json": "13.0.3",
-          "NodaTime.Serialization.JsonNet": "3.2.0"
+          "Be.Vlaanderen.Basisregisters.Converters.TrimString": "5.1.0",
+          "Newtonsoft.Json": "13.0.4",
+          "NodaTime.Serialization.JsonNet": "3.2.1"
         }
       },
       "SourceLink.Copy.PdbFiles": {
@@ -36,10 +36,10 @@
       },
       "Be.Vlaanderen.Basisregisters.Converters.TrimString": {
         "type": "Transitive",
-        "resolved": "5.0.0",
-        "contentHash": "LVMiWd/VIVKgbcmtiQgYBi/yGMxSEybDrruUTOVEa4hQc0eMMd55a/KyMmaqsT0afMQwgqwO6ld25RagB7sQoA==",
+        "resolved": "5.1.0",
+        "contentHash": "wqxONDr0cPep5v+bS+Is8Xl7BzDxZ2mvm0CfWSN+dC7adndzieFepWIfyGyVrSpIfrvCvMx7YPbRQtT1xhHnMQ==",
         "dependencies": {
-          "Newtonsoft.Json": "13.0.3"
+          "Newtonsoft.Json": "13.0.4"
         }
       },
       "Microsoft.CSharp": {
@@ -57,8 +57,8 @@
       },
       "NodaTime.Serialization.JsonNet": {
         "type": "Transitive",
-        "resolved": "3.2.0",
-        "contentHash": "zf4dQoRBaFxJ5Hf1SqVVHCPcMViKMZK/P0YnJUuhB8g58IxNGOkSxsPPX9jFp3fMjGrEER/ehyO+y86ubD4OKw==",
+        "resolved": "3.2.1",
+        "contentHash": "/8eeaH/LNIcpIEiBTg/0M/hwsMis0cKVWPyLYnQhXrH2k+9zNrnsOin9Vym6OclSGGndOnNNa6EHUln4S70HKg==",
         "dependencies": {
           "Newtonsoft.Json": "13.0.3",
           "NodaTime": "[3.0.0, 4.0.0)"
@@ -71,9 +71,9 @@
       },
       "Newtonsoft.Json": {
         "type": "CentralTransitive",
-        "requested": "[13.0.3, )",
-        "resolved": "13.0.3",
-        "contentHash": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ=="
+        "requested": "[13.0.4, )",
+        "resolved": "13.0.4",
+        "contentHash": "pdgNNMai3zv51W5aq268sujXUyx7SNdE2bj1wZcWjAQrKMFZV260lbqYop1d2GM67JI1huLRwxo9ZqnfF/lC6A=="
       }
     }
   }
