@@ -12,7 +12,7 @@
         <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.8" />
 
         <PackageVersion Include="Npgsql" Version="10.0.3" />
-        <PackageVersion Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="10.0.2" />
+        <PackageVersion Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="10.0.3" />
 
         <PackageVersion Include="Microsoft.Extensions.Configuration" Version="10.0.8" />
         <PackageVersion Include="Microsoft.Extensions.Configuration.CommandLine" Version="10.0.8" />
